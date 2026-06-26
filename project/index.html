@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jean Yang — Product Designer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500&amp;family=Inter:wght@300;400&amp;family=Work+Sans:wght@400&amp;display=swap" rel="stylesheet">
+  <style>
+    html, body { margin: 0; padding: 0; background: #F7F6F4; }
+    * { box-sizing: border-box; }
+    [data-reveal] { opacity: 1; transform: none; transition: opacity .7s cubic-bezier(.22,.61,.36,1), transform .7s cubic-bezier(.22,.61,.36,1); }
+    [data-reveal].pre { opacity: 0; transform: translateY(24px); }
+    a.lnk { color: inherit; text-decoration: none; border-bottom: 1px solid rgba(0,0,0,.35); padding-bottom: 1px; transition: border-color .25s; }
+    a.lnk:hover { border-color: rgba(0,0,0,.9); }
+    .imgbox { position: relative; width: 100%; overflow: hidden; }
+
+    .split { display: flex; flex-direction: row; gap: 52px; align-items: stretch; align-self: stretch; }
+    .split .txt { width: 508px; flex: 0 1 508px; display: flex; flex-direction: column; gap: 24px; }
+    .split .media { flex: 1 1 460px; min-width: 0; }
+    .meta-row { display: flex; flex-direction: row; gap: 120px; align-items: flex-start; align-self: stretch; }
+    .meta-row .txt { flex: 1 1 460px; min-width: 0; }
+    .meta-row .stats { width: 213px; flex: 0 0 auto; display: flex; flex-direction: column; gap: 12px; }
+    .hrow { display: flex; flex-direction: row; justify-content: space-between; gap: 48px; align-items: flex-start; align-self: stretch; }
+    .hrow .hcol { flex: 1 1 320px; display: flex; flex-direction: column; gap: 24px; min-width: 0; }
+    .imgrow { display: flex; flex-direction: row; gap: 12px; align-items: flex-start; align-self: stretch; }
+    .topnav { display: flex; flex-direction: row; justify-content: space-between; align-items: center; gap: 24px; align-self: stretch; flex-wrap: wrap; }
+    .navlinks { display: flex; flex-direction: row; gap: 24px; align-items: center; flex-wrap: wrap; }
+    .media-mob { display: none; }
+    .media-mob .mimg { width: 100%; background-position: center; background-size: cover; background-repeat: no-repeat; }
+
+    @media (max-width: 880px) {
+      .split { flex-direction: column; gap: 32px; }
+      .split .txt { width: 100%; flex: 1 1 auto; }
+      .meta-row { flex-direction: column; gap: 32px; }
+      .meta-row .stats { flex-direction: row; gap: 40px; width: 100%; }
+      .meta-row .stats > div { flex: 1 1 0; }
+      .hrow { flex-direction: column; gap: 32px; }
+      .hrow .hcol { flex: 0 0 auto; width: 100%; }
+      .meta-row .txt { flex: 0 0 auto; width: 100%; }
+      .split .media { flex: 0 0 auto; }
+      .imgrow { flex-direction: column; gap: 16px; }
+      .imgrow > * { width: 100%; }
+      .media-desk { display: none !important; }
+      .media-mob { display: flex; flex-direction: column; gap: 4px; align-self: stretch; width: 100%; }
+      .page { gap: 40px !important; padding: 36px 16px !important; }
+      .hblk { gap: 20px !important; }
+      .wa { gap: 40px !important; }
+      .subs { gap: 36px !important; }
+      .proj { gap: 24px !important; }
+      .projbody { gap: 20px !important; }
+    }
+    @media (min-width: 881px) {
+      .tax-row { align-items: stretch; height: 580px; }
+      .tax-row > .imgbox { height: 100%; aspect-ratio: auto; }
+    }
+  </style>
+</head>
+<body>
+<div style="width:100%; display:flex; flex-direction:column; align-items:center; background:#F7F6F4; min-height:100vh;">
+  <div id="topbar" style="position:sticky; top:0; z-index:100; width:100%; display:flex; justify-content:center; background:#F7F6F4; border-bottom:0.5px solid transparent; transition:border-color .25s;">
+    <div class="topnav" style="width:100%; max-width:1148px; padding:16px clamp(16px,5vw,66px);">
+      <span style="font-family: 'Raleway',sans-serif; font-weight: 400; font-size: 18px; line-height: 100%; letter-spacing: .01em; color: #000">Jean Yang</span>
+      <div class="navlinks">
+        <a href="mailto:jeanyang21@gmail.com" style="font-family: -apple-system,'Inter',sans-serif; font-weight: 300; font-size: 14px; line-height: 100%; letter-spacing: .01em; color: #757575; text-decoration:none;">jeanyang21@gmail.com</a>
+        <a href="https://www.linkedin.com/in/jeanchingtingyang/" target="_blank" rel="noopener noreferrer" style="font-family: -apple-system,'Inter',sans-serif; font-weight: 300; font-size: 14px; line-height: 100%; letter-spacing: .01em; color: #757575; text-decoration:none;">Linkedin</a>
+        <a href="#" style="font-family: -apple-system,'Inter',sans-serif; font-weight: 300; font-size: 14px; line-height: 100%; letter-spacing: .01em; color: #757575; text-decoration:none;">Resume</a>
+      </div>
+    </div>
+  </div>
+  <div class="page" style="position: relative; width: 100%; max-width: 1148px; background: #F7F6F4; display: flex; flex-direction: column; gap: clamp(48px,10vw,120px); padding: clamp(44px,6vw,80px) clamp(16px,5vw,66px) clamp(42px,7vw,114px); align-items: flex-start; top: 56px">
+
+    <!-- ===================== HEADER ===================== -->
+    <div data-reveal="" class="hblk" style="display:flex; flex-direction:column; gap:clamp(24px,5vw,60px); align-self:stretch;">
+      <span style="font-family:'Raleway',sans-serif; font-weight:400; font-size:clamp(32px,5.4vw,60px); line-height:108%; color:#000; text-wrap:pretty; align-self:stretch;">I build products across scales from 0 to 1 initiatives to experiences used by billions of people.</span>
+      <div style="height:0; border-top:0.5px solid rgba(0,0,0,.5); align-self:stretch;"></div>
+      <div class="hrow" style="gap: 52px; justify-content: flex-start;">
+        <div class="hcol" style="width: 508px">
+          <span style="font-family:'Raleway',sans-serif; font-weight:300; font-size:16px; line-height:100%; letter-spacing:.01em; color:#000;">About</span>
+          <span style="font-family:-apple-system,'Inter',sans-serif; font-weight:300; font-size:16px; line-height:150%; letter-spacing:.01em; color:#000; text-wrap:pretty;"><div>Senior product designer with 8+ years of experience focused on craft and strategy. Building cross-platform experiences that help people communicate, build relationships, and stay close to what matters.<br></div></span>
+        </div>
+        <div class="hcol">
+          <div style="display: flex; flex-direction: column; gap: 24px">
+            <span style="font-family:'Raleway',sans-serif; font-weight:300; font-size:16px; line-height:100%; letter-spacing:.01em; color:#000;">Based</span>
+            <span style="font-family:-apple-system,'Inter',sans-serif; font-weight:300; font-size:16px; line-height:100%; letter-spacing:.01em; color:#000;">SF bay area</span>
+          </div>
+        </div>
+      </div>
+      <div style="height:0; border-top:0.5px solid rgba(0,0,0,.5); align-self:stretch;"></div>
+    </div>
+
+    <!-- ===================== WHATSAPP ===================== -->
+    <div class="wa" style="display:flex; flex-direction:column; gap:clamp(48px,10vw,120px); align-self:stretch;">
+      <div data-reveal="" style="max-width:894px; display:flex; flex-direction:column; gap:16px;">
+        <span style="font-family:'Raleway',sans-serif; font-weight:300; font-size:18px; line-height:100%; letter-spacing:.01em; color:#000;">Meta&nbsp;</span>
+        <span style="font-family:'Raleway',sans-serif; font-weight:400; font-size:clamp(34px,5vw,50px); line-height:100%; letter-spacing:.02em; color:#000;">WhatsApp</span>
+        <span style="font-family:-apple-system,'Inter',sans-serif; font-weight:300; font-size:16px; line-height:150%; letter-spacing:.01em; color:#000; text-wrap:pretty;">Designed and shipped core messaging experiences for 3B+ users worldwide, incorporating AI-native workflows to accelerate team velocity.</span>
+      </div><div class="subs" style="display:flex; flex-direction:column; gap:clamp(40px,14vw,200px); align-self:stretch;">
+        <!-- Notification Strategy -->
+        <div data-reveal="" class="split" style="align-items:flex-start;">
+          <div class="txt">
+            <span style="font-family:'Raleway',sans-serif; font-weight:400; font-size:24px; line-height:100%; letter-spacing:.01em; color:#000;">Notification Strategy</span>
+            <span style="font-family:-apple-system,'Inter',sans-serif; font-weight:300; font-size:16px; line-height:150%; letter-spacing:.01em; color:#000; white-space:pre-line;">WhatsApp hadn't prioritized notifications in years. We had little data, little research, and <b style="font-weight: 700">no clear direction</b> on where to invest.
+
+I partnered with cross-functional teams to build the strategy from the ground up, leading workshops, auditing the end-to-end notification experience, and running rapid experiments that uncovered what was actually broken. The work led to a north star direction for the notification ecosystem.</span>
+            <div class="media-mob"><div class="mimg" style="aspect-ratio:1764/1419; background-image:url(./assets/m-notif.png);"></div></div>
+            <div style="padding:24px 0; align-self:stretch;"><div style="height:0; border-top:0.5px solid rgba(0,0,0,.5);"></div></div>
+            <div style="display:flex; flex-direction:column; gap:16px;">
+              <span style="font-family:'Raleway',sans-serif; font-weight:300; font-size:16px; line-height:100%; letter-spacing:.01em; color:#000;">✨ AI native workflows</span>
+              <span style="font-family:-apple-system,'Inter',sans-serif; font-weight:300; font-size:16px; line-height:150%; letter-spacing:.01em; color:#000;"><div>I built a custom generator to bypass backend dependencies and test different layout variants and states instantly. This significantly <b style="font-weight: 700">reduces prototyping time</b> and allows the team to quickly align on the right user experience before engineers spend time building it.<br></div></span>
+            </div>
+          </div>
+          <div class="media media-desk" style="min-width:0;"><img src="./assets/wa-notif-new.png" alt="Notification generator" style="width:100%; height:auto; display:block; border-radius:12px;"></div>
+        </div>
+
+        <!-- Messaging experience -->
+        <div data-reveal="" class="split" style="align-items:flex-start;">
+          <div class="txt">
+            <span style="font-family:'Raleway',sans-serif; font-weight:400; font-size:24px; line-height:100%; letter-spacing:.01em; color:#000;">Messaging experience</span>
+            <span style="font-family:-apple-system,'Inter',sans-serif; font-weight:300; font-size:16px; line-height:150%; letter-spacing:.01em; color:#000; white-space:pre-line;">I focused on the <b style="font-weight: 700">core messaging experience</b> — everything from how you type a message to how you read one. I improved the composer, link previews, and @mention visibility in threads, and optimized group creation to drive a 3% increase in completion rate.
+
+<span style="white-space: pre-wrap; font-size: 14px;">*Further details are not disclosed due to NDA constraints.</span></span>
+          </div>
+          <div class="media imgbox media-desk" style="aspect-ratio:1764/1596; border-radius:12px; background:url(./assets/wa-messaging.png) center/cover no-repeat;"></div>
+          <div class="media-mob"><div class="mimg" style="aspect-ratio:1764/1596; background-image:url(./assets/m-messaging.png);"></div></div>
+        </div>
+      </div>
+
+      
+    </div>
+
+    <div style="height:0; border-top:0.5px solid rgba(0,0,0,.5); align-self:stretch;"></div>
+
+    <!-- ===================== TAX MESSAGING TOOL ===================== -->
+    <div class="proj" style="display:flex; flex-direction:column; gap:clamp(32px,7vw,80px); align-self:stretch;">
+      <div data-reveal="" style="display:flex; flex-direction:column; gap:12px;">
+        <span style="font-family:'Raleway',sans-serif; font-weight:300; font-size:18px; line-height:100%; letter-spacing:.01em; color:#000;">Legalzoom&nbsp;</span>
+        <span style="font-family:'Raleway',sans-serif; font-weight:400; font-size:clamp(34px,5vw,50px); line-height:118%; letter-spacing:.04em; color:#000;">Messaging Platform</span>
+      </div>
+      <div class="projbody" style="display:flex; flex-direction:column; gap:clamp(24px,5vw,60px); align-self:stretch;">
+        <div data-reveal="" class="meta-row">
+          <div class="txt">
+            <span style="font-family: -apple-system, Inter, sans-serif; font-weight: 300; font-size: 16px; line-height: 150%; letter-spacing: 0.01em; color: rgb(0, 0, 0); white-space: pre-line;">LegalZoom connects small business owners with tax experts throughout the filing journey, But the <b style="font-weight: 700">communication between them was broken</b>.
+&nbsp;
+Everything ran through email: customers didn't know who would respond, experts lacked context, and every handoff meant starting over.&nbsp;
+
+I designed the end-to-end messaging platform from <b style="font-weight: 700">both sides</b>: a persistent conversation experience for customers and an integrated workspace for experts that surfaced everything in one place.</span>
+          </div>
+          <div class="stats" style="gap: 24px">
+            <div style="display: flex; flex-direction: column; gap: 16px">
+              <span style="font-family: 'Raleway',sans-serif; font-weight: 400; font-size: clamp(38px,6vw,50px); line-height: 100%; letter-spacing: -.03em; color: #000">+75 pts</span>
+              <span style="font-family:'Raleway',sans-serif; font-weight:300; font-size:16px; line-height:100%; letter-spacing:-.03em; color:#000;"><span style="white-space: pre-wrap;">NPS Increase</span></span>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 12px">
+              <span style="font-family: 'Raleway',sans-serif; font-weight: 400; font-size: clamp(38px,6vw,50px); line-height: 100%; letter-spacing: -.03em; color: #000">0-1</span>
+              <span style="font-family:'Raleway',sans-serif; font-weight:300; font-size:16px; line-height:100%; letter-spacing:-.03em; color:#000;">Product</span>
+            </div>
+          </div>
+        </div>
+        <div data-reveal="" class="media-desk">
+          <div class="imgbox" style="align-self:stretch; aspect-ratio:3924/1980; border-radius:12px; background:url(./assets/tax-msg.png) top center/contain no-repeat;"></div>
+        </div>
+        <div data-reveal="" class="media-mob">
+          <div class="mimg" style="aspect-ratio:2482/1980; background-image:url(./assets/m-tax-msg1.png);"></div>
+          <div class="mimg" style="aspect-ratio:2482/1980; background-image:url(./assets/m-tax-msg2.png);"></div>
+        </div>
+      </div>
+    </div>
+
+    <div style="height:0; border-top:0.5px solid rgba(0,0,0,.5); align-self:stretch;"></div>
+
+    <!-- ===================== LZ BOOKS ===================== -->
+    <div class="proj" style="display: flex; flex-direction: column; gap: 36px; align-self: stretch">
+      <div data-reveal="" style="display:flex; flex-direction:column; gap:12px;">
+        <span style="font-family:'Raleway',sans-serif; font-weight:300; font-size:18px; line-height:100%; letter-spacing:.01em; color:#000;">Legalzoom&nbsp;</span>
+        <span style="font-family:'Raleway',sans-serif; font-weight:400; font-size:clamp(34px,5vw,50px); line-height:118%; letter-spacing:.04em; color:#000;">LZ Books app</span>
+      </div>
+      <div class="projbody" style="display:flex; flex-direction:column; gap:clamp(24px,5vw,60px); align-self:stretch;">
+        <div data-reveal="" class="meta-row">
+          <div class="txt">
+            <span style="font-family:-apple-system,'Inter',sans-serif; font-weight:300; font-size:16px; line-height:150%; letter-spacing:.01em; color:#000; white-space:pre-line;"><p>LZ Books was a web-only financial management tool, creating friction for small business owners managing finances on the go.
+<span style="white-space: pre-wrap;">
+I led the design and launch of the native iOS MVP in four months, establishing the foundational mobile design system and driving adoption from 34% of existing web users.</span></p></span>
+          </div>
+          <div class="stats" style="gap: 24px">
+            <div style="display: flex; flex-direction: column; gap: 16px">
+              <span style="font-family:'Raleway',sans-serif; font-weight:500; font-size:clamp(38px,6vw,50px); line-height:100%; letter-spacing:-.03em; color:#000;"><span style="white-space: pre-wrap; font-weight: 400">1st</span></span>
+              <span style="font-family:'Raleway',sans-serif; font-weight:300; font-size:16px; line-height:100%; letter-spacing:-.03em; color:#000;"><span style="white-space: pre-wrap;">Mobile design System</span></span>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 16px">
+              <span style="font-family: 'Raleway',sans-serif; font-weight: 400; font-size: clamp(38px,6vw,50px); line-height: 100%; letter-spacing: -.03em; color: #000">34%</span>
+              <span style="font-family:'Raleway',sans-serif; font-weight:300; font-size:16px; line-height:100%; letter-spacing:-.03em; color:#000;"><span style="white-space: pre-wrap;">Web-to-Mobile Adoption</span></span>
+            </div>
+          </div>
+        </div>
+        <div data-reveal="" class="imgbox media-desk" style="align-self:stretch; aspect-ratio:1124/609; border-radius:12px; background:url(./assets/lz-wide.png) top center/cover no-repeat;"></div>
+        <div data-reveal="" class="imgrow media-desk">
+          <div class="imgbox" style="flex:1 1 0; aspect-ratio:556/425; border-radius:12px; background:url(./assets/lz-1.png) top center/cover no-repeat;"></div>
+          <div class="imgbox" style="flex:1 1 0; aspect-ratio:556/425; border-radius:12px; background:url(./assets/lz-2.png) top center/cover no-repeat;"></div>
+        </div>
+        <div data-reveal="" class="media-mob">
+          <div class="mimg" style="aspect-ratio:2644/1402; border-radius:12px; background-image:url(./assets/m-lz1.png);"></div>
+          <div class="mimg" style="aspect-ratio:2616/969; background-image:url(./assets/m-lz2.png);"></div>
+        </div>
+      </div>
+    </div><div style="height:0; border-top:0.5px solid rgba(0,0,0,.5); align-self:stretch;"></div><div class="proj" style="display: flex; flex-direction: column; gap: 36px; align-self: stretch">
+      <div data-reveal="" style="display:flex; flex-direction:column; gap:12px;">
+        <span style="font-family:'Raleway',sans-serif; font-weight:300; font-size:18px; line-height:100%; letter-spacing:.01em; color:#000;">Evernote&nbsp;</span>
+        <span style="font-family:'Raleway',sans-serif; font-weight:400; font-size:clamp(34px,5vw,50px); line-height:118%; letter-spacing:.04em; color:#000;">Task smart due date</span>
+      </div>
+      <div class="projbody" style="display:flex; flex-direction:column; gap:clamp(24px,5vw,60px); align-self:stretch;">
+        <div data-reveal="" class="meta-row">
+          <div class="txt">
+            <span style="font-family:-apple-system,'Inter',sans-serif; font-weight:300; font-size:16px; line-height:150%; letter-spacing:.01em; color:#000; white-space:pre-line;"><p>Setting due dates is the primary way our users stay organized and engage with tasks, but clicking through traditional calendars creates a lot of unnecessary friction.   
+
+I led the end-to-end design of an intuitive input model that lets users simply type the way they naturally speak. The system works in the background to instantly <b style="font-weight: 700">recognize over 35 different date formats</b>, turning text into task data. This made creating tasks with due dates faster and more seamless.</p></span>
+          </div>
+          <div class="stats" style="gap: 24px">
+            <div style="display: flex; flex-direction: column; gap: 16px">
+              <span style="font-family:'Raleway',sans-serif; font-weight:500; font-size:clamp(38px,6vw,50px); line-height:100%; letter-spacing:-.03em; color:#000;"></span>
+              <span style="font-family:'Raleway',sans-serif; font-weight:300; font-size:16px; line-height:100%; letter-spacing:-.03em; color:#000;"></span>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 16px">
+              
+              <span style="font-family:'Raleway',sans-serif; font-weight:300; font-size:16px; line-height:100%; letter-spacing:-.03em; color:#000;"></span>
+            </div>
+          </div>
+        </div>
+        <div data-reveal="" style="align-self: stretch; border-radius: 8px; background-color: #e8eced; padding-top: 56px; padding-bottom: 56px; padding-left: clamp(56px,6vw,100px); padding-right: clamp(56px,6vw,100px)">
+          <div class="media-desk" style="display:flex; flex-direction:row; gap:clamp(24px,3vw,48px); align-items:stretch; justify-content:center;">
+            <div style="flex:1.602 1 0; aspect-ratio:2331/1455; border-radius:12px; overflow:hidden; box-shadow:0 0 0 0 rgba(0,0,0,.14);">
+              <img src="./assets/sdd-desktop.gif" alt="Smart due date on desktop" style="display:block; width:100%; height:100%; object-fit:cover;">
+            </div>
+            <div style="flex:0.560 1 0; aspect-ratio:746/1331; border-radius:12px; overflow:hidden; box-shadow:0 0 0 0 rgba(0,0,0,.14);">
+              <img src="./assets/sdd-mobile2.gif" alt="Smart due date on mobile" style="display:block; width:100%; height:100%; object-fit:cover;">
+            </div>
+          </div>
+          <div class="media-mob" style="flex-direction:column; gap:20px; align-items:flex-start;">
+            <img src="./assets/sdd-desktop.gif" alt="Smart due date on desktop" style="width: 100%; border-radius: 12px; box-shadow: 0px 0px 0px 0px rgba(0,0,0,.14)">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    
+
+  </div>
+</div>
+<script>
+(function() {
+  // Sticky nav border
+  var bar = document.getElementById('topbar');
+  if (bar) {
+    var onScroll = function() {
+      bar.style.borderBottomColor = window.scrollY > 4 ? 'rgba(0,0,0,.12)' : 'transparent';
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  }
+
+  // Scroll reveal
+  var els = function() { return Array.from(document.querySelectorAll('[data-reveal]')); };
+  var vh0 = window.innerHeight || 800;
+  els().forEach(function(el) {
+    var r = el.getBoundingClientRect();
+    if (r.top > vh0 * 0.95) el.classList.add('pre');
+  });
+  var check = function() {
+    var vh = window.innerHeight || 800;
+    els().forEach(function(el) {
+      if (!el.classList.contains('pre')) return;
+      var r = el.getBoundingClientRect();
+      if (r.top < vh * 0.9) el.classList.remove('pre');
+    });
+  };
+  window.addEventListener('scroll', check, { passive: true });
+  window.addEventListener('resize', check);
+  setTimeout(check, 100);
+})();
+</script>
+</body>
+</html>
