@@ -27,10 +27,22 @@
     .imgrow { display: flex; flex-direction: row; gap: 12px; align-items: flex-start; align-self: stretch; }
     .topnav { display: flex; flex-direction: row; justify-content: space-between; align-items: center; gap: 24px; align-self: stretch; flex-wrap: wrap; }
     .navlinks { display: flex; flex-direction: row; gap: 24px; align-items: center; flex-wrap: wrap; }
+    .navmenu { display: none; position: relative; }
+    .navmenu-btn { display: flex; flex-direction: column; gap: 5px; align-items: center; justify-content: center; width: 36px; height: 36px; margin: -6px; padding: 0; border: none; background: transparent; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+    .navmenu-btn span { width: 20px; height: 1.5px; background: #000; display: block; border-radius: 1px; transition: opacity .2s, transform .2s; }
+    .navmenu-btn.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    .navmenu-btn.open span:nth-child(2) { opacity: 0; }
+    .navmenu-btn.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+    .navmenu-panel { position: absolute; top: calc(100% + 12px); right: 0; background: #fff; border: 0.5px solid rgba(0,0,0,.12); border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,.10); padding: 6px; display: flex; flex-direction: column; min-width: 220px; z-index: 200; }
+    .navmenu-panel[hidden] { display: none !important; }
+    .navmenu-item { padding: 12px 14px; border-radius: 8px; text-decoration: none; font-family: -apple-system,'Inter',sans-serif; font-weight: 300; font-size: 15px; line-height: 100%; letter-spacing: .01em; color: #000; transition: background-color .15s; }
+    .navmenu-item:hover { background: rgba(0,0,0,.05); }
     .media-mob { display: none; }
     .media-mob .mimg { width: 100%; background-position: center; background-size: cover; background-repeat: no-repeat; }
 
     @media (max-width: 880px) {
+      .navlinks { display: none; }
+      .navmenu { display: block; }
       .split { flex-direction: column; gap: 32px; }
       .split .txt { width: 100%; flex: 1 1 auto; }
       .meta-row { flex-direction: column; gap: 32px; }
@@ -54,6 +66,11 @@
     @media (min-width: 881px) {
       .tax-row { align-items: stretch; height: 580px; }
       .tax-row > .imgbox { height: 100%; aspect-ratio: auto; }
+      .hrow .hcol.about { flex: 0 0 508px; width: 508px; }
+    }
+    @media (max-width: 880px) {
+      .page { align-items: stretch !important; }
+      .hrow .hcol.about { width: 100% !important; flex: 0 0 auto !important; }
     }
   </style>
 </head>
@@ -67,6 +84,16 @@
         <a href="https://www.linkedin.com/in/jeanchingtingyang/" target="_blank" rel="noopener noreferrer" style="font-family: -apple-system,'Inter',sans-serif; font-weight: 300; font-size: 14px; line-height: 100%; letter-spacing: .01em; color: #757575; text-decoration:none;">Linkedin</a>
         <a href="#" style="font-family: -apple-system,'Inter',sans-serif; font-weight: 300; font-size: 14px; line-height: 100%; letter-spacing: .01em; color: #757575; text-decoration:none;">Resume</a>
       </div>
+      <div class="navmenu">
+        <button type="button" class="navmenu-btn" id="navmenu-btn" aria-label="Menu" aria-expanded="false" aria-haspopup="true">
+          <span></span><span></span><span></span>
+        </button>
+        <div class="navmenu-panel" id="navmenu-panel" role="menu" hidden>
+          <a class="navmenu-item" role="menuitem" href="mailto:jeanyang21@gmail.com">jeanyang21@gmail.com</a>
+          <a class="navmenu-item" role="menuitem" href="https://www.linkedin.com/in/jeanchingtingyang/" target="_blank" rel="noopener noreferrer">Linkedin</a>
+          <a class="navmenu-item" role="menuitem" href="#">Resume</a>
+        </div>
+      </div>
     </div>
   </div>
   <div class="page" style="width: 100%; max-width: 1148px; background: #F7F6F4; display: flex; flex-direction: column; gap: clamp(48px,10vw,120px); padding: clamp(44px,6vw,80px) clamp(16px,5vw,66px) clamp(42px,7vw,114px); align-items: flex-start; margin-top: 56px;">
@@ -76,7 +103,7 @@
       <span style="font-family:'Raleway',sans-serif; font-weight:400; font-size:clamp(32px,5.4vw,60px); line-height:108%; color:#000; text-wrap:pretty; align-self:stretch;">I build products across scales from 0 to 1 initiatives to experiences used by billions of people.</span>
       <div style="height:0; border-top:0.5px solid rgba(0,0,0,.5); align-self:stretch;"></div>
       <div class="hrow" style="gap: 52px; justify-content: flex-start;">
-        <div class="hcol" style="width: 508px">
+        <div class="hcol about">
           <span style="font-family:'Raleway',sans-serif; font-weight:300; font-size:16px; line-height:100%; letter-spacing:.01em; color:#000;">About</span>
           <span style="font-family:-apple-system,'Inter',sans-serif; font-weight:300; font-size:16px; line-height:150%; letter-spacing:.01em; color:#000; text-wrap:pretty;"><div>Senior product designer with 8+ years of experience focused on craft and strategy. Building cross-platform experiences that help people communicate, build relationships, and stay close to what matters.<br></div></span>
         </div>
@@ -105,11 +132,11 @@
 
 I partnered with cross-functional teams to build the strategy from the ground up, leading workshops, auditing the end-to-end notification experience, and running rapid experiments that uncovered what was actually broken. The work led to a north star direction for the notification ecosystem.</span>
             <div class="media-mob"><div class="mimg" style="aspect-ratio:1764/1419; background-image:url(./assets/m-notif.png);"></div></div>
-            <div style="padding:24px 0; align-self:stretch;"><div style="height:0; border-top:0.5px solid rgba(0,0,0,.5);"></div></div>
             <div style="display:flex; flex-direction:column; gap:16px;">
               <span style="font-family:'Raleway',sans-serif; font-weight:300; font-size:16px; line-height:100%; letter-spacing:.01em; color:#000;">✨ AI native workflows</span>
               <span style="font-family:-apple-system,'Inter',sans-serif; font-weight:300; font-size:16px; line-height:150%; letter-spacing:.01em; color:#000;"><div>I built a custom generator to bypass backend dependencies and test different layout variants and states instantly. This significantly <b style="font-weight: 700">reduces prototyping time</b> and allows the team to quickly align on the right user experience before engineers spend time building it.<br></div></span>
             </div>
+            <div style="padding:24px 0; align-self:stretch;"><div style="height:0; border-top:0.5px solid rgba(0,0,0,.5);"></div></div>
           </div>
           <div class="media media-desk" style="min-width:0;"><img src="./assets/wa-notif-new.png" alt="Notification generator" style="width:100%; height:auto; display:block; border-radius:12px;"></div>
         </div>
@@ -216,16 +243,6 @@ I led the design and launch of the native iOS MVP in four months, establishing t
 
 I led the end-to-end design of an intuitive input model that lets users simply type the way they naturally speak. The system works in the background to instantly <b style="font-weight: 700">recognize over 35 different date formats</b>, turning text into task data. This made creating tasks with due dates faster and more seamless.</p></span>
           </div>
-          <div class="stats" style="gap: 24px">
-            <div style="display: flex; flex-direction: column; gap: 16px">
-              <span style="font-family:'Raleway',sans-serif; font-weight:500; font-size:clamp(38px,6vw,50px); line-height:100%; letter-spacing:-.03em; color:#000;"></span>
-              <span style="font-family:'Raleway',sans-serif; font-weight:300; font-size:16px; line-height:100%; letter-spacing:-.03em; color:#000;"></span>
-            </div>
-            <div style="display: flex; flex-direction: column; gap: 16px">
-              
-              <span style="font-family:'Raleway',sans-serif; font-weight:300; font-size:16px; line-height:100%; letter-spacing:-.03em; color:#000;"></span>
-            </div>
-          </div>
         </div>
         <div data-reveal="" style="align-self: stretch; border-radius: 8px; background-color: #e8eced; padding-top: 56px; padding-bottom: 56px; padding-left: clamp(56px,6vw,100px); padding-right: clamp(56px,6vw,100px)">
           <div class="media-desk" style="display:flex; flex-direction:row; gap:clamp(24px,3vw,48px); align-items:stretch; justify-content:center;">
@@ -249,6 +266,25 @@ I led the end-to-end design of an intuitive input model that lets users simply t
 </div>
 <script>
 (function() {
+  // Mobile nav menu
+  var btn = document.getElementById('navmenu-btn');
+  var panel = document.getElementById('navmenu-panel');
+  if (btn && panel) {
+    btn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      var open = !panel.hidden;
+      panel.hidden = open;
+      btn.setAttribute('aria-expanded', String(!open));
+      btn.classList.toggle('open', !open);
+    });
+    document.addEventListener('click', function() {
+      panel.hidden = true;
+      btn.setAttribute('aria-expanded', 'false');
+      btn.classList.remove('open');
+    });
+    panel.addEventListener('click', function(e) { e.stopPropagation(); });
+  }
+
   // Sticky nav border
   var bar = document.getElementById('topbar');
   if (bar) {
