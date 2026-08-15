@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LZ Messaging Platform — Jean Yang</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23fff'/><text x='16' y='22' font-family='-apple-system,BlinkMacSystemFont,SF Pro Display,sans-serif' font-size='14' font-weight='500' fill='%23000' text-anchor='middle' letter-spacing='1'>JY</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500&amp;family=Inter:wght@300;400&amp;display=swap" rel="stylesheet">
+<style>
+  html, body { margin: 0; padding: 0; background: #F7F6F4; }
+  * { box-sizing: border-box; }
+
+  [data-reveal] { opacity: 1; transform: none; transition: opacity .7s cubic-bezier(.22,.61,.36,1), transform .7s cubic-bezier(.22,.61,.36,1); }
+  [data-reveal].pre { opacity: 0; transform: translateY(24px); }
+
+  .page { width: 100%; max-width: 1440px; margin: 0 auto; padding: clamp(60px,8vw,120px) clamp(16px,3vw,32px); display: flex; flex-direction: column; gap: clamp(80px,10vw,140px); }
+
+  /* 2-column: label/title on left, content/image on right */
+  .row { display: flex; flex-direction: row; gap: clamp(40px,8vw,120px); align-items: flex-start; }
+  .row .col-left  { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: 24px; }
+  .row .col-right { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: 24px; }
+
+  /* Two equal cols for My Role / Results section */
+  .row-split { display: flex; flex-direction: row; gap: clamp(40px,8vw,120px); align-items: flex-start; }
+  .row-split > div { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: 24px; }
+
+  .eyebrow { font-family:-apple-system,'Inter',sans-serif; font-weight:300; font-size:16px; line-height:100%; letter-spacing:.01em; color:#000; }
+  .lz-logo { font-family:'Raleway',sans-serif; font-weight:300; font-size:18px; line-height:100%; letter-spacing:.01em; color:#000; }
+
+  h1.hero { font-family:'Raleway',sans-serif; font-weight:400; font-size:clamp(30px,3.4vw,44px); line-height:115%; letter-spacing:-.01em; color:#000; margin:0; }
+  h2.section { font-family:'Raleway',sans-serif; font-weight:400; font-size:24px; line-height:130%; letter-spacing:.01em; color:#000; margin:0; }
+
+  .body { font-family:-apple-system,'Inter',sans-serif; font-weight:300; font-size:16px; line-height:150%; letter-spacing:.01em; color:#000; }
+
+  ul.bullet { list-style: disc; padding-left: 20px; margin: 0; display: flex; flex-direction: column; gap: 14px; }
+  ul.bullet li { font-family:-apple-system,'Inter',sans-serif; font-weight:300; font-size:16px; line-height:150%; color:#000; }
+
+  .results-list { display: flex; flex-direction: column; gap: 16px; }
+  .results-list p { margin: 0; font-family:-apple-system,'Inter',sans-serif; font-weight:300; font-size:16px; line-height:150%; color:#000; }
+
+  /* Numbered list with dividers (learnings) */
+  .num-list { display: flex; flex-direction: column; gap: 0; }
+  .num-item { padding: 24px 0; border-top: 0.5px solid rgba(0,0,0,.35); display: flex; flex-direction: column; gap: 14px; }
+  .num-item:last-child { border-bottom: 0.5px solid rgba(0,0,0,.35); }
+  .num-item .num { font-family:-apple-system,'Inter',sans-serif; font-weight:300; font-size:14px; color:#757575; letter-spacing:.02em; }
+  .num-item .text { font-family:-apple-system,'Inter',sans-serif; font-weight:300; font-size:17px; line-height:150%; color:#000; }
+
+  /* Gray placeholder image */
+  .placeholder { width: 100%; background: #C9C6C1; border-radius: 12px; aspect-ratio: 4/3; display: block; }
+  .placeholder.tall { aspect-ratio: 3/4; }
+  .placeholder.square { aspect-ratio: 1/1; }
+
+  .divider { height:0; border-top:0.5px solid rgba(0,0,0,.35); align-self:stretch; }
+
+  /* Full-bleed white band that breaks out of .page padding */
+  .solution-block { background:#FFFFFF; margin-left: calc(50% - 50vw); margin-right: calc(50% - 50vw); padding: clamp(60px,8vw,120px) 0; }
+  .solution-inner { width:100%; max-width:1440px; margin: 0 auto; padding: 0 clamp(16px,3vw,32px); display:flex; flex-direction:column; gap:clamp(48px,6vw,80px); box-sizing:border-box; }
+
+  /* Topbar */
+  #topbar { position:sticky; top:0; z-index:100; width:100%; display:flex; justify-content:center; background:#F7F6F4; border-bottom:0.5px solid transparent; transition:border-color .25s; }
+  .topnav { width:100%; max-width:1440px; padding:16px clamp(16px,3vw,32px); display:flex; justify-content:space-between; align-items:center; gap:24px; box-sizing:border-box; }
+  .topnav a { text-decoration:none; color:#000; }
+  .topnav .brand { font-family:'Raleway',sans-serif; font-weight:400; font-size:18px; letter-spacing:.01em; }
+  .topnav .back { font-family:-apple-system,'Inter',sans-serif; font-weight:300; font-size:14px; color:#757575; }
+  .topnav .back:hover { color:#000; }
+
+  @media (max-width: 880px) {
+    .page { padding: 40px 20px; gap: 64px; }
+    .row, .row-split { flex-direction: column; gap: 32px; }
+    h1.hero { font-size: 34px; }
+    h2.section { font-size: 26px; }
+  }
+</style>
+</head>
+<body>
+<div style="width:100%; display:flex; flex-direction:column; align-items:center; background:#F7F6F4; min-height:100vh;">
+  <div id="topbar">
+    <div class="topnav">
+      <a class="brand" href="./index.html">Jean Yang</a>
+      <div class="navlinks" style="display:flex; gap:24px; align-items:center;">
+        <a href="mailto:jeanyang21@gmail.com" style="font-family:-apple-system,'Inter',sans-serif; font-weight:300; font-size:14px; line-height:100%; letter-spacing:.01em; color:#757575; text-decoration:none;">jeanyang21@gmail.com</a>
+        <a href="https://www.linkedin.com/in/jeanchingtingyang/" target="_blank" rel="noopener noreferrer" style="font-family:-apple-system,'Inter',sans-serif; font-weight:300; font-size:14px; line-height:100%; letter-spacing:.01em; color:#757575; text-decoration:none;">Linkedin</a>
+        <a href="https://drive.google.com/file/d/1XFe7n-fp3G3Mny63jGZ3xCl7m-svc0vI/view?usp=sharing" target="_blank" rel="noopener noreferrer" style="font-family:-apple-system,'Inter',sans-serif; font-weight:300; font-size:14px; line-height:100%; letter-spacing:.01em; color:#757575; text-decoration:none;">Resume</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="page">
+
+    <!-- HERO -->
+    <div data-reveal="" style="max-width:894px; display:flex; flex-direction:column; gap:16px;">
+      <span class="lz-logo">Legalzoom</span>
+      <h1 class="hero">Elevating customer experience with better tax expert communication.</h1>
+    </div>
+
+    <!-- MY ROLE / RESULTS -->
+    <div data-reveal="" class="row-split">
+      <div>
+        <span class="body">My role - As the sole product designer, I:</span>
+        <ul class="bullet">
+          <li>Led end-to-end design</li>
+          <li>Ran stakeholder alignment sessions</li>
+          <li>Led user testing and iterated on designs based on insights</li>
+          <li>Partnered with tax experts and product teams to map the collaboration journey</li>
+        </ul>
+      </div>
+      <div>
+        <span class="body">Results</span>
+        <div class="results-list">
+          <p>📈 Increased NPS by 75 points</p>
+          <p>🧩 Created modular messaging components, enabling teams to scale design efficiently across LZ's advisory services</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- BACKGROUND -->
+    <div data-reveal="" class="row">
+      <div class="col-left">
+        <span class="eyebrow">Background</span>
+        <h2 class="section">LZ Tax is an online service that helps small business owners file taxes with expert advice available throughout the process.</h2>
+        <span class="body">Tax experts will guide customers through the process, from answering questions to final review and filing.</span>
+      </div>
+      <div class="col-right">
+        <img src="./assets/lz-taxbg.png" alt="LZ Tax background" style="width:100%; height:auto; display:block; border-radius:12px;">
+      </div>
+    </div>
+
+    <!-- PROBLEM -->
+    <div data-reveal="" class="row">
+      <div class="col-left">
+        <span class="eyebrow">Problem</span>
+        <h2 class="section">However, the current communication experience is frustrating.</h2>
+        <span class="body">Customers can't get consistent and continuous support from experts, leading them to consider working with a CPA instead.</span>
+      </div>
+      <div class="col-right">
+        <img src="./assets/lz-problem.png" alt="Problem with current communication" style="width:100%; height:auto; display:block; border-radius:12px;">
+      </div>
+    </div>
+
+    <!-- LEARNINGS -->
+    <div data-reveal="" class="row">
+      <div class="col-left">
+        <span class="eyebrow">Learnings</span>
+        <h2 class="section">What users look for in the new experience?</h2>
+        <span class="body" style="display:flex; flex-direction:column; gap:8px;">
+          <span><b style="font-weight:700">Approach:</b></span>
+          <ul style="margin:0; padding-left:20px; display:flex; flex-direction:column; gap:6px;">
+            <li>Aligned with customer and expert teams on technical constraints and existing workflows.</li>
+            <li>Partnered with Expert Ops to understand SLAs and business requirements.</li>
+            <li>Interviewed tax experts to understand their workflows and needs.</li>
+          </ul>
+        </span>
+      </div>
+      <div class="col-right">
+        <div class="num-list">
+          <div class="num-item">
+            <span class="num">01</span>
+            <span class="text">Build customer confidence that experts understand their situation and provide accurate answers.</span>
+          </div>
+          <div class="num-item">
+            <span class="num">02</span>
+            <span class="text">Make it easy to access relevant context during conversations.</span>
+          </div>
+          <div class="num-item">
+            <span class="num">03</span>
+            <span class="text">Enable seamless, ongoing interactions with experts.</span>
+          </div>
+          <div class="num-item">
+            <span class="num">04</span>
+            <span class="text">Ensure timely responses to avoid long wait times.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SOLUTION (full-bleed white band) -->
+    <div class="solution-block">
+      <div class="solution-inner">
+        <div data-reveal="" style="max-width:894px; display:flex; flex-direction:column; gap:16px;">
+          <span class="eyebrow">Solution</span>
+          <h2 class="section">From no-reply emails to back-and-forth conversations</h2>
+        </div>
+        <div data-reveal="" class="two-imgs" style="display:flex; flex-direction:row; gap:clamp(24px,3vw,48px); align-items:flex-start;">
+          <div style="flex:1 1 0; min-width:0; display:flex; flex-direction:column; gap:16px;">
+            <img src="./assets/lz-tool.png?v=2" alt="Customer view" style="width:100%; height:auto; display:block; border-radius:12px;">
+            <span class="body">Customers can have a back-and-forth thread to discuss questions with their dedicated expert throughout the journey.</span>
+          </div>
+          <div style="flex:1 1 0; min-width:0; display:flex; flex-direction:column; gap:16px;">
+            <img src="./assets/lz-tool2.png" alt="Expert view" style="width:100%; height:auto; display:block; border-radius:12px;">
+            <span class="body">Experts can easily access relevant customer context during conversations, enabling faster, more personalized advice.</span>
+          </div>
+        </div>
+        <div data-reveal="">
+          <img src="./assets/lz-journey.png" alt="Customer and expert journey" style="width:100%; height:auto; display:block; border-radius:12px;">
+        </div>
+      </div>
+    </div>
+
+    <style>
+      @media (max-width: 880px) {
+        .two-imgs { flex-direction: column !important; }
+        .footer-links { flex-direction: column !important; gap: 20px !important; }
+      }
+    </style>
+
+    <!-- Footer links -->
+    <div data-reveal="" class="footer-links" style="display:flex; flex-direction:row; gap:40px; margin-top:clamp(32px,5vw,64px); justify-content:center;">
+      <a href="./index.html" style="font-family:'Raleway',sans-serif; font-weight:400; font-size:24px; line-height:100%; letter-spacing:.01em; color:#000; text-decoration:none; border-bottom:1px solid #000; padding-bottom:4px; display:inline-flex; align-items:center; gap:8px;"><span style="font-size:20px;">←</span> Back to home</a>
+      <a href="mailto:jeanyang21@gmail.com" style="font-family:'Raleway',sans-serif; font-weight:400; font-size:24px; line-height:100%; letter-spacing:.01em; color:#000; text-decoration:none; border-bottom:1px solid #000; padding-bottom:4px; display:inline-flex; align-items:center; gap:10px;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg> Get in touch</a>
+    </div>
+
+  </div>
+</div>
+
+<script>
+  const bar = document.getElementById('topbar');
+  window.addEventListener('scroll', () => {
+    bar.style.borderColor = window.scrollY > 8 ? 'rgba(0,0,0,.08)' : 'transparent';
+  }, { passive: true });
+
+  // Scroll reveal
+  (function() {
+    var els = function() { return Array.from(document.querySelectorAll('[data-reveal]')); };
+    var vh0 = window.innerHeight || 800;
+    els().forEach(function(el) {
+      var r = el.getBoundingClientRect();
+      if (r.top > vh0 * 0.95) el.classList.add('pre');
+    });
+    var check = function() {
+      var vh = window.innerHeight || 800;
+      els().forEach(function(el) {
+        if (!el.classList.contains('pre')) return;
+        var r = el.getBoundingClientRect();
+        if (r.top < vh * 0.9) el.classList.remove('pre');
+      });
+    };
+    window.addEventListener('scroll', check, { passive: true });
+    window.addEventListener('resize', check);
+    setTimeout(check, 100);
+  })();
+</script>
+</body>
+</html>

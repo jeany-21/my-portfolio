@@ -57,7 +57,7 @@
       .imgrow > * { width: 100%; }
       .media-desk { display: none !important; }
       .media-mob { display: flex; flex-direction: column; gap: 4px; align-self: stretch; width: 100%; }
-      .page { gap: 40px !important; padding: 36px 16px !important; }
+      .page { gap: 40px !important; padding: 36px clamp(16px,3vw,32px) !important; }
       .hblk { gap: 40px !important; }
       .wa { gap: 40px !important; }
       .subs { gap: 36px !important; }
@@ -83,7 +83,7 @@
 <body>
 <div style="width:100%; display:flex; flex-direction:column; align-items:center; background:#F7F6F4; min-height:100vh;">
   <div id="topbar" style="position:sticky; top:0; z-index:100; width:100%; display:flex; justify-content:center; background:#F7F6F4; border-bottom:0.5px solid transparent; transition:border-color .25s;">
-    <div class="topnav" style="width:100%; max-width:1148px; padding:16px clamp(16px,5vw,66px);">
+    <div class="topnav" style="width:100%; max-width:1440px; padding:16px clamp(16px,3vw,32px);">
       <a href="#" onclick="window.scrollTo({top:0,behavior:'smooth'}); return false;" style="font-family: 'Raleway',sans-serif; font-weight: 400; font-size: 18px; line-height: 100%; letter-spacing: .01em; color: #000; text-decoration: none;">Jean Yang</a>
       <div class="navlinks">
         <a href="mailto:jeanyang21@gmail.com" style="font-family: -apple-system,'Inter',sans-serif; font-weight: 300; font-size: 14px; line-height: 100%; letter-spacing: .01em; color: #757575; text-decoration:none;">jeanyang21@gmail.com</a>
@@ -102,7 +102,7 @@
       </div>
     </div>
   </div>
-  <div class="page" style="width: 100%; max-width: 1148px; background: #F7F6F4; display: flex; flex-direction: column; gap: clamp(48px,10vw,120px); padding: clamp(44px,6vw,80px) clamp(16px,5vw,66px) clamp(42px,7vw,114px); align-items: flex-start; margin-top: 56px;">
+  <div class="page" style="width: 100%; max-width: 1440px; background: #F7F6F4; display: flex; flex-direction: column; gap: clamp(48px,10vw,120px); padding: clamp(44px,6vw,80px) clamp(16px,3vw,32px) clamp(42px,7vw,114px); align-items: flex-start; margin-top: 56px;">
 
     <!-- ===================== HEADER ===================== -->
     <div data-reveal="" class="hblk" style="display:flex; flex-direction:column; gap:clamp(24px,5vw,60px); align-self:stretch;">
@@ -122,46 +122,56 @@
     </div>
 
     <!-- ===================== WHATSAPP ===================== -->
-    <div class="wa" style="display:flex; flex-direction:column; gap:clamp(48px,10vw,120px); align-self:stretch;">
+    <div class="wa" style="display:flex; flex-direction:column; gap:clamp(32px,4vw,48px); align-self:stretch;">
       <div data-reveal="" style="max-width:894px; display:flex; flex-direction:column; gap:16px;">
         <span style="font-family:'Raleway',sans-serif; font-weight:300; font-size:18px; line-height:100%; letter-spacing:.01em; color:#000;">Meta&nbsp;</span>
         <span style="font-family:'Raleway',sans-serif; font-weight:400; font-size:clamp(34px,5vw,50px); line-height:100%; letter-spacing:.02em; color:#000;">WhatsApp</span>
-        <span style="font-family:-apple-system,'Inter',sans-serif; font-weight:300; font-size:16px; line-height:150%; letter-spacing:.01em; color:#000; text-wrap:pretty;">Designed and shipped core messaging experiences for 3B+ users worldwide, incorporating AI-native workflows to accelerate team velocity.</span>
-      </div><div class="subs" style="display:flex; flex-direction:column; gap:clamp(40px,14vw,200px); align-self:stretch;">
-        <!-- Messaging experience -->
-        <div data-reveal="" class="split" style="align-items:flex-start;">
-          <div class="txt">
-            <span style="font-family:'Raleway',sans-serif; font-weight:400; font-size:24px; line-height:100%; letter-spacing:.01em; color:#000;">Messaging experience</span>
-            <span style="font-family:-apple-system,'Inter',sans-serif; font-weight:300; font-size:16px; line-height:150%; letter-spacing:.01em; color:#000; white-space:pre-line;">I designed across the <b style="font-weight:700">core messaging</b> loop—from creating a chat to sending and reading messages—including the group creation flow, composer, link previews, and more. This required scaling each change seamlessly across platforms, themes, and custom accessibility settings, while preserving a simple, private experience. These enhancements contributed to <b style="font-weight:700">measurable MAU growth</b>.
-
-<span style="white-space: pre-wrap; font-size: 14px;">*Further details are not disclosed due to NDA constraints.</span></span>
-          </div>
-          <div class="media imgbox media-desk" style="aspect-ratio:1764/1596; border-radius:12px; background:url(./assets/wa-messaging.png) center/cover no-repeat;"></div>
-          <div class="media-mob"><div class="mimg" style="aspect-ratio:1764/1596; background-image:url(./assets/m-messaging.png);"></div></div>
-        </div>
-
-        <div class="media-mob" style="padding:24px 0; align-self:stretch;"><div style="height:0; border-top:0.5px solid rgba(0,0,0,.5);"></div></div>
-
-        <!-- Notification Strategy -->
-        <div data-reveal="" class="split" style="align-items:flex-start;">
-          <div class="txt">
-            <span style="font-family:'Raleway',sans-serif; font-weight:400; font-size:24px; line-height:100%; letter-spacing:.01em; color:#000;">Notification Strategy</span>
-            <span style="font-family:-apple-system,'Inter',sans-serif; font-weight:300; font-size:16px; line-height:150%; letter-spacing:.01em; color:#000; white-space:pre-line;">WhatsApp hadn't prioritized notifications in years. We had little data, little research, and <b style="font-weight: 700">no clear direction</b> on where to invest.
-
-I partnered with cross-functional teams to build the strategy from the ground up, <b style="font-weight:700">leading workshops</b>, <b style="font-weight:700">auditing the end-to-end notification experience</b>, <b style="font-weight:700">running rapid experiments</b> that uncovered what was actually broken. The work led to a north star direction for the notification ecosystem.</span>
-            <div class="media-mob"><div class="mimg" style="aspect-ratio:1764/1419; background-image:url(./assets/m-notif.png);"></div></div>
-            <div class="media-desk" style="padding:24px 0; align-self:stretch;"><div style="height:0; border-top:0.5px solid rgba(0,0,0,.5);"></div></div>
-            <div style="display:flex; flex-direction:column; gap:16px;">
-              <span style="font-family:'Raleway',sans-serif; font-weight:700; font-size:16px; line-height:100%; letter-spacing:.01em; color:#000;">✨ AI native workflows</span>
-              <span style="font-family:-apple-system,'Inter',sans-serif; font-weight:300; font-size:16px; line-height:150%; letter-spacing:.01em; color:#000;"><div>I built a custom generator to bypass backend dependencies and test different layout variants and states instantly. This significantly <b style="font-weight: 700">reduces prototyping time</b> and allows the team to quickly align on the right user experience before engineers spend time building it.<br></div></span>
-            </div>
-          </div>
-          <div class="media media-desk" style="min-width:0;"><img src="./assets/wa-notif-new.png" alt="Notification generator" style="width:100%; height:auto; display:block; border-radius:12px;"></div>
-        </div>
+        <span style="font-family:-apple-system,'Inter',sans-serif; font-weight:300; font-size:16px; line-height:150%; letter-spacing:.01em; color:#000; text-wrap:pretty;">Designed and shipped core messaging experiences for 3B+ users worldwide</span>
       </div>
 
-      
+      <!-- Hero image -->
+      <div data-reveal="">
+        <img src="./assets/wa-hero.png?v=2" alt="WhatsApp experiences" style="width:100%; height:auto; display:block; border-radius:12px;">
+      </div>
+
+      <!-- Messaging experience -->
+      <div data-reveal="" style="max-width:894px; display:flex; flex-direction:column; gap:16px; margin-top:clamp(24px,4vw,48px);">
+        <span style="font-family:'Raleway',sans-serif; font-weight:400; font-size:24px; line-height:100%; letter-spacing:.01em; color:#000;">Messaging experience</span>
+        <span style="font-family:-apple-system,'Inter',sans-serif; font-weight:300; font-size:16px; line-height:150%; letter-spacing:.01em; color:#000; white-space:pre-line;">I focused on the <b style="font-weight:700">core messaging experience</b>—from typing to reading messages. I improved the composer, link previews, and @mention visibility, and optimized group creation to drive a 3% increase in completion rate and <b style="font-weight:700">measurable MAU growth</b>.</span>
+      </div>
+
+      <!-- Notification Strategy -->
+      <div data-reveal="" style="max-width:894px; display:flex; flex-direction:column; gap:16px; margin-top:clamp(24px,4vw,48px);">
+        <span style="font-family:'Raleway',sans-serif; font-weight:400; font-size:24px; line-height:100%; letter-spacing:.01em; color:#000;">Notification Strategy</span>
+        <span style="font-family:-apple-system,'Inter',sans-serif; font-weight:300; font-size:16px; line-height:150%; letter-spacing:.01em; color:#000; white-space:pre-line;">No team had systematically owned the notification experience as a whole, leaving us with little data, research, or <b style="font-weight:700">clear direction</b>.
+
+I partnered with cross-functional teams to build the strategy from the ground up, leading workshops, auditing the end-to-end notification experience, running rapid experiments that uncovered what was actually broken. The work uncovered opportunities that shaped the <b style="font-weight:700">long-term roadmap.</b></span>
+
+        <!-- AI workflow expandable -->
+        <details class="ai-workflow" style="margin-top:16px;">
+          <summary style="display:flex; align-items:center; gap:8px; cursor:pointer; list-style:none; font-family:'Raleway',sans-serif; font-weight:400; font-size:16px; line-height:100%; letter-spacing:.01em; color:#000; user-select:none;">
+            <span>✨ A peek at my AI workflow</span>
+            <svg class="ai-chev" width="14" height="14" viewBox="0 0 14 14" fill="none" style="transition:transform .2s;"><path d="M3 5l4 4 4-4" stroke="#000" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </summary>
+          <div style="margin-top:20px; display:flex; flex-direction:column; gap:20px;">
+            <span style="font-family:-apple-system,'Inter',sans-serif; font-weight:300; font-size:16px; line-height:150%; letter-spacing:.01em; color:#000;">To move and learn faster, I leveraged <b style="font-weight:700">AI tools</b> throughout the design process, including building a notification prototype generator that enabled rapid testing and alignment before backend implementation.</span>
+            <div>
+              <video src="./assets/wa-ai.mp4" autoplay loop muted playsinline style="width:100%; height:auto; display:block; border-radius:12px; -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 82%, transparent 100%); mask-image: linear-gradient(to bottom, #000 0%, #000 82%, transparent 100%);"></video>
+            </div>
+          </div>
+        </details>
+      </div>
+
+      <!-- Reach out link -->
+      <div data-reveal="" style="margin-top:clamp(16px,3vw,32px);">
+        <a href="mailto:jeanyang21@gmail.com" style="font-family:'Raleway',sans-serif; font-weight:400; font-size:24px; line-height:100%; letter-spacing:.01em; color:#000; text-decoration:none; border-bottom:1px solid #000; padding-bottom:4px; display:inline-flex; align-items:center; gap:8px;">Reach out to learn more <span style="font-size:20px;">↗</span></a>
+      </div>
     </div>
+
+    <style>
+      details.ai-workflow > summary::-webkit-details-marker { display: none; }
+      details.ai-workflow[open] .ai-chev { transform: rotate(180deg); }
+    </style>
 
     <div style="height:0; border-top:0.5px solid rgba(0,0,0,.5); align-self:stretch;"></div>
 
@@ -173,7 +183,7 @@ I partnered with cross-functional teams to build the strategy from the ground up
       </div>
       <div class="projbody" style="display:flex; flex-direction:column; gap:clamp(24px,5vw,60px); align-self:stretch;">
         <div data-reveal="" class="meta-row">
-          <div class="txt">
+          <div class="txt" style="max-width:894px;">
             <span style="font-family: -apple-system, Inter, sans-serif; font-weight: 300; font-size: 16px; line-height: 150%; letter-spacing: 0.01em; color: rgb(0, 0, 0); white-space: pre-line;">LegalZoom connects small business owners with tax experts throughout the filing journey, But the <b style="font-weight: 700">communication between them was broken</b>.
 &nbsp;
 Everything ran through email: customers didn't know who would respond, experts lacked context, and every handoff meant starting over.&nbsp;
@@ -198,6 +208,9 @@ As the sole designer, I rebuilt it as <b style="font-weight: 700">one persistent
           <div class="mimg" style="aspect-ratio:2482/1980; background-image:url(./assets/m-tax-msg1.png);"></div>
           <div class="mimg" style="aspect-ratio:2482/1980; background-image:url(./assets/m-tax-msg2.png);"></div>
         </div>
+        <div data-reveal="" style="margin-top:clamp(16px,3vw,32px);">
+          <a href="./lzmessaging.html" style="font-family:'Raleway',sans-serif; font-weight:400; font-size:24px; line-height:100%; letter-spacing:.01em; color:#000; text-decoration:none; border-bottom:1px solid #000; padding-bottom:4px; display:inline-flex; align-items:center; gap:8px;">See more details <span style="font-size:20px;">→</span></a>
+        </div>
       </div>
     </div>
 
@@ -211,7 +224,7 @@ As the sole designer, I rebuilt it as <b style="font-weight: 700">one persistent
       </div>
       <div class="projbody" style="display:flex; flex-direction:column; gap:clamp(24px,5vw,60px); align-self:stretch;">
         <div data-reveal="" class="meta-row">
-          <div class="txt">
+          <div class="txt" style="max-width:894px;">
             <span style="font-family:-apple-system,'Inter',sans-serif; font-weight:300; font-size:16px; line-height:150%; letter-spacing:.01em; color:#000; white-space:pre-line;"><p>25% of LegalZoom users handle their finances on their phones, but they're stuck on mobile web, which creates friction at every stage, from login to daily use.
 <span style="white-space: pre-wrap;">
 As the sole designer, I led the design and launch of a native iOS MVP in four months, <b style="font-weight:700">building the product's foundational mobile design system</b> and using native capabilities like biometric login, receipt capture, and mileage tracking to do what the web app couldn't.</span></p></span>
@@ -236,6 +249,9 @@ As the sole designer, I led the design and launch of a native iOS MVP in four mo
           <div class="mimg" style="aspect-ratio:2644/1402; border-radius:12px; background-image:url(./assets/m-lz1.png);"></div>
           <div class="mimg" style="aspect-ratio:2616/969; background-image:url(./assets/m-lz2.png);"></div>
         </div>
+        <div data-reveal="" style="margin-top:clamp(16px,3vw,32px);">
+          <span style="font-family:'Raleway',sans-serif; font-weight:400; font-size:24px; line-height:100%; letter-spacing:.01em; color:#B0B0B0; border-bottom:1px solid #B0B0B0; padding-bottom:4px; display:inline-block;">More details coming soon</span>
+        </div>
       </div>
     </div><div style="height:0; border-top:0.5px solid rgba(0,0,0,.5); align-self:stretch;"></div><div class="proj" style="display: flex; flex-direction: column; gap: 36px; align-self: stretch">
       <div data-reveal="" style="display:flex; flex-direction:column; gap:12px;">
@@ -244,7 +260,7 @@ As the sole designer, I led the design and launch of a native iOS MVP in four mo
       </div>
       <div class="projbody" style="display:flex; flex-direction:column; gap:clamp(24px,5vw,60px); align-self:stretch;">
         <div data-reveal="" class="meta-row">
-          <div class="txt">
+          <div class="txt" style="max-width:894px;">
             <span style="font-family:-apple-system,'Inter',sans-serif; font-weight:300; font-size:16px; line-height:150%; letter-spacing:.01em; color:#000; white-space:pre-line;"><p>Setting due dates is the primary way our users stay organized and engage with tasks, but clicking through traditional calendars creates a lot of unnecessary friction.   
 
 I led the end-to-end design of an intuitive input model that lets users simply type the way they naturally speak. The system works in the background to instantly <b style="font-weight: 700">recognize over 35 different date formats</b>, turning text into task data. This made creating tasks with due dates faster and more seamless.</p></span>
@@ -262,6 +278,9 @@ I led the end-to-end design of an intuitive input model that lets users simply t
           <div class="media-mob" style="flex-direction:column; gap:20px; align-items:flex-start;">
             <img src="./assets/sdd-desktop.gif" alt="Smart due date on desktop" style="width: 100%; border-radius: 12px; box-shadow: 0px 0px 0px 0px rgba(0,0,0,.14)">
           </div>
+        </div>
+        <div data-reveal="" style="margin-top:clamp(16px,3vw,32px);">
+          <span style="font-family:'Raleway',sans-serif; font-weight:400; font-size:24px; line-height:100%; letter-spacing:.01em; color:#B0B0B0; border-bottom:1px solid #B0B0B0; padding-bottom:4px; display:inline-block;">More details coming soon</span>
         </div>
       </div>
     </div>
