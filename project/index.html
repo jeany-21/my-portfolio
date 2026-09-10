@@ -18,10 +18,18 @@
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23fff'/><text x='16' y='22' font-family='-apple-system,BlinkMacSystemFont,SF Pro Display,sans-serif' font-size='14' font-weight='500' fill='%23000' text-anchor='middle' letter-spacing='1'>JY</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500&amp;family=Inter:wght@300;400&amp;family=Work+Sans:wght@400&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600&amp;family=Inter:wght@100;300;400;600&amp;family=Work+Sans:wght@400&amp;display=swap" rel="stylesheet">
   <style>
     html, body { margin: 0; padding: 0; background: #F7F6F4; }
     * { box-sizing: border-box; }
+    .tex { position:relative; }
+    .tex::before { content:''; position:absolute; inset:0; pointer-events:none; z-index:0; opacity:0.06;
+      background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='gr'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23gr)'/%3E%3C/svg%3E") repeat; }
+    .tex > * { position:relative; z-index:1; }
+    .tex-card { position:relative; }
+    .tex-card::before { content:''; position:absolute; inset:0; pointer-events:none; z-index:0;
+      background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='gc'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23gc)' opacity='0.4'/%3E%3C/svg%3E") repeat; }
+    .tex-card > * { position:relative; z-index:1; }
     [data-reveal] { opacity: 1; transform: none; transition: opacity .7s cubic-bezier(.22,.61,.36,1), transform .7s cubic-bezier(.22,.61,.36,1); }
     [data-reveal].pre { opacity: 0; transform: translateY(24px); }
     a.lnk { color: inherit; text-decoration: none; border-bottom: 1px solid rgba(0,0,0,.35); padding-bottom: 1px; transition: border-color .25s; }
@@ -68,8 +76,6 @@
       .imgrow > * { width: 100%; }
       .media-desk { display: none !important; }
       .media-mob { display: flex; flex-direction: column; gap: 4px; align-self: stretch; width: 100%; }
-      .page { gap: 40px !important; padding: 36px clamp(16px,3vw,32px) !important; }
-      .hblk { gap: 40px !important; }
       .wa { gap: 40px !important; }
       .subs { gap: 36px !important; }
       .proj { gap: 24px !important; }
@@ -81,225 +87,622 @@
       .hrow .hcol.about { flex: 0 0 508px; width: 508px; }
     }
     @media (max-width: 880px) {
-      .page { align-items: stretch !important; gap: 0 !important; padding-top: 40px !important; margin-top: 0 !important; }
-      .page > *:not(.hblk) { margin-top: clamp(48px,10vw,120px); }
-      .page > .hblk + * { margin-top: 40px !important; }
+      .page { align-items: stretch !important; padding: clamp(40px,10vw,64px) clamp(20px,6vw,32px) 64px !important; gap: clamp(40px,10vw,64px) !important; }
+      .about-inner { padding:0 clamp(20px,6vw,32px) !important; }
       .hrow .hcol.about { width: 100% !important; flex: 0 0 auto !important; }
       .hrow .hcol { gap: 8px !important; }
       .hrow .hcol-based { gap: 16px !important; }
       .sdd-media-wrap { padding-top: 16px !important; padding-bottom: 16px !important; padding-left: 16px !important; padding-right: 16px !important; }
     }
+
+    /* ===== v2 home ===== */
+    .hero-block { align-self: stretch; }
+    .hero-title { font-family:-apple-system,'Inter',sans-serif; font-weight:600; font-size:clamp(30px,4vw,48px); line-height:120%; letter-spacing:-.01em; color:#000; text-wrap:pretty; margin:0; }
+    .hero-hello { font-family:-apple-system,'Inter',sans-serif; font-weight:400; font-size:clamp(18px,2vw,24px); line-height:130%; letter-spacing:.01em; color:#000; }
+    .hero-contact { width:clamp(300px,32vw,440px); flex:0 0 auto; display:flex; flex-direction:column; }
+    .hero-dot { width:13px; height:13px; border-radius:50%; background:#F6C2DE; margin-bottom:clamp(18px,2vw,26px); }
+    .hero-tag { font-family:-apple-system,'Inter',sans-serif; font-weight:400; font-size:16px; line-height:150%; letter-spacing:.01em; color:#000; padding-bottom:16px; border-bottom:1px solid rgba(0,0,0,.28); }
+    .hero-clink { font-family:-apple-system,'Inter',sans-serif; font-weight:400; font-size:16px; line-height:100%; letter-spacing:.01em; color:#000; text-decoration:none; padding:18px 0; border-bottom:1px solid rgba(0,0,0,.28); display:block; transition:opacity .2s; }
+    .hero-clink:hover { opacity:.55; }
+    @media (max-width: 880px) {
+      .hero-2col { grid-template-columns:1fr !important; gap:48px !important; }
+      .hero-block { grid-column:1 / -1 !important; }
+      .hero-contact { grid-column:1 / -1 !important; width:100% !important; margin-top:0 !important; }
+    }
+    .works-label { font-family:-apple-system,'Inter',sans-serif; font-weight:400; font-size:20px; line-height:120%; letter-spacing:.01em; color:#000; }
+    .works-grid { display:flex; flex-direction:column; gap:16px; align-self:stretch; }
+    .works-row { display:flex; flex-direction:row; gap:16px; align-items:stretch; }
+    .works-row .work-card { min-width:0; }
+    .works-row .work-card.wide { flex:3 1 0; }
+    .works-row .work-card.narrow { flex:2 1 0; }
+    .work-card { display:flex; flex-direction:column; background:#FFFFFF; border-radius:8px; overflow:hidden; text-decoration:none; color:inherit; transition:transform .25s ease, box-shadow .25s ease; }
+    .work-card:hover { transform:translateY(-4px); box-shadow:0 12px 32px rgba(0,0,0,.06); }
+    .work-img { position:relative; width:100%; height:clamp(320px,34vw,520px); background:#FFFFFF; background-size:contain; background-position:top center; background-repeat:no-repeat; }
+    /* Typing indicator overlay (WhatsApp card) */
+    .en-g4 { width:85%; height:auto; object-fit:contain; border-radius:12px; border:1px solid rgba(0,0,0,.05); box-shadow:0 3px 12px rgba(0,0,0,.04); display:block; }
+    .en-g4-anim { display:none; }
+    .work-card:hover .en-g4-still { display:none; }
+    .work-card:hover .en-g4-anim { display:block; }
+    .wa-img-wrap { position:relative; height:100%; aspect-ratio:792/617; container-type:inline-size; }
+    .wa-img-wrap img { width:100%; height:100%; object-fit:contain; object-position:top center; display:block; }
+    .typing-bubble { position:absolute; display:flex; gap:0.8cqw; align-items:center; padding:1.5cqw 1.8cqw; background:#FFFFFF; border-radius:2cqw; box-shadow:0 0.2cqw 0.4cqw rgba(0,0,0,.12); opacity:0; transition:opacity .2s ease; pointer-events:none; }
+    .typing-bubble span { width:1cqw; height:1cqw; border-radius:50%; background:#9aa0a6; display:block; }
+    .work-card:hover .typing-bubble { opacity:1; }
+    .work-card:hover .typing-bubble span { animation:typingDot 1.2s infinite ease-in-out; }
+    .work-card:hover .typing-bubble span:nth-child(2) { animation-delay:.18s; }
+    .work-card:hover .typing-bubble span:nth-child(3) { animation-delay:.36s; }
+    @keyframes typingDot { 0%,60%,100%{ transform:translateY(0); opacity:.5; } 30%{ transform:translateY(-4px); opacity:1; } }
+    .work-body { display:flex; flex-direction:column; gap:8px; padding:clamp(28px,3vw,44px); }
+    .work-company { font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text',sans-serif; font-weight:300; font-size:14px; line-height:100%; letter-spacing:.01em; color:#757575; }
+    .work-title { font-family:-apple-system,'Inter',sans-serif; font-weight:300; font-size:clamp(20px,1.9vw,23px); line-height:120%; letter-spacing:.01em; color:#000; }
+    .work-desc { font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text',sans-serif; font-weight:300; font-size:14px; line-height:150%; letter-spacing:.01em; color:#555; margin-top:4px; }
+    .work-card.wide .work-desc { max-width:75%; }
+    .en-card-bg { background:
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.4'/%3E%3C/svg%3E"),
+      radial-gradient(ellipse at 30% 62%, rgba(22,28,34,.55) 0%, transparent 55%),
+      radial-gradient(ellipse at 82% 18%, rgba(205,197,184,.55) 0%, transparent 45%),
+      linear-gradient(158deg, #b9b0a3 0%, #8994a0 26%, #4a5560 56%, #2c3742 100%); }
+    .lz-grad { background:
+      linear-gradient(to top, rgba(34,38,48,.62) 0%, rgba(34,38,48,.28) 34%, transparent 54%),
+      url("./assets/card-lz-bg.png?v=2") center / cover no-repeat; }
+    /* LZ reply reveal-on-hover */
+    .lz-img-wrap { position:relative; width:85%; aspect-ratio:1259/1584; }
+    .lz-img-wrap > img { width:100%; height:100%; display:block; object-fit:contain; }
+    .lz-rev { position:absolute; left:0; right:10.7%; background:#FFFFFF; z-index:2; }
+    .lz-cn { top:43.5%; height:6.5%; opacity:1; transition:opacity .6s ease; }
+    .lz-l1 { top:49%; height:5.5%; transform:scaleX(1); transform-origin:right center; opacity:1; transition:transform 1.3s ease, opacity 0s; }
+    .work-card:hover .lz-cn { opacity:0; }
+    .work-card:hover .lz-l1 { transform:scaleX(0); opacity:0; transition:transform 1.3s ease .6s, opacity .01s linear 1.95s; }
+    @media (max-width: 880px) {
+      .works-row { flex-direction:column !important; }
+      .works-row .work-card.wide, .works-row .work-card.narrow { flex:0 0 auto !important; }
+      .work-img { flex:1 1 auto !important; height:auto !important; min-height:0 !important; overflow:hidden !important; }
+      .lz-rev { display:none !important; }
+      #en-card-img { align-items:center !important; padding-top:0 !important; padding-bottom:0 !important; box-sizing:border-box !important; }
+      #en-card-img .en-g4 { max-height:100% !important; max-width:86% !important; width:auto !important; height:auto !important; }
+      .lz-img-wrap { width:auto !important; height:100% !important; }
+      .ov-body { position:static !important; padding-top:clamp(20px,4vw,28px) !important; }
+      .work-card.wide .work-desc { max-width:100% !important; }
+      .works-row .work-card { height:clamp(600px, 92vw, 820px) !important; }
+      .works-row .work-body { flex:0 0 auto !important; padding-bottom:24px !important; }
+      .hero-title { font-size:clamp(28px,7vw,40px) !important; }
+    }
+
+    /* ===== case study overlay (bottom sheet) ===== */
+    .overlay { position:fixed; inset:0; z-index:1000; background:rgba(20,20,20,.55); opacity:0; pointer-events:none; transition:opacity .35s ease; }
+    .overlay[hidden] { display:none !important; }
+    .overlay.open { opacity:1; pointer-events:auto; }
+    body.overlay-lock { overflow:hidden; }
+    .overlay-sheet { position:absolute; top:clamp(72px,10vh,112px); left:0; right:0; bottom:0; width:100%; background:#FFFFFF; border-radius:24px 24px 0 0; overflow-y:auto; box-shadow:0 -8px 40px rgba(0,0,0,.18); }
+    .overlay-close { position:absolute; top:clamp(24px,4vw,44px); right:clamp(24px,4vw,44px); width:40px; height:40px; border:none; background:transparent; cursor:pointer; z-index:1010; display:flex; align-items:center; justify-content:center; }
+    .overlay-close svg { width:24px; height:24px; }
+    .overlay-inner { width:100%; max-width:1600px; margin:0 auto; padding:clamp(56px,6vw,88px) clamp(32px,8vw,120px) clamp(60px,8vw,120px); }
+    .ov-title { font-family:-apple-system,'Inter',sans-serif; font-weight:400; font-size:clamp(30px,4vw,48px); line-height:118%; letter-spacing:-.01em; color:#000; margin:0; }
+    .ov-sub { font-family:-apple-system,'Inter',sans-serif; font-weight:300; font-size:clamp(16px,1.6vw,18px); line-height:150%; color:#000; margin:12px 0 0; }
+    .ov-imgs { display:flex; flex-direction:column; gap:clamp(20px,2vw,32px); margin-top:clamp(40px,5vw,72px); }
+    .ov-img { width:100%; height:auto; display:block; border-radius:16px; }
+    .ov-section { margin-top:clamp(64px,8vw,120px); max-width:900px; }
+    .ov-h2 { font-family:-apple-system,'Inter',sans-serif; font-weight:400; font-size:clamp(22px,2.2vw,28px); line-height:120%; letter-spacing:.01em; color:#000; margin:0 0 20px; }
+    .ov-h3 { font-family:-apple-system,'Inter',sans-serif; font-weight:500; font-size:16px; line-height:130%; letter-spacing:.01em; color:#000; margin:24px 0 8px; }
+    .ov-p { font-family:-apple-system,'Inter',sans-serif; font-weight:300; font-size:16px; line-height:160%; letter-spacing:.01em; color:#000; margin:0 0 14px; }
+    /* LZ Books overlay placeholders + theme toggle */
+    .bk-ph { width:100%; background:#0A0A0A; border-radius:16px; transition:background .3s ease; }
+    .bk-ph.dark { background:#141B23; }
+    #bk-theme-ph { background:#E6E5E4; }
+    #bk-theme-ph.dark { background:#141B23; }
+    .bk-grid2 { display:grid; grid-template-columns:1fr 1fr; gap:clamp(16px,2vw,24px); }
+    @media (max-width:880px){ .bk-grid2 { grid-template-columns:1fr; } }
+    .bk-toggle { display:inline-flex; align-items:center; gap:12px; cursor:pointer; margin-top:20px; user-select:none; }
+    .bk-toggle input { position:absolute; opacity:0; width:0; height:0; }
+    .bk-toggle-track { width:46px; height:26px; border-radius:13px; background:#ccc; position:relative; transition:background .25s ease; flex:none; }
+    .bk-toggle-knob { position:absolute; top:3px; left:3px; width:20px; height:20px; border-radius:50%; background:#fff; box-shadow:0 1px 3px rgba(0,0,0,.25); transition:transform .25s ease; }
+    .bk-toggle input:checked + .bk-toggle-track { background:#0B0B0D; }
+    .bk-toggle input:checked + .bk-toggle-track .bk-toggle-knob { transform:translateX(20px); }
+    .bk-toggle-label { font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text',sans-serif; font-weight:400; font-size:14px; color:#555; }
+    .en-grid { display:grid; grid-template-columns:repeat(5,1fr); gap:clamp(16px,2vw,24px); align-items:stretch; }
+    .en-cell { background:#F7F6F4; border-radius:12px; overflow:hidden; height:clamp(320px,34vw,520px); display:flex; align-items:flex-start; justify-content:center; }
+    .en-cell img { width:100%; height:100%; object-fit:contain; object-position:top center; display:block; }
+    .en-cell.c3 { grid-column:span 3; }
+    .en-cell.c2 { grid-column:span 2; }
+    .phone-wrap { container-type:inline-size; }
+    .phone-mock { position:relative; background:#0b0b0d; border-radius:18cqw 18cqw 0 0; padding:3.2cqw 3.2cqw 0; box-shadow:0 14px 44px rgba(0,0,0,.22); }
+    .phone-mock .phone-screen { position:relative; aspect-ratio:750/800; overflow:hidden; border-radius:15cqw 15cqw 0 0; background:#0b0b0d; }
+    .phone-mock .phone-screen img { width:100.5%; height:auto; display:block; margin-left:-0.25%; margin-top:-11.5%; }
+    .phone-mock .phone-screen .screen-dim { position:absolute; top:0; left:0; right:0; height:22cqw; background:#434343; z-index:1; }
+    .phone-mock .notch { position:absolute; top:5.5cqw; left:50%; transform:translateX(-50%); width:30cqw; height:8.5cqw; background:#0b0b0d; border-radius:5cqw; z-index:2; }
+    @media (max-width:880px){ .en-grid { grid-template-columns:1fr; } .en-cell, .en-cell.c2, .en-cell.c3 { grid-column:auto; height:clamp(240px,60vw,380px); } }
+
+    /* ===== About me ===== */
+    .about-label { font-family:-apple-system,'Inter',sans-serif; font-weight:400; font-size:clamp(24px,2.4vw,30px); line-height:120%; letter-spacing:.01em; color:#000; }
+    .about-grid { align-self:stretch; display:grid; grid-template-columns:2.5fr 0.5fr 2fr; gap:clamp(24px,3vw,48px); align-items:start; }
+    .about-lead { grid-column:1; }
+    .timeline { grid-column:3; }
+    .about-lead h3 { font-family:-apple-system,'Inter',sans-serif; font-weight:400; font-size:20px; line-height:120%; color:#000; margin:0 0 clamp(20px,2vw,28px); }
+    .about-lead p { font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text',sans-serif; font-weight:300; font-size:14px; line-height:150%; letter-spacing:.01em; color:#555; margin:0 0 clamp(16px,1.4vw,20px); max-width:560px; }
+    .about-hello { display:block; font-family:-apple-system,'Inter',sans-serif; font-weight:600; font-size:16px; line-height:150%; color:#000; margin-top:clamp(8px,1vw,14px); }
+    /* timeline (divider style) */
+    .timeline { position:relative; }
+    .tl-item { padding-bottom:clamp(18px,2vw,26px); margin-bottom:clamp(18px,2vw,26px); border-bottom:1px solid rgba(0,0,0,.28); }
+    .tl-role { display:block; font-family:-apple-system,'Inter',sans-serif; font-weight:400; font-size:16px; line-height:130%; color:#000; }
+    .tl-year { display:block; font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text',sans-serif; font-weight:300; font-size:14px; line-height:150%; letter-spacing:.01em; color:#555; margin-top:8px; }
+    @media (max-width:880px){ .note-wrap { width:70% !important; } }
+    @media (max-width:880px){ .about-grid { grid-template-columns:1fr; gap:clamp(40px,8vw,64px); } .about-grid .timeline, .about-grid .about-lead { grid-column:1 / -1 !important; } .about-grid .timeline { order:1; } .about-grid .about-lead { order:2; } }
   </style>
 </head>
 <body>
 <div style="width:100%; display:flex; flex-direction:column; align-items:center; background:#F7F6F4; min-height:100vh;">
-  <div id="topbar" style="position:sticky; top:0; z-index:100; width:100%; display:flex; justify-content:center; background:#F7F6F4; border-bottom:0.5px solid transparent; transition:border-color .25s;">
-    <div class="topnav" style="width:100%; max-width:1440px; padding:16px clamp(16px,3vw,32px);">
-      <a href="#" onclick="window.scrollTo({top:0,behavior:'smooth'}); return false;" style="font-family: 'Raleway',sans-serif; font-weight: 400; font-size: 18px; line-height: 100%; letter-spacing: .01em; color: #000; text-decoration: none;">Jean Yang</a>
-      <div class="navlinks">
-        <a href="mailto:jeanyang21@gmail.com" style="font-family: -apple-system,'Inter',sans-serif; font-weight: 300; font-size: 14px; line-height: 100%; letter-spacing: .01em; color: #757575; text-decoration:none;">jeanyang21@gmail.com</a>
-        <a href="https://www.linkedin.com/in/jeanchingtingyang/" target="_blank" rel="noopener noreferrer" style="font-family: -apple-system,'Inter',sans-serif; font-weight: 300; font-size: 14px; line-height: 100%; letter-spacing: .01em; color: #757575; text-decoration:none;">Linkedin</a>
-        <a href="https://drive.google.com/file/d/1XFe7n-fp3G3Mny63jGZ3xCl7m-svc0vI/view?usp=sharing" target="_blank" rel="noopener noreferrer" style="font-family: -apple-system,'Inter',sans-serif; font-weight: 300; font-size: 14px; line-height: 100%; letter-spacing: .01em; color: #757575; text-decoration:none;">Resume</a>
+  <!-- ===================== HERO SECTION ===================== -->
+  <div class="hero-section tex" style="width:100%; background:#FFFFFF; display:flex; justify-content:center;">
+    <div class="hero-2col" style="width:100%; max-width:1600px; padding:clamp(56px,8vw,120px) clamp(32px,8vw,120px) clamp(80px,10vw,160px); display:grid; grid-template-columns:2.5fr 0.5fr 2fr; gap:clamp(24px,3vw,48px); align-items:flex-start;">
+      <!-- Left: header (col 1) -->
+      <div data-reveal="" class="hero-block" style="grid-column:1; min-width:0; display:flex; flex-direction:column; gap:clamp(28px,3.5vw,52px);">
+        <h1 class="hero-title">Hello,</h1>
+        <h1 class="hero-title">I'm Jean, a product designer based in the Bay area, California</h1>
       </div>
-      <div class="navmenu">
-        <button type="button" class="navmenu-btn" id="navmenu-btn" aria-label="Menu" aria-expanded="false" aria-haspopup="true">
-          <span></span><span></span><span></span>
-        </button>
-        <div class="navmenu-panel" id="navmenu-panel" role="menu" hidden>
-          <a class="navmenu-item" role="menuitem" href="mailto:jeanyang21@gmail.com">jeanyang21@gmail.com</a>
-          <a class="navmenu-item" role="menuitem" href="https://www.linkedin.com/in/jeanchingtingyang/" target="_blank" rel="noopener noreferrer">Linkedin</a>
-          <a class="navmenu-item" role="menuitem" href="https://drive.google.com/file/d/1XFe7n-fp3G3Mny63jGZ3xCl7m-svc0vI/view?usp=sharing" target="_blank" rel="noopener noreferrer">Resume</a>
+      <!-- Right: contact (col 3) -->
+      <div class="hero-contact" style="grid-column:3; width:auto; margin-top:0;">
+        <div class="note-wrap" style="position:relative; width:90%; margin-bottom:clamp(24px,3vw,40px);">
+          <img src="./assets/note.png?v=3" alt="I bring strategy, systems thinking, and craft to create delightful experiences." style="width:100%; height:auto; display:block;">
         </div>
+        <a class="hero-clink" href="mailto:jeanyang21@gmail.com">Email</a>
+        <a class="hero-clink" href="https://www.linkedin.com/in/jeanchingtingyang/" target="_blank" rel="noopener noreferrer">Linkedin</a>
+        <a class="hero-clink" href="https://drive.google.com/file/d/1XFe7n-fp3G3Mny63jGZ3xCl7m-svc0vI/view?usp=sharing" target="_blank" rel="noopener noreferrer">Resume</a>
       </div>
     </div>
   </div>
-  <div class="page" style="width: 100%; max-width: 1440px; background: #F7F6F4; display: flex; flex-direction: column; gap: clamp(48px,10vw,120px); padding: clamp(44px,6vw,80px) clamp(16px,3vw,32px) clamp(42px,7vw,114px); align-items: flex-start; margin-top: 56px;">
 
-    <!-- ===================== HEADER ===================== -->
-    <div data-reveal="" class="hblk" style="display:flex; flex-direction:column; gap:clamp(24px,5vw,60px); align-self:stretch;">
-      <span style="font-family:'Raleway',sans-serif; font-weight:400; font-size:clamp(32px,5.4vw,60px); line-height:108%; color:#000; text-wrap:pretty; align-self:stretch;">I build products across scales from 0 to 1 initiatives to experiences used by billions of people.</span>
-      <div style="height:0; border-top:0.5px solid rgba(0,0,0,.5); align-self:stretch;"></div>
-      <div class="hrow" style="gap: 52px; justify-content: flex-start;">
-        <div class="hcol about">
-          <span style="font-family:'Raleway',sans-serif; font-weight:300; font-size:16px; line-height:100%; letter-spacing:.01em; color:#000;">About</span>
-          <span style="font-family:-apple-system,'Inter',sans-serif; font-weight:300; font-size:16px; line-height:150%; letter-spacing:.01em; color:#000; text-wrap:pretty;"><div>Senior product designer with 8+ years of experience focused on craft and strategy. Building cross-platform experiences that help people communicate, build relationships, and stay close to what matters.<br></div></span>
-        </div>
-        <div class="hcol hcol-based">
-          <span style="font-family:'Raleway',sans-serif; font-weight:300; font-size:16px; line-height:100%; letter-spacing:.01em; color:#000;">Based</span>
-          <span style="font-family:-apple-system,'Inter',sans-serif; font-weight:300; font-size:16px; line-height:100%; letter-spacing:.01em; color:#000;">SF Bay Area</span>
-        </div>
-      </div>
-      <div style="height:0; border-top:0.5px solid rgba(0,0,0,.5); align-self:stretch;"></div>
-    </div>
+  <div class="page tex" style="width: 100%; max-width: 1600px; background: #F7F6F4; display: flex; flex-direction: column; gap: clamp(24px,3vw,40px); padding: clamp(64px,8vw,110px) clamp(32px,8vw,120px) clamp(42px,7vw,114px); align-items: flex-start; margin-top: 0;">
 
-    <!-- ===================== WHATSAPP ===================== -->
-    <div class="wa" style="display:flex; flex-direction:column; gap:clamp(32px,4vw,48px); align-self:stretch;">
-      <div data-reveal="" style="max-width:894px; display:flex; flex-direction:column; gap:16px;">
-        <span style="font-family:'Raleway',sans-serif; font-weight:300; font-size:18px; line-height:100%; letter-spacing:.01em; color:#000;">Meta&nbsp;</span>
-        <span style="font-family:'Raleway',sans-serif; font-weight:400; font-size:clamp(34px,5vw,50px); line-height:100%; letter-spacing:.02em; color:#000;">WhatsApp</span>
-        <span style="font-family:-apple-system,'Inter',sans-serif; font-weight:300; font-size:16px; line-height:150%; letter-spacing:.01em; color:#000; text-wrap:pretty;">Designed and shipped core messaging experiences for 3B+ users worldwide</span>
-      </div>
+    <!-- ===================== SELECTED WORKS ===================== -->
+    <div data-reveal="" style="align-self:stretch; display:flex; flex-direction:column; gap:clamp(24px,3vw,40px);">
+      <span class="works-label">Selected works</span>
+      <div class="works-grid">
 
-      <!-- Hero image -->
-      <div data-reveal="">
-        <img src="./assets/wa-hero.png?v=2" alt="WhatsApp experiences" style="width:100%; height:auto; display:block; border-radius:12px;">
-      </div>
-
-      <!-- Messaging experience -->
-      <div data-reveal="" style="max-width:894px; display:flex; flex-direction:column; gap:16px; margin-top:clamp(24px,4vw,48px);">
-        <span style="font-family:'Raleway',sans-serif; font-weight:400; font-size:24px; line-height:100%; letter-spacing:.01em; color:#000;">Messaging experience</span>
-        <span style="font-family:-apple-system,'Inter',sans-serif; font-weight:300; font-size:16px; line-height:150%; letter-spacing:.01em; color:#000; white-space:pre-line;">I focused on the <b style="font-weight:700">core messaging experience</b>—from typing to reading messages. I improved the composer, link previews, and @mention visibility, and optimized group creation to drive a 3% increase in completion rate and <b style="font-weight:700">measurable MAU growth</b>.</span>
-      </div>
-
-      <!-- Notification Strategy -->
-      <div data-reveal="" style="max-width:894px; display:flex; flex-direction:column; gap:16px; margin-top:clamp(24px,4vw,48px);">
-        <span style="font-family:'Raleway',sans-serif; font-weight:400; font-size:24px; line-height:100%; letter-spacing:.01em; color:#000;">Notification Strategy</span>
-        <span style="font-family:-apple-system,'Inter',sans-serif; font-weight:300; font-size:16px; line-height:150%; letter-spacing:.01em; color:#000; white-space:pre-line;">No team had systematically owned the notification experience as a whole, leaving us with little data, research, or <b style="font-weight:700">clear direction</b>.
-
-I partnered with cross-functional teams to build the strategy from the ground up, leading workshops, auditing the end-to-end notification experience, running rapid experiments that uncovered what was actually broken. The work uncovered opportunities that shaped the <b style="font-weight:700">long-term roadmap.</b></span>
-
-        <!-- AI workflow expandable -->
-        <details class="ai-workflow" style="margin-top:16px;">
-          <summary style="display:flex; align-items:center; gap:8px; cursor:pointer; list-style:none; font-family:'Raleway',sans-serif; font-weight:400; font-size:16px; line-height:100%; letter-spacing:.01em; color:#000; user-select:none;">
-            <span>✨ A peek at my AI workflow</span>
-            <svg class="ai-chev" width="14" height="14" viewBox="0 0 14 14" fill="none" style="transition:transform .2s;"><path d="M3 5l4 4 4-4" stroke="#000" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </summary>
-          <div style="margin-top:20px; display:flex; flex-direction:column; gap:20px;">
-            <span style="font-family:-apple-system,'Inter',sans-serif; font-weight:300; font-size:16px; line-height:150%; letter-spacing:.01em; color:#000;">To move and learn faster, I leveraged <b style="font-weight:700">AI tools</b> throughout the design process, including building a notification prototype generator that enabled rapid testing and alignment before backend implementation.</span>
-            <div>
-              <video src="./assets/wa-ai.mp4" autoplay loop muted playsinline style="width:100%; height:auto; display:block; border-radius:12px; -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 82%, transparent 100%); mask-image: linear-gradient(to bottom, #000 0%, #000 82%, transparent 100%);"></video>
+        <!-- Row 1: 3 : 2 -->
+        <div class="works-row">
+          <!-- Card 1: WhatsApp — Core messaging experience -->
+          <a class="work-card wide tex-card" href="#" onclick="openOverlay('wa-overlay'); return false;" style="position:relative; background:url(./assets/card-wa3.png?v=2) center/cover no-repeat;">
+            <div class="work-img" style="background:transparent; display:flex; justify-content:center; align-items:flex-start;">
+              <div class="wa-img-wrap">
+                <img src="./assets/card-wa.png?v=4" alt="WhatsApp chat">
+                <div class="typing-bubble" style="left:26%; top:31%;"><span></span><span></span><span></span></div>
+              </div>
             </div>
-          </div>
-        </details>
-      </div>
-
-      <!-- Reach out link -->
-      <div data-reveal="" style="margin-top:clamp(16px,3vw,32px);">
-        <a href="mailto:jeanyang21@gmail.com" style="font-family:'Raleway',sans-serif; font-weight:400; font-size:24px; line-height:100%; letter-spacing:.01em; color:#000; text-decoration:none; border-bottom:1px solid #000; padding-bottom:4px; display:inline-flex; align-items:center; gap:8px;">Reach out to learn more <span style="font-size:20px;">↗</span></a>
-      </div>
-    </div>
-
-    <style>
-      details.ai-workflow > summary::-webkit-details-marker { display: none; }
-      details.ai-workflow[open] .ai-chev { transform: rotate(180deg); }
-    </style>
-
-    <div style="height:0; border-top:0.5px solid rgba(0,0,0,.5); align-self:stretch;"></div>
-
-    <!-- ===================== TAX MESSAGING TOOL ===================== -->
-    <div class="proj" style="display:flex; flex-direction:column; gap:clamp(32px,7vw,80px); align-self:stretch;">
-      <div data-reveal="" style="display:flex; flex-direction:column; gap:12px;">
-        <span style="font-family:'Raleway',sans-serif; font-weight:300; font-size:18px; line-height:100%; letter-spacing:.01em; color:#000;">Legalzoom&nbsp;</span>
-        <span style="font-family:'Raleway',sans-serif; font-weight:400; font-size:clamp(34px,5vw,50px); line-height:118%; letter-spacing:.04em; color:#000;">Messaging Platform</span>
-      </div>
-      <div class="projbody" style="display:flex; flex-direction:column; gap:clamp(24px,5vw,60px); align-self:stretch;">
-        <div data-reveal="" class="meta-row">
-          <div class="txt" style="max-width:894px;">
-            <span style="font-family: -apple-system, Inter, sans-serif; font-weight: 300; font-size: 16px; line-height: 150%; letter-spacing: 0.01em; color: rgb(0, 0, 0); white-space: pre-line;">LegalZoom connects small business owners with tax experts throughout the filing journey, But the <b style="font-weight: 700">communication between them was broken</b>.
-&nbsp;
-Everything ran through email: customers didn't know who would respond, experts lacked context, and every handoff meant starting over.&nbsp;
-
-As the sole designer, I rebuilt it as <b style="font-weight: 700">one persistent conversation</b>. Customers got a continuous thread with a named expert, so they always knew who they were talking to. Experts got an integrated workspace that surfaced full history and context in one place. NPS moved from −18 to +57.</span>
-          </div>
-          <div class="stats" style="gap: 24px">
-            <div style="display: flex; flex-direction: column; gap: 16px">
-              <span style="font-family: 'Raleway',sans-serif; font-weight: 400; font-size: clamp(38px,6vw,50px); line-height: 100%; letter-spacing: -.03em; color: #000">+75 pts</span>
-              <span style="font-family:'Raleway',sans-serif; font-weight:300; font-size:16px; line-height:100%; letter-spacing:-.03em; color:#000;"><span style="white-space: pre-wrap;">NPS Increase</span></span>
+            <div class="work-body ov-body" style="position:absolute; left:0; right:0; bottom:0; background:linear-gradient(to top, rgba(0,0,0,.55) 0%, rgba(0,0,0,.25) 60%, transparent 100%); padding-top:clamp(56px,7vw,90px);">
+              <span class="work-company" style="color:rgba(255,255,255,.85);">WhatsApp</span>
+              <span class="work-title" style="color:#FFFFFF;">Core Messaging Experience</span>
+              <span class="work-desc" style="color:rgba(255,255,255,.85);">Designed core messaging experiences for <strong style="font-weight:600;">3B+</strong> users, spanning group creation, messaging, and notifications, with measurable impact on <strong style="font-weight:600;">MAU growth</strong>.</span>
             </div>
-            <div style="display: flex; flex-direction: column; gap: 12px">
-              <span style="font-family: 'Raleway',sans-serif; font-weight: 400; font-size: clamp(38px,6vw,50px); line-height: 100%; letter-spacing: -.03em; color: #000">0-1</span>
-              <span style="font-family:'Raleway',sans-serif; font-weight:300; font-size:16px; line-height:100%; letter-spacing:-.03em; color:#000;">Product</span>
+          </a>
+
+          <!-- Card 2: Legalzoom — Messaging Platform -->
+          <a class="work-card narrow lz-grad tex-card" href="#" onclick="openOverlay('lz-overlay'); return false;">
+            <div class="work-img" id="lz-card-img" style="background:transparent; height:auto; display:flex; justify-content:center; align-items:flex-start; padding:8% 0 5%; box-sizing:border-box;">
+              <div class="lz-img-wrap">
+                <img src="./assets/card-lz.png?v=5" alt="Expert Messaging">
+                <div class="lz-rev lz-cn"></div>
+                <div class="lz-rev lz-l1"></div>
+              </div>
             </div>
-          </div>
+            <div class="work-body">
+              <span class="work-company" style="color:rgba(255,255,255,.85);">Legalzoom</span>
+              <span class="work-title" style="color:#FFFFFF;">Expert Messaging</span>
+              <span class="work-desc" style="color:rgba(255,255,255,.85);">Designed a 0-to-1 messaging experience connecting customers and tax experts, increasing NPS by <strong style="font-weight:600;">75 points</strong>.</span>
+            </div>
+          </a>
         </div>
-        <div data-reveal="" class="media-desk">
-          <div class="imgbox" style="align-self:stretch; aspect-ratio:3924/1980; border-radius:12px; background:url(./assets/tax-msg.png?v=3) top center/contain no-repeat;"></div>
+
+        <!-- Row 2: 2 : 3 -->
+        <div class="works-row">
+          <!-- Card 3: Evernote — Natural language -->
+          <a class="work-card narrow en-card-bg" href="#" onclick="openOverlay('en-overlay'); return false;" style="position:relative;">
+            <div class="work-img" id="en-card-img" style="background:transparent; display:flex; align-items:center; justify-content:center; min-height:clamp(500px,53vw,820px); padding-bottom:clamp(120px,10.5vw,155px); box-sizing:border-box;"><img class="en-g4 en-g4-still" src="./assets/enov-g4-still.png?v=3" alt="Create new task"><img class="en-g4 en-g4-anim" src="./assets/enov-g4.gif" alt="Create new task"></div>
+            <div class="work-body ov-body" style="position:absolute; left:0; right:0; bottom:0; background:linear-gradient(to top, rgba(0,0,0,.5) 0%, rgba(0,0,0,.2) 60%, transparent 100%); padding-top:clamp(56px,7vw,90px);">
+              <span class="work-company" style="color:rgba(255,255,255,.85);">Evernote</span>
+              <span class="work-title" style="color:#FFFFFF;">Natural Language Due Dates</span>
+              <span class="work-desc" style="color:rgba(255,255,255,.85);">Designed a natural language experience that lets people set due dates as they write, making task planning faster and more seamless across desktop, tablet, and mobile.</span>
+            </div>
+          </a>
+
+          <!-- Card 4: Legalzoom — LZ Books -->
+          <a class="work-card wide tex-card" href="#" onclick="openOverlay('bk-overlay'); return false;" style="position:relative; background:#E8E8E8;">
+            <div class="work-img" style="background:url(./assets/card-bk.png?v=5) center top / 100% auto no-repeat; background-origin:content-box; padding-top:10%; box-sizing:border-box; min-height:clamp(500px,53vw,820px);"></div>
+            <div class="work-body" style="position:absolute; left:0; right:0; bottom:0; background:linear-gradient(to top, rgba(0,0,0,.72) 0%, rgba(0,0,0,.5) 40%, rgba(0,0,0,.2) 72%, transparent 100%); padding-top:clamp(90px,11vw,150px);">
+              <span class="work-company" style="color:rgba(255,255,255,.85);">LegalZoom Books</span>
+              <span class="work-title" style="color:#FFFFFF;">New Native App Experience</span>
+              <span class="work-desc" style="color:rgba(255,255,255,.85);">Designed and launched a new native app that brought everyday financial tasks to mobile for small business owners, reaching <strong style="font-weight:600;">34%</strong> adoption among existing users.</span>
+            </div>
+          </a>
         </div>
-        <div data-reveal="" class="media-mob">
-          <div class="mimg" style="aspect-ratio:2482/1980; background-image:url(./assets/m-tax-msg1.png);"></div>
-          <div class="mimg" style="aspect-ratio:2482/1980; background-image:url(./assets/m-tax-msg2.png);"></div>
-        </div>
-        <div data-reveal="" style="margin-top:clamp(16px,3vw,32px);">
-          <a href="./lzmessaging" style="font-family:'Raleway',sans-serif; font-weight:400; font-size:24px; line-height:100%; letter-spacing:.01em; color:#000; text-decoration:none; border-bottom:1px solid #000; padding-bottom:4px; display:inline-flex; align-items:center; gap:8px;">See more details <span style="font-size:20px;">→</span></a>
-        </div>
+
       </div>
     </div>
 
-    <div style="height:0; border-top:0.5px solid rgba(0,0,0,.5); align-self:stretch;"></div>
-
-    <!-- ===================== LZ BOOKS ===================== -->
-    <div class="proj" style="display: flex; flex-direction: column; gap: 36px; align-self: stretch">
-      <div data-reveal="" style="display:flex; flex-direction:column; gap:12px;">
-        <span style="font-family:'Raleway',sans-serif; font-weight:300; font-size:18px; line-height:100%; letter-spacing:.01em; color:#000;">Legalzoom&nbsp;</span>
-        <span style="font-family:'Raleway',sans-serif; font-weight:400; font-size:clamp(34px,5vw,50px); line-height:118%; letter-spacing:.04em; color:#000;">LZ Books: Native iOS MVP</span>
-      </div>
-      <div class="projbody" style="display:flex; flex-direction:column; gap:clamp(24px,5vw,60px); align-self:stretch;">
-        <div data-reveal="" class="meta-row">
-          <div class="txt" style="max-width:894px;">
-            <span style="font-family:-apple-system,'Inter',sans-serif; font-weight:300; font-size:16px; line-height:150%; letter-spacing:.01em; color:#000; white-space:pre-line;"><p>25% of LegalZoom users handle their finances on their phones, but they're stuck on mobile web, which creates friction at every stage, from login to daily use.
-<span style="white-space: pre-wrap;">
-As the sole designer, I led the design and launch of a native iOS MVP in four months, <b style="font-weight:700">building the product's foundational mobile design system</b> and using native capabilities like biometric login, receipt capture, and mileage tracking to do what the web app couldn't.</span></p></span>
+    <!-- ===================== ABOUT ME ===================== -->
+    <div data-reveal="" class="tex" style="background:#FFFFFF; width:100vw; margin-left:calc(50% - 50vw); margin-right:calc(50% - 50vw); margin-top:clamp(48px,6vw,88px); margin-bottom:calc(-1*clamp(42px,7vw,114px)); padding:clamp(56px,7vw,100px) 0 clamp(80px,10vw,160px);">
+      <div class="about-inner" style="max-width:1600px; margin:0 auto; padding:0 clamp(32px,8vw,120px); box-sizing:border-box;">
+      <div class="about-grid">
+        <!-- Left: about Jean -->
+        <div class="about-lead">
+          <h3>A little more about Jean</h3>
+          <p>Jean is a Senior Product Designer with 8+ years of experience and a strong foundation in visual and interaction design. She is passionate about building products that help people communicate, connect, and build relationships.</p>
+          <p>She has experience designing products across mobile, desktop, and tablet at scale, and excels at bringing cross-functional teams together to turn complex, ambiguous problems into thoughtful experiences.</p>
+          <p>She is always curious about new AI tools and workflows, exploring ways to make the design process faster, more collaborative, and more effective.</p>
+          <span class="about-hello">Want to know more? <a href="mailto:jeanyang21@gmail.com" style="color:inherit; text-decoration:underline; text-underline-offset:3px;">Say hello.</a></span>
+        </div>
+        <!-- Right: experience timeline -->
+        <div class="timeline">
+          <div class="tl-item">
+            <span class="tl-role">Product designer @WhatsApp</span>
+            <span class="tl-year">2025–2026</span>
           </div>
-          <div class="stats" style="gap: 24px">
-            <div style="display: flex; flex-direction: column; gap: 16px">
-              <span style="font-family:'Raleway',sans-serif; font-weight:500; font-size:clamp(38px,6vw,50px); line-height:100%; letter-spacing:-.03em; color:#000;"><span style="white-space: pre-wrap; font-weight: 400">1st</span></span>
-              <span style="font-family:'Raleway',sans-serif; font-weight:300; font-size:16px; line-height:100%; letter-spacing:-.03em; color:#000;"><span style="white-space: pre-wrap;">Mobile design System</span></span>
-            </div>
-            <div style="display: flex; flex-direction: column; gap: 16px">
-              <span style="font-family: 'Raleway',sans-serif; font-weight: 400; font-size: clamp(38px,6vw,50px); line-height: 100%; letter-spacing: -.03em; color: #000">34%</span>
-              <span style="font-family:'Raleway',sans-serif; font-weight:300; font-size:16px; line-height:100%; letter-spacing:-.03em; color:#000;"><span style="white-space: pre-wrap;">Web-to-Mobile Adoption</span></span>
-            </div>
+          <div class="tl-item">
+            <span class="tl-role">Sr. product designer @LegalZoom</span>
+            <span class="tl-year">2023–2025</span>
           </div>
-        </div>
-        <div data-reveal="" class="imgbox media-desk" style="align-self:stretch; aspect-ratio:1124/609; border-radius:12px; background:url(./assets/lz-wide.png) top center/cover no-repeat;"></div>
-        <div data-reveal="" class="imgrow media-desk">
-          <div class="imgbox" style="flex:1 1 0; aspect-ratio:556/425; border-radius:12px; background:url(./assets/lz-1.png) top center/cover no-repeat;"></div>
-          <div class="imgbox" style="flex:1 1 0; aspect-ratio:556/425; border-radius:12px; background:url(./assets/lz-2.png) top center/cover no-repeat;"></div>
-        </div>
-        <div data-reveal="" class="media-mob">
-          <div class="mimg" style="aspect-ratio:2644/1402; border-radius:12px; background-image:url(./assets/m-lz1.png);"></div>
-          <div class="mimg" style="aspect-ratio:2616/969; background-image:url(./assets/m-lz2.png);"></div>
-        </div>
-        <div data-reveal="" style="margin-top:clamp(16px,3vw,32px);">
-          <span style="font-family:'Raleway',sans-serif; font-weight:400; font-size:24px; line-height:100%; letter-spacing:.01em; color:#B0B0B0; border-bottom:1px solid #B0B0B0; padding-bottom:4px; display:inline-block;">More details coming soon</span>
+          <div class="tl-item">
+            <span class="tl-role">Product designer @Evernote</span>
+            <span class="tl-year">2021–2023</span>
+          </div>
+          <div class="tl-item">
+            <span class="tl-role">Visual designer @Fjord</span>
+            <span class="tl-year">2018–2021</span>
+          </div>
         </div>
       </div>
-    </div><div style="height:0; border-top:0.5px solid rgba(0,0,0,.5); align-self:stretch;"></div><div class="proj" style="display: flex; flex-direction: column; gap: 36px; align-self: stretch">
-      <div data-reveal="" style="display:flex; flex-direction:column; gap:12px;">
-        <span style="font-family:'Raleway',sans-serif; font-weight:300; font-size:18px; line-height:100%; letter-spacing:.01em; color:#000;">Evernote&nbsp;</span>
-        <span style="font-family:'Raleway',sans-serif; font-weight:400; font-size:clamp(34px,5vw,50px); line-height:118%; letter-spacing:.04em; color:#000;">Natural Language Due Dates</span>
-      </div>
-      <div class="projbody" style="display:flex; flex-direction:column; gap:clamp(24px,5vw,60px); align-self:stretch;">
-        <div data-reveal="" class="meta-row">
-          <div class="txt" style="max-width:894px;">
-            <span style="font-family:-apple-system,'Inter',sans-serif; font-weight:300; font-size:16px; line-height:150%; letter-spacing:.01em; color:#000; white-space:pre-line;"><p>Setting due dates is the primary way our users stay organized and engage with tasks, but clicking through traditional calendars creates a lot of unnecessary friction.   
-
-I led the end-to-end design of an intuitive input model that lets users simply type the way they naturally speak. The system works in the background to instantly <b style="font-weight: 700">recognize over 35 different date formats</b>, turning text into task data. This made creating tasks with due dates faster and more seamless.</p></span>
-          </div>
-        </div>
-        <div data-reveal="" class="sdd-media-wrap" style="align-self: stretch; border-radius: 8px; background-color: #e8eced; padding-top: 56px; padding-bottom: 56px; padding-left: clamp(56px,6vw,100px); padding-right: clamp(56px,6vw,100px)">
-          <div class="media-desk" style="display:flex; flex-direction:row; gap:clamp(24px,3vw,48px); align-items:stretch; justify-content:center;">
-            <div style="flex:1.602 1 0; aspect-ratio:2331/1455; border-radius:12px; overflow:hidden; box-shadow:0 0 0 0 rgba(0,0,0,.14);">
-              <img src="./assets/sdd-desktop.gif" alt="Smart due date on desktop" style="display:block; width:100%; height:100%; object-fit:cover;">
-            </div>
-            <div style="flex:0.560 1 0; aspect-ratio:746/1331; border-radius:12px; overflow:hidden; box-shadow:0 0 0 0 rgba(0,0,0,.14);">
-              <img src="./assets/sdd-mobile2.gif" alt="Smart due date on mobile" style="display:block; width:100%; height:100%; object-fit:cover;">
-            </div>
-          </div>
-          <div class="media-mob" style="flex-direction:column; gap:20px; align-items:flex-start;">
-            <img src="./assets/sdd-desktop.gif" alt="Smart due date on desktop" style="width: 100%; border-radius: 12px; box-shadow: 0px 0px 0px 0px rgba(0,0,0,.14)">
-          </div>
-        </div>
-        <div data-reveal="" style="margin-top:clamp(16px,3vw,32px);">
-          <span style="font-family:'Raleway',sans-serif; font-weight:400; font-size:24px; line-height:100%; letter-spacing:.01em; color:#B0B0B0; border-bottom:1px solid #B0B0B0; padding-bottom:4px; display:inline-block;">More details coming soon</span>
-        </div>
       </div>
     </div>
-
-    
 
   </div>
 </div>
+
+<!-- ===================== WHATSAPP CASE STUDY OVERLAY ===================== -->
+<div id="wa-overlay" class="overlay" hidden onclick="if(event.target===this)closeOverlay('wa-overlay')">
+  <div class="overlay-sheet">
+  <button class="overlay-close" aria-label="Close" onclick="closeOverlay('wa-overlay')">
+    <svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.6" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+  </button>
+  <div class="overlay-inner">
+    <h1 class="ov-title">WhatsApp core messaging experience</h1>
+    <p class="ov-sub">Designed and shipped core messaging experiences for 3B+ users worldwide</p>
+
+    <div class="ov-imgs">
+      <img class="ov-img" src="./assets/wa-all.png?v=2" alt="WhatsApp core messaging screens">
+    </div>
+
+    <div class="ov-section">
+      <h2 class="ov-h2">My role</h2>
+      <p class="ov-p">Worked on the Core Messaging team, designing and evolving experiences across the messaging journey. Owned projects end-to-end, from identifying opportunities and exploring concepts through prototyping, cross-functional alignment, and launch.</p>
+      <p class="ov-p">Partnered closely with Product, Engineering, Research, and Data Science to improve core messaging experiences.</p>
+    </div>
+
+    <div class="ov-section">
+      <h2 class="ov-h2">Key Focus areas</h2>
+      <h3 class="ov-h3">Messaging Experience</h3>
+      <p class="ov-p">Improved core interactions across the messaging journey, with a focus on making communication faster, clearer, and more intuitive.</p>
+      <h3 class="ov-h3">Conversation &amp; Group Creation</h3>
+      <p class="ov-p">Led design work across key entry points into conversations, identifying friction and opportunities to improve the experience from intent to completed action.</p>
+      <h3 class="ov-h3">Notifications &amp; Re-engagement</h3>
+      <p class="ov-p">Led design in an ambiguous product area, bringing cross-functional teams together through workshops and rapid experimentation to define opportunities and direction.</p>
+    </div>
+
+    <div class="ov-section">
+      <h2 class="ov-h2">Impact</h2>
+      <p class="ov-p" style="margin-bottom:2px;">• Lifted notification opt-in among previously muted users</p>
+      <p class="ov-p" style="margin-bottom:2px;">• Drove <strong style="font-weight:600;">MAU growth</strong> across core messaging</p>
+      <p class="ov-p">• <strong style="font-weight:600;">+3%</strong> lift in group creation completion</p>
+    </div>
+
+    <div class="ov-section">
+      <h2 class="ov-h2">AI-assisted design workflow</h2>
+      <p class="ov-p">I integrated AI into my design workflow to synthesize past research, rapidly prototype functional experiences, and test interaction concepts in high-fidelity sandboxes, helping me explore and learn faster.</p>
+      <h3 class="ov-h3">Example</h3>
+      <p class="ov-p">To move and learn faster, I used AI-assisted coding to build a notification prototype generator, enabling rapid exploration, testing, and team alignment before backend implementation.</p>
+      <div style="width:60%; margin-top:24px; background:#F7F7F7; border-radius:16px; padding:24px 24px 0; overflow:hidden;">
+        <video src="./assets/wa-ai.mov" autoplay loop muted playsinline style="width:100%; display:block; -webkit-mask-image:linear-gradient(to bottom, #000 82%, transparent 100%); mask-image:linear-gradient(to bottom, #000 82%, transparent 100%);"></video>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
+
+<!-- ===================== LZ MESSAGING CASE STUDY OVERLAY ===================== -->
+<div id="lz-overlay" class="overlay" hidden onclick="if(event.target===this)closeOverlay('lz-overlay')">
+  <div class="overlay-sheet">
+  <button class="overlay-close" aria-label="Close" onclick="closeOverlay('lz-overlay')">
+    <svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.6" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+  </button>
+  <div class="overlay-inner">
+    <h1 class="ov-title">LegalZoom Tax: Expert messaging</h1>
+    <p class="ov-sub">Designing a connected support experience for customers and tax experts.</p>
+
+    <div class="ov-imgs">
+      <div style="background:#FBFAF8; border-radius:24px; padding:5.4% 5% 0; display:flex; align-items:flex-end;">
+        <img class="ov-img" src="./assets/lzov-1.png?v=3" alt="LegalZoom messaging overview">
+      </div>
+    </div>
+
+    <div class="ov-section">
+      <h2 class="ov-h2">My role</h2>
+      <p class="ov-p">I led the end-to-end design of the messaging experience, from concept and research through testing and launch. Working closely with Product, Engineering, and stakeholders, I designed across customer and expert experiences to enable continuous, personalized support throughout the tax-filing journey.</p>
+    </div>
+
+    <div class="ov-section">
+      <h2 class="ov-h2">Impact</h2>
+      <h3 class="ov-h3">+75 NPS points</h3>
+      <p class="ov-p">Improved customer satisfaction with the tax expert experience.</p>
+      <h3 class="ov-h3">4× Faster Response</h3>
+      <p class="ov-p">Reduced average response time from 2 days to 0.5 days through a more efficient workflow.</p>
+      <h3 class="ov-h3">Scalable foundation</h3>
+      <p class="ov-p">The messaging and collaboration patterns became reusable components in the global design library and were later incorporated into other legal workflows.</p>
+    </div>
+
+    <div class="ov-section">
+      <h2 class="ov-h2">Problem: Customers couldn't get continuous support</h2>
+      <p class="ov-p">LZ Tax is an online tax filing platform for small business owners, connecting customers with tax experts throughout the filing journey. But communication between them was fragmented.</p>
+      <p class="ov-p">Customers emailed the tax team without knowing who would respond, making it difficult to build continuity with their expert. Experts also lacked context, and replies came from a no-reply address.</p>
+    </div>
+
+    <div class="ov-section">
+      <h2 class="ov-h2">Challenge: Designing a seamless workflow across three roles</h2>
+      <p class="ov-p">To provide a better support experience for customers, I needed to improve more than the customer experience. The service also depended on how tax experts and Operations worked behind the scenes. I started by researching and mapping how communication flowed across all three groups <strong style="font-weight:600;">customers, tax experts, and Operations</strong> and understanding the needs of each.</p>
+      <p class="ov-p">I shadowed tax experts to understand how they managed cases, found relevant information, and responded to customers. I also worked with Operations to understand how questions were triaged and assigned to the right expert.</p>
+      <h3 class="ov-h3">Operations — Reduce manual triage</h3>
+      <p class="ov-p">Operations needed a way to automatically route customer questions. Case-related questions could go directly to the expert already working on the case, while general questions could be assigned based on expert availability.</p>
+      <h3 class="ov-h3">Customers — Build confidence and continuity</h3>
+      <p class="ov-p">Customers wanted to know they were connected with an expert who understood their case. Keeping the conversation connected to the case meant they could receive more continuous, personalized support without repeatedly explaining their situation.</p>
+      <h3 class="ov-h3">Experts — Reduce the friction of responding</h3>
+      <p class="ov-p">Experts often had to move between different tools to find case information and communicate with customers. We wanted to bring the relevant context and communication together so experts could respond more efficiently.</p>
+    </div>
+
+    <div class="ov-section">
+      <h2 class="ov-h2" style="margin-bottom:16px;">Solution: One connected experience</h2>
+      <p class="ov-p" style="margin-bottom:0;">A unified messaging experience integrated into both the customer and expert portals, creating a consistent, seamless way for customers and their tax experts to communicate throughout the filing process.</p>
+    </div>
+    <div style="border-top:0.5px solid rgba(0,0,0,.25); margin-top:clamp(40px,5vw,72px);"></div>
+    <div class="ov-section" style="margin-top:clamp(40px,5vw,72px);">
+      <h3 class="ov-h3" style="margin-top:0;">Operations — Smarter triage</h3>
+      <p class="ov-p">Automatically route case-related questions to the expert already working on the case, while general questions can be assigned based on expert availability.</p>
+    </div>
+    <div class="ov-imgs">
+      <div style="background:#FBFAF8; border-radius:24px; padding:6.2% 5% 0; display:flex; align-items:flex-end;">
+        <img class="ov-img" src="./assets/lzov-3.png?v=3" alt="Smart triage and dedicated expert">
+      </div>
+    </div>
+
+    <div style="border-top:0.5px solid rgba(0,0,0,.25); margin-top:clamp(40px,5vw,72px);"></div>
+    <div class="ov-section" style="margin-top:clamp(40px,5vw,72px);">
+      <h3 class="ov-h3" style="margin-top:0;">Customers — Build confidence and continuity</h3>
+      <p class="ov-p">Connect customers with an expert who already understands their case, creating a more continuous and personalized support experience.</p>
+    </div>
+    <div class="ov-imgs">
+      <img class="ov-img" src="./assets/lzov-2.png?v=3" alt="Continuous conversation with a dedicated expert">
+    </div>
+
+    <div style="border-top:0.5px solid rgba(0,0,0,.25); margin-top:clamp(40px,5vw,72px);"></div>
+    <div class="ov-section" style="margin-top:clamp(40px,5vw,72px);">
+      <h3 class="ov-h3" style="margin-top:0;">Experts — Everything in one place</h3>
+      <p class="ov-p">Bring customer conversations directly into the case workflow, giving experts the context they need to respond without switching between tools.</p>
+    </div>
+    <div class="ov-imgs">
+      <img class="ov-img" src="./assets/lzov-4.png?v=4" alt="Expert workspace with conversation in context">
+    </div>
+  </div>
+  </div>
+</div>
+
+<!-- ===================== EVERNOTE CASE STUDY OVERLAY ===================== -->
+<div id="en-overlay" class="overlay" hidden onclick="if(event.target===this)closeOverlay('en-overlay')">
+  <div class="overlay-sheet">
+  <button class="overlay-close" aria-label="Close" onclick="closeOverlay('en-overlay')">
+    <svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.6" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+  </button>
+  <div class="overlay-inner">
+    <h1 class="ov-title">Evernote task: Natural language due dates</h1>
+    <p class="ov-sub">Reducing friction in task management by letting users set due dates as they type.</p>
+
+    <div class="ov-imgs">
+      <div style="width:100%; background:#FBFAF8; border-radius:24px; padding:clamp(40px,5vw,72px) clamp(24px,4vw,56px) 0; display:flex; justify-content:center; align-items:flex-end;">
+        <div class="phone-wrap" style="width:100%; max-width:380px;">
+          <div class="phone-mock">
+            <div class="notch"></div>
+            <div class="phone-screen"><div class="screen-dim" style="height:13cqw; background:#4D4D4D;"></div><img src="./assets/enov-1.gif" alt="Evernote Tasks due date"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ov-section">
+      <h2 class="ov-h2">My role</h2>
+      <p class="ov-p">As the sole designer, I led the end-to-end design of the natural language due-date experience, partnering with Product and Engineering through concept, research, and usability testing.</p>
+    </div>
+
+    <div class="ov-section">
+      <h2 class="ov-h2">Context</h2>
+      <p class="ov-p">When it comes to task management, the ability to set a due date is essential. Users rely on due dates to plan their day and get reminders to complete tasks. As a result, setting a due date is the most-used feature in Evernote Tasks.</p>
+      <p class="ov-p">From a business perspective, due dates were also an important driver of engagement. Our data showed a strong correlation between due date usage and product engagement—the more due dates users set, the more active they were. Due date reminders also gave users a reason to return to Evernote and stay engaged.</p>
+    </div>
+
+    <div class="ov-section">
+      <h2 class="ov-h2">Problem: Too many clicks to set a due date</h2>
+      <p class="ov-p">Since due dates are such an important part of task management, even small amounts of friction can make the experience feel cumbersome.</p>
+      <p class="ov-p">In fact, one of the top reasons users stopped using Evernote Tasks was that setting a due date took too many clicks.</p>
+      <p class="ov-p">Users wanted to capture tasks as quickly as possible. While the existing flow took five clicks or fewer, it still felt like too much effort for a simple action.</p>
+    </div>
+    <div class="ov-imgs">
+      <div style="width:100%; background:#FBFAF8; border-radius:16px; padding:0 clamp(24px,3vw,48px) clamp(32px,4vw,72px); display:flex; justify-content:center; align-items:flex-start;">
+        <img src="./assets/enov-2.png" alt="Existing due date flow" style="width:70%; height:auto; display:block;">
+      </div>
+    </div>
+
+    <div class="ov-section">
+      <h2 class="ov-h2">Explorations</h2>
+      <p class="ov-p">Explored different visual treatments and interaction patterns, using user testing to validate and refine the final direction.</p>
+    </div>
+    <div class="ov-imgs">
+      <div class="en-grid">
+        <div class="en-cell c3" style="align-items:center;"><img src="./assets/enov-7.png?v=2" alt="Exploration" style="width:80%; height:auto; object-fit:contain;"></div>
+        <div class="en-cell c2" style="align-items:flex-end;"><div class="phone-wrap" style="width:60%;"><div class="phone-mock"><div class="notch"></div><div class="phone-screen"><div class="screen-dim"></div><img src="./assets/enov-8.gif" alt="Exploration prototype"></div></div></div></div>
+      </div>
+    </div>
+
+    <div class="ov-section">
+      <h2 class="ov-h2" style="margin-bottom:16px;">Solution: Set due dates as you type</h2>
+    </div>
+    <div class="ov-section" style="margin-top:clamp(40px,5vw,72px);">
+      <h3 class="ov-h3" style="margin-top:0;">No clicks needed</h3>
+      <p class="ov-p">Users can simply type a date into the task title using their keyboard, without interrupting their flow.</p>
+      <h3 class="ov-h3">Seamless across devices</h3>
+      <p class="ov-p">Smart Due Date was accessible from both the note and task modal, creating a consistent experience across mobile and desktop.</p>
+      <h3 class="ov-h3">Understand how people naturally write dates</h3>
+      <p class="ov-p">The system recognized 35+ common ways of writing dates, allowing users to express due dates naturally without learning a specific format.</p>
+    </div>
+    <div class="ov-imgs">
+      <div class="en-grid">
+        <div class="en-cell c3" style="align-items:center;"><img src="./assets/enov-g2.gif" alt="Desktop notes with due dates" style="width:80%; height:auto; object-fit:contain; border-radius:16px;"></div>
+        <div class="en-cell c2" style="align-items:flex-end;"><div class="phone-wrap" style="width:68%;"><div class="phone-mock"><div class="notch"></div><div class="phone-screen"><div class="screen-dim" style="height:13cqw; background:#4D4D4D;"></div><img src="./assets/enov-g3.gif" alt="Typing a date in Tasks"></div></div></div></div>
+        <div class="en-cell c2" style="align-items:center; justify-content:flex-end;"><img src="./assets/enov-6.png" alt="Natural language date formats" style="width:80%; height:auto; object-fit:contain;"></div>
+        <div class="en-cell c3" style="align-items:center;"><img src="./assets/enov-g4.gif" alt="Create new task" style="width:80%; height:auto; object-fit:contain; border-radius:16px;"></div>
+      </div>
+    </div>
+
+    <div class="ov-section" style="margin-top:clamp(72px,10vw,140px);">
+      <h2 class="ov-h2">Impact</h2>
+      <p class="ov-p" style="margin-bottom:2px;">Reduced user clicks, improving overall task completion time.</p>
+      <p class="ov-p">Laid the foundation for adding more natural language processing features.</p>
+    </div>
+  </div>
+  </div>
+</div>
+
+<!-- ===================== LZ BOOKS CASE STUDY OVERLAY ===================== -->
+<div id="bk-overlay" class="overlay" hidden onclick="if(event.target===this)closeOverlay('bk-overlay')">
+  <div class="overlay-sheet">
+  <button class="overlay-close" aria-label="Close" onclick="closeOverlay('bk-overlay')">
+    <svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.6" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+  </button>
+  <div class="overlay-inner">
+    <h1 class="ov-title">LZ Books: New native app experience</h1>
+    <p class="ov-sub">Reimagining financial management for mobile.</p>
+
+    <div class="ov-imgs">
+      <div style="background:#0A0A0A; border-radius:16px; overflow:hidden; padding:7.4% 15% 0; display:flex; align-items:flex-end; justify-content:center;">
+        <img class="ov-img" src="./assets/bkov-1.png" alt="LZ Books native iOS overview" style="width:100%; height:auto; display:block; border-radius:0;">
+      </div>
+    </div>
+
+    <div class="ov-section">
+      <h2 class="ov-h2">My role</h2>
+      <p class="ov-p">As the sole designer working on this app, I led the design from concept to launch, conducted post-launch user research, established the design system foundation, and partnered closely with Product, Engineering, and other cross-functional teams.</p>
+    </div>
+
+    <div class="ov-section">
+      <h2 class="ov-h2">Impact</h2>
+      <h3 class="ov-h3">34%</h3>
+      <p class="ov-p">of existing web users adopted the app within ~2 months of launch.</p>
+      <h3 class="ov-h3">3.9× increase</h3>
+      <p class="ov-p">in users reviewing transactions via mobile.</p>
+    </div>
+
+    <div class="ov-section">
+      <h2 class="ov-h2">Context</h2>
+      <p class="ov-p">LZ Books is a financial management tool for small business owners. It helps them manage everyday finances, from tracking transactions and discovering deductions to creating and sending invoices.</p>
+      <p class="ov-p">At the time, LZ Books was only available on the web, while users were increasingly accessing the product from their phones.</p>
+    </div>
+
+    <div class="ov-section">
+      <h2 class="ov-h2">Problem: Web-only limited financial management on the go</h2>
+      <p class="ov-p">Research showed that users relied on the web for deeper tasks, like reviewing their business and analyzing financial insights. But quick, everyday tasks were much harder to accomplish away from a computer.</p>
+      <p class="ov-p">Something as simple as checking a transaction or sending an invoice required users to open a browser, navigate to LZ Books, and log in before they could get started.</p>
+      <p class="ov-p">25% of users were already accessing LZ Books through mobile web, signaling an opportunity to make these everyday financial tasks faster and more accessible on mobile.</p>
+    </div>
+
+    <div class="ov-section">
+      <h2 class="ov-h2">Challenge</h2>
+      <h3 class="ov-h3">Prioritize what belongs on mobile</h3>
+      <p class="ov-p">With a limited timeline, we couldn't simply bring every web feature into the app. I worked closely with PM and Engineering to define the roadmap, using product data and user research to identify which workflows would deliver the most value on mobile. The goal was to balance user needs, business priorities, and technical feasibility while focusing on experiences where mobile could provide a meaningful advantage.</p>
+      <h3 class="ov-h3">Establishing the foundation for a scalable design system</h3>
+      <p class="ov-p">As we introduced new mobile experiences, I also needed to establish a scalable design system alongside the product. Rather than designing each feature in isolation, I looked for reusable patterns and components that could support future workflows. This meant considering how patterns would scale across different use cases, defining component behaviors and states, and creating a foundation the team could continue building on after launch.</p>
+    </div>
+
+    <div class="ov-section">
+      <h2 class="ov-h2" style="margin-bottom:16px;">Solution: A mobile-first experience for everyday finances</h2>
+    </div>
+
+    <div class="ov-section" style="margin-top:clamp(40px,5vw,72px);">
+      <h3 class="ov-h3" style="margin-top:0;">Leverage native capabilities to make everyday financial tasks more seamless</h3>
+      <p class="ov-p">From a Live Activity that keeps mileage tracking visible to native sharing options that let users send invoices beyond email, mobile unlocked faster, more seamless ways to get things done.</p>
+    </div>
+    <div class="ov-imgs">
+      <div class="bk-grid2">
+        <div class="bk-ph" style="aspect-ratio:6/5; overflow:hidden; padding-left:10%; box-sizing:border-box;"><img src="./assets/bkov-2.png" alt="Live Activity mileage tracking" style="width:100%; height:100%; object-fit:contain; object-position:top right; display:block;"></div>
+        <div class="bk-ph" style="aspect-ratio:6/5; overflow:hidden; padding:0 10%; box-sizing:border-box;"><img src="./assets/bkov-3.png" alt="Native sharing invoice" style="width:100%; height:100%; object-fit:contain; object-position:bottom center; display:block;"></div>
+      </div>
+    </div>
+    <div style="border-top:0.5px solid rgba(0,0,0,.25); margin-top:clamp(40px,5vw,72px);"></div>
+
+    <div class="ov-section" style="margin-top:clamp(40px,5vw,72px);">
+      <h3 class="ov-h3" style="margin-top:0;">Adapt familiar mobile interaction patterns instead of directly transferring the web experience to mobile</h3>
+      <p class="ov-p">I rethought workflows around the constraints and behaviors of a smaller screen—for example, replacing long horizontal tables with more natural mobile interactions, and using gestures like swipe to make reviewing transactions faster.</p>
+    </div>
+    <div class="ov-imgs">
+      <div class="bk-grid2">
+        <div class="bk-ph" style="overflow:hidden; padding:clamp(20px,3vw,40px); box-sizing:border-box;"><div style="position:relative; width:100%; container-type:inline-size;"><img src="./assets/bkov-4.png" alt="Review transactions — mobile web vs native" style="width:100%; height:auto; display:block;"><img src="./assets/bkov-6.gif" alt="Review transactions animation" style="position:absolute; left:0; bottom:0; width:46.6cqw; height:100.97cqw; object-fit:cover; object-position:bottom center; border-radius:5.97cqw; display:block;"></div></div>
+        <div class="bk-ph" style="overflow:hidden; padding:clamp(20px,3vw,40px); box-sizing:border-box;"><img src="./assets/bkov-5.png" alt="Create invoice — mobile web vs native" style="width:100%; height:auto; display:block;"></div>
+      </div>
+    </div>
+    <div style="border-top:0.5px solid rgba(0,0,0,.25); margin-top:clamp(40px,5vw,72px);"></div>
+
+    <div class="ov-section" style="margin-top:clamp(40px,5vw,72px);">
+      <h3 class="ov-h3" style="margin-top:0;">Build a design system that supports both light and dark mode</h3>
+      <label class="bk-toggle">
+        <input type="checkbox" id="bk-theme-input" onchange="toggleBkTheme()">
+        <span class="bk-toggle-track"><span class="bk-toggle-knob"></span></span>
+        <span class="bk-toggle-label">Light mode</span>
+      </label>
+    </div>
+    <div class="ov-imgs">
+      <div id="bk-theme-card" style="background:#F4F2F0; border-radius:16px; overflow:hidden; transition:background .3s ease; display:flex; justify-content:center; align-items:center; padding:0;">
+        <img id="bk-theme-img" class="ov-img" src="./assets/bkov-light.png?v=2" alt="Design system — light and dark mode" style="width:85%; height:auto; display:block; border-radius:0;">
+      </div>
+    </div>
+
+  </div>
+  </div>
+</div>
+
+<script>
+function toggleBkTheme() {
+  var on = document.getElementById('bk-theme-input').checked;
+  var img = document.getElementById('bk-theme-img');
+  if (img) img.src = on ? './assets/bkov-dark.png' : './assets/bkov-light.png?v=2';
+  var card = document.getElementById('bk-theme-card');
+  if (card) card.style.background = on ? '#0A0A0A' : '#F4F2F0';
+  var lbl = document.querySelector('.bk-toggle .bk-toggle-label');
+  if (lbl) lbl.textContent = on ? 'Dark mode' : 'Light mode';
+}
+function openOverlay(id) {
+  var el = document.getElementById(id);
+  if (!el) return;
+  el.hidden = false;
+  document.body.classList.add('overlay-lock');
+  var sheet = el.querySelector('.overlay-sheet');
+  if (sheet) sheet.scrollTop = 0;
+  requestAnimationFrame(function() { el.classList.add('open'); });
+}
+function closeOverlay(id) {
+  var el = document.getElementById(id);
+  if (!el) return;
+  el.classList.remove('open');
+  document.body.classList.remove('overlay-lock');
+  setTimeout(function() { el.hidden = true; }, 350);
+}
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') {
+    document.querySelectorAll('.overlay.open').forEach(function(el) { closeOverlay(el.id); });
+  }
+});
+</script>
 <script>
 (function() {
   // Mobile nav menu

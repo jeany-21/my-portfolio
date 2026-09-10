@@ -26,7 +26,7 @@
   [data-reveal] { opacity: 1; transform: none; transition: opacity .7s cubic-bezier(.22,.61,.36,1), transform .7s cubic-bezier(.22,.61,.36,1); }
   [data-reveal].pre { opacity: 0; transform: translateY(24px); }
 
-  .page { width: 100%; max-width: 1440px; margin: 0 auto; padding: clamp(60px,8vw,120px) clamp(16px,3vw,32px); display: flex; flex-direction: column; gap: clamp(80px,10vw,140px); }
+  .page { width: 100%; max-width: 1440px; margin: 0 auto; padding: clamp(60px,8vw,120px) clamp(32px,8vw,120px); display: flex; flex-direction: column; gap: clamp(80px,10vw,140px); }
 
   /* 2-column: label/title on left, content/image on right */
   .row { display: flex; flex-direction: row; gap: clamp(40px,8vw,120px); align-items: flex-start; }
@@ -67,11 +67,11 @@
 
   /* Full-bleed white band that breaks out of .page padding */
   .solution-block { background:#FFFFFF; margin-left: calc(50% - 50vw); margin-right: calc(50% - 50vw); padding: clamp(60px,8vw,120px) 0; }
-  .solution-inner { width:100%; max-width:1440px; margin: 0 auto; padding: 0 clamp(16px,3vw,32px); display:flex; flex-direction:column; gap:clamp(48px,6vw,80px); box-sizing:border-box; }
+  .solution-inner { width:100%; max-width:1440px; margin: 0 auto; padding: 0 clamp(32px,8vw,120px); display:flex; flex-direction:column; gap:clamp(48px,6vw,80px); box-sizing:border-box; }
 
   /* Topbar */
   #topbar { position:sticky; top:0; z-index:100; width:100%; display:flex; justify-content:center; background:#F7F6F4; border-bottom:0.5px solid transparent; transition:border-color .25s; }
-  .topnav { width:100%; max-width:1440px; padding:16px clamp(16px,3vw,32px); display:flex; justify-content:space-between; align-items:center; gap:24px; box-sizing:border-box; }
+  .topnav { width:100%; max-width:1440px; padding:16px clamp(32px,8vw,120px); display:flex; justify-content:space-between; align-items:center; gap:24px; box-sizing:border-box; }
   .topnav a { text-decoration:none; color:#000; }
   .topnav .brand { font-family:'Raleway',sans-serif; font-weight:400; font-size:18px; letter-spacing:.01em; }
   .topnav .back { font-family:-apple-system,'Inter',sans-serif; font-weight:300; font-size:14px; color:#757575; }
