@@ -86,7 +86,12 @@
       "Bash(awk 'NR>=413 && NR<=478' index.html)",
       "Bash(python3 -c \"import glob;from PIL import Image;f=glob.glob\\('/Users/jeanyang/Downloads/2602/Note.*'\\)[0];print\\(f,Image.open\\(f\\).size,Image.open\\(f\\).mode\\)\")",
       "Bash(cp ~/Downloads/2602/Note.png assets/note.png)",
-      "Bash(python3 -c \"from PIL import Image; print\\(Image.open\\('assets/note.png'\\).size\\)\")"
+      "Bash(python3 -c \"from PIL import Image; print\\(Image.open\\('assets/note.png'\\).size\\)\")",
+      "Bash(git push *)",
+      "Bash(git commit *)",
+      "Bash(cp ~/Downloads/2602/WAALL.png assets/wa-all.png)",
+      "Bash(python3 -c \"from PIL import Image; print\\(Image.open\\('assets/wa-all.png'\\).size\\)\")",
+      "Bash(git add *)"
     ]
   }
 }
