@@ -98,6 +98,8 @@
     /* ===== v2 home ===== */
     .hero-block { align-self: stretch; }
     .hero-title { font-family:'Plus Jakarta Sans',-apple-system,BlinkMacSystemFont,'SF Pro Text',sans-serif; font-weight:500; font-size:clamp(40px,6vw,78px); line-height:112%; letter-spacing:-.02em; color:#000000; text-wrap:pretty; margin:0; max-width:60vw; }
+    .anim-line { opacity:0; transform:translateX(-48px); animation:lineSlide .7s cubic-bezier(.22,.61,.36,1) forwards; }
+    @keyframes lineSlide { to { opacity:1; transform:translateX(0); } }
     .hero-hello { font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text',sans-serif; font-weight:400; font-size:clamp(18px,2vw,24px); line-height:130%; letter-spacing:.01em; color:#000; }
     .hero-contact { width:clamp(300px,32vw,440px); flex:0 0 auto; display:flex; flex-direction:column; text-align:right; }
     .hero-dot { width:13px; height:13px; border-radius:50%; background:#F6C2DE; margin-bottom:clamp(18px,2vw,26px); }
@@ -247,12 +249,12 @@
     <div class="hero-2col" style="width:100%; max-width:1600px; padding:clamp(56px,8vw,120px) clamp(32px,8vw,120px) clamp(80px,10vw,160px); display:grid; grid-template-columns:1fr auto; gap:clamp(24px,3vw,48px); align-items:flex-start;">
       <!-- Left: header (col 1) -->
       <div data-reveal="" class="hero-block" style="grid-column:1; min-width:0; display:flex; flex-direction:column;">
-        <p class="hero-tag" style="margin-top:0; margin-bottom:clamp(16px,2vw,28px); max-width:none;">Hi there</p>
-        <h1 class="hero-title">I'm Jean, a product designer based in the Bay area, California</h1>
-        <p class="hero-tag">With 8+ years in product design, I bring together strategy, systems thinking, and craft to create delightful experiences.</p>
+        <p class="hero-tag anim-line" style="margin-top:0; margin-bottom:clamp(16px,2vw,28px); max-width:none; animation-delay:0s;">Hi there</p>
+        <h1 class="hero-title anim-line" style="animation-delay:.14s;">I'm Jean, a product designer based in the Bay area, California</h1>
+        <p class="hero-tag anim-line" style="animation-delay:.28s;">With 8+ years in product design, I bring together strategy, systems thinking, and craft to create delightful experiences.</p>
       </div>
       <!-- Right: contact (col 3) -->
-      <div class="hero-contact" style="grid-column:2; width:auto; margin-top:0;">
+      <div class="hero-contact anim-line" style="grid-column:2; width:auto; margin-top:0; animation-delay:.42s;">
         <a class="hero-clink" href="mailto:jeanyang21@gmail.com">Email</a>
         <a class="hero-clink" href="https://www.linkedin.com/in/jeanchingtingyang/" target="_blank" rel="noopener noreferrer">Linkedin</a>
         <a class="hero-clink" href="https://drive.google.com/file/d/1XFe7n-fp3G3Mny63jGZ3xCl7m-svc0vI/view?usp=sharing" target="_blank" rel="noopener noreferrer">Resume</a>
