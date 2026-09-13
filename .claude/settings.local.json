@@ -92,7 +92,8 @@
       "Bash(cp ~/Downloads/2602/WAALL.png assets/wa-all.png)",
       "Bash(python3 -c \"from PIL import Image; print\\(Image.open\\('assets/wa-all.png'\\).size\\)\")",
       "Bash(git add *)",
-      "Bash(grep -n \"\\\\.work-title {\\\\|\\\\.hero-title {\\\\|hero-title { font-size\\\\|font-size:clamp\\(28px,7vw\" index.html)"
+      "Bash(grep -n \"\\\\.work-title {\\\\|\\\\.hero-title {\\\\|hero-title { font-size\\\\|font-size:clamp\\(28px,7vw\" index.html)",
+      "Bash(python3 -)"
     ]
   }
 }

@@ -18,9 +18,9 @@
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23fff'/><text x='16' y='22' font-family='-apple-system,BlinkMacSystemFont,SF Pro Display,sans-serif' font-size='14' font-weight='500' fill='%23000' text-anchor='middle' letter-spacing='1'>JY</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600&amp;family=Inter:wght@100;300;400;600&amp;family=Work+Sans:wght@400&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600&amp;family=Inter:wght@100;300;400;600&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;family=Work+Sans:wght@400&amp;display=swap" rel="stylesheet">
   <style>
-    html, body { margin: 0; padding: 0; background: #F7F6F4; }
+    html, body { margin: 0; padding: 0; background: #FAFAFA; }
     * { box-sizing: border-box; }
     .tex { position:relative; }
     .tex::before { content:''; position:absolute; inset:0; pointer-events:none; z-index:0; opacity:0.06;
@@ -55,7 +55,7 @@
     .navmenu-btn.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
     .navmenu-panel { position: absolute; top: calc(100% + 12px); right: 0; background: #fff; border: 0.5px solid rgba(0,0,0,.12); border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,.10); padding: 6px; display: flex; flex-direction: column; min-width: 220px; z-index: 200; }
     .navmenu-panel[hidden] { display: none !important; }
-    .navmenu-item { padding: 12px 14px; border-radius: 8px; text-decoration: none; font-family: -apple-system,'Inter',sans-serif; font-weight: 300; font-size: 15px; line-height: 100%; letter-spacing: .01em; color: #000; transition: background-color .15s; }
+    .navmenu-item { padding: 12px 14px; border-radius: 8px; text-decoration: none; font-family: -apple-system,BlinkMacSystemFont,'SF Pro Text',sans-serif; font-weight: 300; font-size: 15px; line-height: 100%; letter-spacing: .01em; color: #000; transition: background-color .15s; }
     .navmenu-item:hover { background: rgba(0,0,0,.05); }
     .media-mob { display: none; }
     .media-mob .mimg { width: 100%; background-position: center; background-size: cover; background-repeat: no-repeat; }
@@ -97,19 +97,20 @@
 
     /* ===== v2 home ===== */
     .hero-block { align-self: stretch; }
-    .hero-title { font-family:-apple-system,'Inter',sans-serif; font-weight:600; font-size:clamp(30px,4vw,48px); line-height:120%; letter-spacing:-.01em; color:#000; text-wrap:pretty; margin:0; }
-    .hero-hello { font-family:-apple-system,'Inter',sans-serif; font-weight:400; font-size:clamp(18px,2vw,24px); line-height:130%; letter-spacing:.01em; color:#000; }
-    .hero-contact { width:clamp(300px,32vw,440px); flex:0 0 auto; display:flex; flex-direction:column; }
+    .hero-title { font-family:'Plus Jakarta Sans',-apple-system,BlinkMacSystemFont,'SF Pro Text',sans-serif; font-weight:500; font-size:clamp(40px,6vw,78px); line-height:112%; letter-spacing:-.02em; color:#000000; text-wrap:pretty; margin:0; max-width:60vw; }
+    .hero-hello { font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text',sans-serif; font-weight:400; font-size:clamp(18px,2vw,24px); line-height:130%; letter-spacing:.01em; color:#000; }
+    .hero-contact { width:clamp(300px,32vw,440px); flex:0 0 auto; display:flex; flex-direction:column; text-align:right; }
     .hero-dot { width:13px; height:13px; border-radius:50%; background:#F6C2DE; margin-bottom:clamp(18px,2vw,26px); }
-    .hero-tag { font-family:-apple-system,'Inter',sans-serif; font-weight:400; font-size:16px; line-height:150%; letter-spacing:.01em; color:#000; padding-bottom:16px; border-bottom:1px solid rgba(0,0,0,.28); }
-    .hero-clink { font-family:-apple-system,'Inter',sans-serif; font-weight:400; font-size:16px; line-height:100%; letter-spacing:.01em; color:#000; text-decoration:none; padding:18px 0; border-bottom:1px solid rgba(0,0,0,.28); display:block; transition:opacity .2s; }
+    .hero-tag { font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text',sans-serif; font-weight:300; font-size:18px; line-height:150%; letter-spacing:.01em; color:#000000; margin-top:clamp(36px,5vw,72px); max-width:42vw; }
+    .hero-clink { font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text',sans-serif; font-weight:300; font-size:18px; line-height:100%; letter-spacing:.01em; color:#000000; text-decoration:none; padding:16px 0; display:block; transition:opacity .2s; }
     .hero-clink:hover { opacity:.55; }
     @media (max-width: 880px) {
       .hero-2col { grid-template-columns:1fr !important; gap:20px !important; }
       .hero-block { grid-column:1 / -1 !important; }
-      .hero-contact { grid-column:1 / -1 !important; width:100% !important; margin-top:0 !important; }
+      .hero-contact { grid-column:1 / -1 !important; width:100% !important; margin-top:0 !important; text-align:left !important; flex-direction:row !important; gap:28px !important; }
+      .hero-contact .hero-clink { padding:8px 0 !important; }
     }
-    .works-label { font-family:-apple-system,'Inter',sans-serif; font-weight:400; font-size:20px; line-height:120%; letter-spacing:.01em; color:#000; }
+    .works-label { font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text',sans-serif; font-weight:300; font-size:20px; line-height:120%; letter-spacing:.01em; color:#000000; }
     .works-grid { display:flex; flex-direction:column; gap:16px; align-self:stretch; }
     .works-row { display:flex; flex-direction:row; gap:16px; align-items:stretch; }
     .works-row .work-card { min-width:0; }
@@ -134,7 +135,7 @@
     @keyframes typingDot { 0%,60%,100%{ transform:translateY(0); opacity:.5; } 30%{ transform:translateY(-4px); opacity:1; } }
     .work-body { display:flex; flex-direction:column; gap:8px; padding:clamp(28px,3vw,44px); }
     .work-company { font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text',sans-serif; font-weight:300; font-size:14px; line-height:100%; letter-spacing:.01em; color:#757575; }
-    .work-title { font-family:-apple-system,'Inter',sans-serif; font-weight:300; font-size:clamp(20px,1.9vw,23px); line-height:120%; letter-spacing:.01em; color:#000; }
+    .work-title { font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text',sans-serif; font-weight:300; font-size:clamp(20px,1.9vw,23px); line-height:120%; letter-spacing:.01em; color:#000; }
     .work-desc { font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text',sans-serif; font-weight:300; font-size:14px; line-height:150%; letter-spacing:.01em; color:#555; margin-top:4px; }
     .work-card.wide .work-desc { max-width:75%; }
     .en-card-bg { background:
@@ -165,7 +166,8 @@
       .work-card.wide .work-desc { max-width:100% !important; }
       .works-row .work-card { height:clamp(600px, 92vw, 820px) !important; }
       .works-row .work-body { flex:0 0 auto !important; padding-bottom:24px !important; }
-      .hero-title { font-size:32px !important; }
+      .hero-title { font-size:clamp(40px,11vw,52px) !important; max-width:none !important; }
+      .hero-tag { max-width:none !important; }
     }
 
     /* ===== case study overlay (bottom sheet) ===== */
@@ -177,22 +179,22 @@
     .overlay-close { position:absolute; top:clamp(24px,4vw,44px); right:clamp(24px,4vw,44px); width:40px; height:40px; border:none; background:transparent; cursor:pointer; z-index:1010; display:flex; align-items:center; justify-content:center; }
     .overlay-close svg { width:24px; height:24px; }
     .overlay-inner { width:100%; max-width:1600px; margin:0 auto; padding:clamp(56px,6vw,88px) clamp(32px,8vw,120px) clamp(60px,8vw,120px); }
-    .ov-title { font-family:-apple-system,'Inter',sans-serif; font-weight:400; font-size:clamp(30px,4vw,48px); line-height:118%; letter-spacing:-.01em; color:#000; margin:0; }
-    .ov-sub { font-family:-apple-system,'Inter',sans-serif; font-weight:300; font-size:clamp(16px,1.6vw,18px); line-height:150%; color:#000; margin:12px 0 0; }
+    .ov-title { font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text',sans-serif; font-weight:400; font-size:clamp(30px,4vw,48px); line-height:118%; letter-spacing:-.01em; color:#000; margin:0; }
+    .ov-sub { font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text',sans-serif; font-weight:300; font-size:clamp(16px,1.6vw,18px); line-height:150%; color:#000; margin:12px 0 0; }
     .ov-imgs { display:flex; flex-direction:column; gap:clamp(20px,2vw,32px); margin-top:clamp(40px,5vw,72px); }
     .ov-img { width:100%; height:auto; display:block; border-radius:16px; }
     .ov-section { margin-top:clamp(64px,8vw,120px); max-width:900px; }
-    .ov-h2 { font-family:-apple-system,'Inter',sans-serif; font-weight:400; font-size:clamp(22px,2.2vw,28px); line-height:120%; letter-spacing:.01em; color:#000; margin:0 0 20px; }
-    .ov-h3 { font-family:-apple-system,'Inter',sans-serif; font-weight:500; font-size:16px; line-height:130%; letter-spacing:.01em; color:#000; margin:24px 0 8px; }
-    .ov-p { font-family:-apple-system,'Inter',sans-serif; font-weight:300; font-size:16px; line-height:160%; letter-spacing:.01em; color:#000; margin:0 0 14px; }
+    .ov-h2 { font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text',sans-serif; font-weight:400; font-size:clamp(22px,2.2vw,28px); line-height:120%; letter-spacing:.01em; color:#000; margin:0 0 20px; }
+    .ov-h3 { font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text',sans-serif; font-weight:500; font-size:16px; line-height:130%; letter-spacing:.01em; color:#000; margin:24px 0 8px; }
+    .ov-p { font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text',sans-serif; font-weight:300; font-size:16px; line-height:160%; letter-spacing:.01em; color:#000; margin:0 0 14px; }
     .role-grid { display:grid; grid-template-columns:1fr 1fr; gap:clamp(36px,4.5vw,64px) clamp(40px,5vw,80px); margin-top:clamp(36px,4.5vw,64px); }
     .role-item { border-left:1px solid rgba(0,0,0,.4); padding-left:clamp(16px,1.6vw,24px); position:relative; }
     @media (max-width:880px){ .role-grid { grid-template-columns:1fr; } }
     .focus-grid { display:grid; grid-template-columns:1fr 1fr 1fr; gap:clamp(16px,2vw,24px); margin-top:clamp(36px,4.5vw,64px); }
     .focus-card { background:#111B21; border-radius:16px; padding:clamp(28px,3vw,44px); }
     .focus-card .focus-icon { height:clamp(40px,3.6vw,50px); width:auto; display:block; margin-bottom:clamp(14px,1.6vw,20px); }
-    .focus-card h3 { font-family:-apple-system,'Inter',sans-serif; font-weight:500; font-size:16px; line-height:130%; letter-spacing:.01em; color:#FFFFFF; margin:0 0 10px; }
-    .focus-card p { font-family:-apple-system,'Inter',sans-serif; font-weight:300; font-size:15px; line-height:150%; letter-spacing:.01em; color:rgba(255,255,255,.72); margin:0; }
+    .focus-card h3 { font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text',sans-serif; font-weight:500; font-size:16px; line-height:130%; letter-spacing:.01em; color:#FFFFFF; margin:0 0 10px; }
+    .focus-card p { font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text',sans-serif; font-weight:300; font-size:15px; line-height:150%; letter-spacing:.01em; color:rgba(255,255,255,.72); margin:0; }
     @media (max-width:880px){ .focus-grid { grid-template-columns:1fr; } }
     /* LZ Books overlay placeholders + theme toggle */
     .bk-ph { width:100%; background:#0A0A0A; border-radius:16px; transition:background .3s ease; }
@@ -222,37 +224,35 @@
     @media (max-width:880px){ .en-grid { grid-template-columns:1fr; } .en-cell, .en-cell.c2, .en-cell.c3 { grid-column:auto; height:clamp(240px,60vw,380px); } }
 
     /* ===== About me ===== */
-    .about-label { font-family:-apple-system,'Inter',sans-serif; font-weight:400; font-size:clamp(24px,2.4vw,30px); line-height:120%; letter-spacing:.01em; color:#000; }
+    .about-label { font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text',sans-serif; font-weight:400; font-size:clamp(24px,2.4vw,30px); line-height:120%; letter-spacing:.01em; color:#000000; }
     .about-grid { align-self:stretch; display:grid; grid-template-columns:2.5fr 0.5fr 2fr; gap:clamp(24px,3vw,48px); align-items:start; }
     .about-lead { grid-column:1; }
     .timeline { grid-column:3; }
-    .about-lead h3 { font-family:-apple-system,'Inter',sans-serif; font-weight:400; font-size:20px; line-height:120%; color:#000; margin:0 0 clamp(20px,2vw,28px); }
+    .about-lead h3 { font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text',sans-serif; font-weight:400; font-size:20px; line-height:120%; color:#000000; margin:0 0 clamp(20px,2vw,28px); }
     .about-lead p { font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text',sans-serif; font-weight:300; font-size:14px; line-height:150%; letter-spacing:.01em; color:#555; margin:0 0 clamp(16px,1.4vw,20px); max-width:560px; }
-    .about-hello { display:block; font-family:-apple-system,'Inter',sans-serif; font-weight:600; font-size:16px; line-height:150%; color:#000; margin-top:clamp(8px,1vw,14px); }
+    .about-hello { display:block; font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text',sans-serif; font-weight:400; font-size:16px; line-height:150%; color:#000000; margin-top:clamp(8px,1vw,14px); }
     /* timeline (divider style) */
     .timeline { position:relative; }
     .tl-item { padding-bottom:clamp(18px,2vw,26px); margin-bottom:clamp(18px,2vw,26px); border-bottom:1px solid rgba(0,0,0,.28); }
-    .tl-role { display:block; font-family:-apple-system,'Inter',sans-serif; font-weight:400; font-size:16px; line-height:130%; color:#000; }
+    .tl-role { display:block; font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text',sans-serif; font-weight:400; font-size:16px; line-height:130%; color:#000000; }
     .tl-year { display:block; font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text',sans-serif; font-weight:300; font-size:14px; line-height:150%; letter-spacing:.01em; color:#555; margin-top:8px; }
     @media (max-width:880px){ .note-wrap { width:95% !important; margin-top:-48px !important; } }
     @media (max-width:880px){ .about-grid { grid-template-columns:1fr; gap:clamp(40px,8vw,64px); } .about-grid .timeline, .about-grid .about-lead { grid-column:1 / -1 !important; } .about-grid .timeline { order:1; } .about-grid .about-lead { order:2; } }
   </style>
 </head>
 <body>
-<div style="width:100%; display:flex; flex-direction:column; align-items:center; background:#F7F6F4; min-height:100vh;">
+<div style="width:100%; display:flex; flex-direction:column; align-items:center; background:#FAFAFA; min-height:100vh;">
   <!-- ===================== HERO SECTION ===================== -->
-  <div class="hero-section tex" style="width:100%; background:#FFFFFF; display:flex; justify-content:center;">
-    <div class="hero-2col" style="width:100%; max-width:1600px; padding:clamp(56px,8vw,120px) clamp(32px,8vw,120px) clamp(80px,10vw,160px); display:grid; grid-template-columns:2.5fr 0.5fr 2fr; gap:clamp(24px,3vw,48px); align-items:flex-start;">
+  <div class="hero-section tex" style="width:100%; background:#FAFAFA; display:flex; justify-content:center;">
+    <div class="hero-2col" style="width:100%; max-width:1600px; padding:clamp(56px,8vw,120px) clamp(32px,8vw,120px) clamp(80px,10vw,160px); display:grid; grid-template-columns:1fr auto; gap:clamp(24px,3vw,48px); align-items:flex-start;">
       <!-- Left: header (col 1) -->
-      <div data-reveal="" class="hero-block" style="grid-column:1; min-width:0; display:flex; flex-direction:column; gap:clamp(28px,3.5vw,52px);">
-        <h1 class="hero-title">Hello,</h1>
+      <div data-reveal="" class="hero-block" style="grid-column:1; min-width:0; display:flex; flex-direction:column;">
+        <p class="hero-tag" style="margin-top:0; margin-bottom:clamp(16px,2vw,28px); max-width:none;">Hi there</p>
         <h1 class="hero-title">I'm Jean, a product designer based in the Bay area, California</h1>
+        <p class="hero-tag">With 8+ years in product design, I bring together strategy, systems thinking, and craft to create delightful experiences.</p>
       </div>
       <!-- Right: contact (col 3) -->
-      <div class="hero-contact" style="grid-column:3; width:auto; margin-top:0;">
-        <div class="note-wrap" style="position:relative; width:90%; margin-bottom:clamp(24px,3vw,40px);">
-          <img src="./assets/note.png?v=3" alt="I bring strategy, systems thinking, and craft to create delightful experiences." style="width:100%; height:auto; display:block;">
-        </div>
+      <div class="hero-contact" style="grid-column:2; width:auto; margin-top:0;">
         <a class="hero-clink" href="mailto:jeanyang21@gmail.com">Email</a>
         <a class="hero-clink" href="https://www.linkedin.com/in/jeanchingtingyang/" target="_blank" rel="noopener noreferrer">Linkedin</a>
         <a class="hero-clink" href="https://drive.google.com/file/d/1XFe7n-fp3G3Mny63jGZ3xCl7m-svc0vI/view?usp=sharing" target="_blank" rel="noopener noreferrer">Resume</a>
@@ -260,11 +260,11 @@
     </div>
   </div>
 
-  <div class="page tex" style="width: 100%; max-width: 1600px; background: #F7F6F4; display: flex; flex-direction: column; gap: clamp(24px,3vw,40px); padding: clamp(64px,8vw,110px) clamp(32px,8vw,120px) clamp(42px,7vw,114px); align-items: flex-start; margin-top: 0;">
+  <div class="page tex" style="width: 100%; max-width: 1600px; background: #FAFAFA; display: flex; flex-direction: column; gap: clamp(24px,3vw,40px); padding: clamp(64px,8vw,110px) clamp(32px,8vw,120px) clamp(42px,7vw,114px); align-items: flex-start; margin-top: 0;">
 
     <!-- ===================== SELECTED WORKS ===================== -->
     <div data-reveal="" style="align-self:stretch; display:flex; flex-direction:column; gap:clamp(24px,3vw,40px);">
-      <span class="works-label">Selected works</span>
+      <span class="works-label">Selected works <span style="color:#7F7F7F;">(4)</span></span>
       <div class="works-grid">
 
         <!-- Row 1: 3 : 2 -->
@@ -328,7 +328,7 @@
     </div>
 
     <!-- ===================== ABOUT ME ===================== -->
-    <div data-reveal="" class="tex" style="background:#FFFFFF; width:100vw; margin-left:calc(50% - 50vw); margin-right:calc(50% - 50vw); margin-top:clamp(48px,6vw,88px); margin-bottom:calc(-1*clamp(42px,7vw,114px)); padding:clamp(56px,7vw,100px) 0 clamp(80px,10vw,160px);">
+    <div data-reveal="" class="tex" style="background:#FAFAFA; width:100vw; margin-left:calc(50% - 50vw); margin-right:calc(50% - 50vw); margin-top:clamp(48px,6vw,88px); margin-bottom:calc(-1*clamp(42px,7vw,114px)); padding:clamp(56px,7vw,100px) 0 clamp(80px,10vw,160px);">
       <div class="about-inner" style="max-width:1600px; margin:0 auto; padding:0 clamp(32px,8vw,120px); box-sizing:border-box;">
       <div class="about-grid">
         <!-- Left: about Jean -->
@@ -432,7 +432,7 @@
 
     <div class="ov-section" style="max-width:none; margin-top:clamp(56px,7vw,96px);">
       <div style="background:#FBFAF8; border-radius:16px; padding:clamp(28px,3vw,44px) clamp(28px,4vw,56px);">
-        <span style="font-family:-apple-system,'Inter',sans-serif; font-weight:400; font-size:16px; letter-spacing:.01em; color:#000;">Want to know more? I'm happy to dive deeper.&nbsp;&nbsp;<a href="mailto:jeanyang21@gmail.com" style="color:#000; text-decoration:underline; text-underline-offset:2px; font-weight:600;">Get in touch</a></span>
+        <span style="font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text',sans-serif; font-weight:400; font-size:16px; letter-spacing:.01em; color:#000;">Want to know more? I'm happy to dive deeper.&nbsp;&nbsp;<a href="mailto:jeanyang21@gmail.com" style="color:#000; text-decoration:underline; text-underline-offset:2px; font-weight:600;">Get in touch</a></span>
       </div>
     </div>
 
