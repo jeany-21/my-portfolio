@@ -49,22 +49,10 @@
     .imgrow { display: flex; flex-direction: row; gap: 12px; align-items: flex-start; align-self: stretch; }
     .topnav { display: flex; flex-direction: row; justify-content: space-between; align-items: center; gap: 24px; align-self: stretch; flex-wrap: wrap; }
     .navlinks { display: flex; flex-direction: row; gap: 24px; align-items: center; flex-wrap: wrap; }
-    .navmenu { display: none; position: relative; }
-    .navmenu-btn { display: flex; flex-direction: column; gap: 5px; align-items: center; justify-content: center; width: 36px; height: 36px; margin: -6px; padding: 0; border: none; background: transparent; cursor: pointer; -webkit-tap-highlight-color: transparent; }
-    .navmenu-btn span { width: 20px; height: 1.5px; background: #000; display: block; border-radius: 1px; transition: opacity .2s, transform .2s; }
-    .navmenu-btn.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
-    .navmenu-btn.open span:nth-child(2) { opacity: 0; }
-    .navmenu-btn.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
-    .navmenu-panel { position: absolute; top: calc(100% + 12px); right: 0; background: #fff; border: 0.5px solid rgba(0,0,0,.12); border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,.10); padding: 6px; display: flex; flex-direction: column; min-width: 220px; z-index: 200; }
-    .navmenu-panel[hidden] { display: none !important; }
-    .navmenu-item { padding: 12px 14px; border-radius: 8px; text-decoration: none; font-family: -apple-system,BlinkMacSystemFont,'SF Pro Text',sans-serif; font-weight: 300; font-size: 15px; line-height: 100%; letter-spacing: .01em; color: #000; transition: background-color .15s; }
-    .navmenu-item:hover { background: rgba(0,0,0,.05); }
     .media-mob { display: none; }
     .media-mob .mimg { width: 100%; background-position: center; background-size: cover; background-repeat: no-repeat; }
 
     @media (max-width: 880px) {
-      .navlinks { display: none; }
-      .navmenu { display: block; }
       .split { flex-direction: column; gap: 32px; }
       .split .txt { width: 100%; flex: 1 1 auto; }
       .meta-row { flex-direction: column; gap: 32px; }
@@ -137,12 +125,12 @@
     .work-card:hover .typing-bubble span:nth-child(2) { animation-delay:.18s; }
     .work-card:hover .typing-bubble span:nth-child(3) { animation-delay:.36s; }
     @keyframes typingDot { 0%,60%,100%{ transform:translateY(0); opacity:.5; } 30%{ transform:translateY(-4px); opacity:1; } }
-    .work-body { display:flex; flex-direction:column; gap:8px; padding:clamp(28px,3vw,44px); box-sizing:border-box; min-height:clamp(200px,20vw,260px); justify-content:center; }
+    .work-body { display:flex; flex-direction:column; gap:8px; padding:clamp(28px,3vw,44px); box-sizing:border-box; min-height:clamp(190px,19vw,245px); justify-content:flex-start; }
     .works-row .work-img { flex:1 1 auto; }
-    .work-company { font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text',sans-serif; font-weight:300; font-size:14px; line-height:100%; letter-spacing:.01em; color:#757575; }
-    .work-title { font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text',sans-serif; font-weight:300; font-size:clamp(20px,1.9vw,23px); line-height:120%; letter-spacing:.01em; color:#000; }
+    .work-company { font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text',sans-serif; font-weight:300; font-size:16px; line-height:100%; letter-spacing:.01em; color:#757575; }
+    .work-title { font-family:'Plus Jakarta Sans',-apple-system,BlinkMacSystemFont,'SF Pro Text',sans-serif; font-weight:400; font-size:22px; line-height:120%; letter-spacing:-.01em; color:#000; }
     .work-desc { font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text',sans-serif; font-weight:300; font-size:16px; line-height:150%; letter-spacing:.01em; color:#555; margin-top:4px; }
-    .work-card.wide .work-desc { max-width:85%; }
+    .work-card.wide .work-desc { max-width:100%; }
     .en-card-bg { background:
       url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.4'/%3E%3C/svg%3E"),
       radial-gradient(ellipse at 30% 62%, rgba(22,28,34,.55) 0%, transparent 55%),
@@ -253,19 +241,19 @@
     .hiw-head { font-family:'Plus Jakarta Sans',-apple-system,BlinkMacSystemFont,'SF Pro Text',sans-serif; font-weight:500; font-size:clamp(28px,3.4vw,44px); line-height:112%; letter-spacing:-.02em; color:#000; margin:0; max-width:80%; }
     @media (max-width:880px){ .hiw-br { display:none; } }
     .hiw-list { display:flex; flex-direction:column; gap:clamp(48px,6vw,80px); }
-    .hiw-item h4 { font-family:'Plus Jakarta Sans',-apple-system,BlinkMacSystemFont,'SF Pro Text',sans-serif; font-weight:500; font-size:26px; line-height:120%; letter-spacing:-.01em; color:#000; margin:0 0 clamp(20px,2.2vw,30px); }
-    .hiw-item p { font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text',sans-serif; font-weight:400; font-size:18px; line-height:150%; letter-spacing:.01em; color:#000; margin:0 0 8px; }
-    .hiw-tags { font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text',sans-serif; font-weight:300; font-size:18px; line-height:150%; letter-spacing:.01em; color:#A2A2A2; margin:0; }
+    .hiw-item h4 { font-family:'Plus Jakarta Sans',-apple-system,BlinkMacSystemFont,'SF Pro Text',sans-serif; font-weight:400; font-size:22px; line-height:120%; letter-spacing:-.01em; color:#000; margin:0 0 clamp(20px,2.2vw,30px); }
+    .hiw-item p { font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text',sans-serif; font-weight:300; font-size:16px; line-height:150%; letter-spacing:.01em; color:#000; margin:0 0 8px; }
+    .hiw-tags { font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text',sans-serif; font-weight:300; font-style:italic; font-size:16px; line-height:150%; letter-spacing:.01em; color:#757575; margin:0; }
     /* Person behind the work */
     .person-lead { margin-top:clamp(36px,4.5vw,64px); max-width:80%; }
-    .person-lead p { font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text',sans-serif; font-weight:300; font-size:18px; line-height:160%; letter-spacing:.01em; color:#757575; margin:0 0 16px; }
+    .person-lead p { font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text',sans-serif; font-weight:300; font-size:16px; line-height:160%; letter-spacing:.01em; color:#757575; margin:0 0 16px; }
     .person-lead p:last-child { margin-bottom:0; }
     .person-photo { width:100%; aspect-ratio:1.1/1; border-radius:20px; background:#D9D9D9; background-size:cover; background-position:center; }
     .person-exp { grid-column:1 / -1; margin-top:clamp(48px,6vw,96px); display:flex; flex-direction:column; }
     .exp-item { display:flex; align-items:baseline; justify-content:space-between; gap:16px; padding:clamp(18px,2vw,26px) 0; border-top:1px solid rgba(0,0,0,.15); }
     .exp-item:last-child { border-bottom:1px solid rgba(0,0,0,.15); }
     .exp-item .role { font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text',sans-serif; font-weight:400; font-size:16px; line-height:130%; letter-spacing:.01em; color:#000; }
-    .exp-item .year { font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text',sans-serif; font-weight:300; font-size:16px; line-height:130%; letter-spacing:.01em; color:#A2A2A2; flex:0 0 auto; }
+    .exp-item .year { font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text',sans-serif; font-weight:300; font-size:16px; line-height:130%; letter-spacing:.01em; color:#757575; flex:0 0 auto; }
     @media (max-width:880px){ .person-photo { width:80%; max-width:none; } }
     /* About accordion */
     .acc { display:flex; flex-direction:column; gap:16px; }
@@ -336,9 +324,9 @@
               </div>
             </div>
             <div class="work-body" style="background:#FFFFFF; padding:clamp(28px,3vw,44px);">
-              <span class="work-company" style="color:rgba(0,0,0,.55);">WhatsApp</span>
-              <span class="work-title" style="color:#111111;">Core Messaging Experience</span>
-              <span class="work-desc" style="color:rgba(0,0,0,.7);">Designed core messaging experiences for <strong style="font-weight:600;">3B+</strong> users, spanning group creation, messaging, and notifications, with measurable impact on <strong style="font-weight:600;">MAU growth</strong>.</span>
+              <span class="work-company" style="color:#757575;">WhatsApp</span>
+              <span class="work-title" style="color:#000000;">Core Messaging Experience</span>
+              <span class="work-desc" style="color:#000;">Designed core messaging experiences for <strong style="font-weight:500;">3B+</strong> users, spanning group creation, messaging, and notifications, with measurable impact on <strong style="font-weight:500;">MAU growth</strong>.</span>
             </div>
           </a>
 
@@ -352,9 +340,9 @@
               </div>
             </div>
             <div class="work-body" style="background:#FFFFFF; padding:clamp(28px,3vw,44px);">
-              <span class="work-company" style="color:rgba(0,0,0,.55);">Legalzoom</span>
-              <span class="work-title" style="color:#111111;">Expert Messaging</span>
-              <span class="work-desc" style="color:rgba(0,0,0,.7);">Designed a 0-to-1 messaging experience connecting customers and tax experts, increasing NPS by <strong style="font-weight:600;">75 points</strong>.</span>
+              <span class="work-company" style="color:#757575;">Legalzoom</span>
+              <span class="work-title" style="color:#000000;">Expert Messaging</span>
+              <span class="work-desc" style="color:#000;">Designed a 0-to-1 messaging experience connecting customers and tax experts, increasing NPS by <strong style="font-weight:500;">75 points</strong>.</span>
             </div>
           </a>
         </div>
@@ -365,9 +353,9 @@
           <a data-reveal="" class="work-card narrow en-card-bg" href="#" onclick="openOverlay('en-overlay'); return false;" style="position:relative; transition-delay:0s;">
             <div class="work-img" id="en-card-img" style="background:transparent; display:flex; align-items:center; justify-content:center; min-height:clamp(420px,45vw,700px); box-sizing:border-box;"><img class="en-g4 en-g4-still" src="./assets/enov-g4-still.png?v=3" alt="Create new task"><img class="en-g4 en-g4-anim" src="./assets/enov-g4.gif" alt="Create new task"></div>
             <div class="work-body" style="background:#FFFFFF; padding:clamp(28px,3vw,44px);">
-              <span class="work-company" style="color:rgba(0,0,0,.55);">Evernote</span>
-              <span class="work-title" style="color:#111111;">Natural Language Due Dates</span>
-              <span class="work-desc" style="color:rgba(0,0,0,.7);">Designed a natural language experience that lets people set due dates as they write, making task planning faster and more seamless across desktop, tablet, and mobile.</span>
+              <span class="work-company" style="color:#757575;">Evernote</span>
+              <span class="work-title" style="color:#000000;">Natural Language Due Dates</span>
+              <span class="work-desc" style="color:#000;">Designed a natural language experience that lets people set due dates as they write, making task planning faster and more seamless across desktop, tablet, and mobile.</span>
             </div>
           </a>
 
@@ -375,9 +363,9 @@
           <a data-reveal="" class="work-card wide tex-card" href="#" onclick="openOverlay('bk-overlay'); return false;" style="position:relative; background:#DEE6EB; transition-delay:.12s;">
             <div class="work-img" style="background:url(./assets/card-bk.png?v=5) center top / 100% auto no-repeat; background-origin:content-box; padding-top:10%; box-sizing:border-box; min-height:clamp(420px,45vw,700px);"></div>
             <div class="work-body" style="background:#FFFFFF; padding:clamp(28px,3vw,44px);">
-              <span class="work-company" style="color:rgba(0,0,0,.55);">LegalZoom Books</span>
-              <span class="work-title" style="color:#111111;">New Native App Experience</span>
-              <span class="work-desc" style="color:rgba(0,0,0,.7);">Designed and launched a new native app that brought everyday financial tasks to mobile for small business owners, reaching <strong style="font-weight:600;">34%</strong> adoption among existing users.</span>
+              <span class="work-company" style="color:#757575;">LegalZoom Books</span>
+              <span class="work-title" style="color:#000000;">New Native App Experience</span>
+              <span class="work-desc" style="color:#000;">Designed and launched a new native app that brought everyday financial tasks to mobile for small business owners, reaching <strong style="font-weight:500;">34%</strong> adoption among existing users.</span>
             </div>
           </a>
         </div>
@@ -388,7 +376,7 @@
     <!-- ===================== HOW I WORK ===================== -->
     <div data-reveal="" class="sec2">
       <div>
-        <h3 class="hiw-head">From research to launch,<br class="hiw-br"> I connect user needs with business goals.</h3>
+        <h3 class="hiw-head">From research to launch,<br class="hiw-br"> I connect user needs with business goals</h3>
       </div>
       <div class="hiw-list">
         <div class="hiw-item">
@@ -819,25 +807,6 @@ document.addEventListener('keydown', function(e) {
 </script>
 <script>
 (function() {
-  // Mobile nav menu
-  var btn = document.getElementById('navmenu-btn');
-  var panel = document.getElementById('navmenu-panel');
-  if (btn && panel) {
-    btn.addEventListener('click', function(e) {
-      e.stopPropagation();
-      var open = !panel.hidden;
-      panel.hidden = open;
-      btn.setAttribute('aria-expanded', String(!open));
-      btn.classList.toggle('open', !open);
-    });
-    document.addEventListener('click', function() {
-      panel.hidden = true;
-      btn.setAttribute('aria-expanded', 'false');
-      btn.classList.remove('open');
-    });
-    panel.addEventListener('click', function(e) { e.stopPropagation(); });
-  }
-
   // Sticky nav border
   var bar = document.getElementById('topbar');
   if (bar) {
