@@ -251,6 +251,7 @@
     .sec2-sub a:hover { color:#000; }
     /* How I work list */
     .hiw-head { font-family:'Plus Jakarta Sans',-apple-system,BlinkMacSystemFont,'SF Pro Text',sans-serif; font-weight:500; font-size:clamp(28px,3.4vw,44px); line-height:112%; letter-spacing:-.02em; color:#000; margin:0; max-width:80%; }
+    @media (max-width:880px){ .hiw-br { display:none; } }
     .hiw-list { display:flex; flex-direction:column; gap:clamp(48px,6vw,80px); }
     .hiw-item h4 { font-family:'Plus Jakarta Sans',-apple-system,BlinkMacSystemFont,'SF Pro Text',sans-serif; font-weight:500; font-size:26px; line-height:120%; letter-spacing:-.01em; color:#000; margin:0 0 clamp(20px,2.2vw,30px); }
     .hiw-item p { font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text',sans-serif; font-weight:400; font-size:18px; line-height:150%; letter-spacing:.01em; color:#000; margin:0 0 8px; }
@@ -386,7 +387,7 @@
     <!-- ===================== HOW I WORK ===================== -->
     <div data-reveal="" class="sec2">
       <div>
-        <h3 class="hiw-head">From research to launch, I connect user needs with business goals.</h3>
+        <h3 class="hiw-head">From research to launch,<br class="hiw-br"> I connect user needs with business goals.</h3>
       </div>
       <div class="hiw-list">
         <div class="hiw-item">
