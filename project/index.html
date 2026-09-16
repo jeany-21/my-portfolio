@@ -213,6 +213,8 @@
     .phone-mock .phone-screen img { width:100.5%; height:auto; display:block; margin-left:-0.25%; margin-top:-11.5%; }
     .phone-mock .phone-screen .screen-dim { position:absolute; top:0; left:0; right:0; height:22cqw; background:#434343; z-index:1; }
     .phone-mock .notch { position:absolute; top:5.5cqw; left:50%; transform:translateX(-50%); width:30cqw; height:8.5cqw; background:#0b0b0d; border-radius:5cqw; z-index:2; }
+    .en-cell-gap { container-type:size; }
+    .en-cell-gap .phone-wrap { width:86cqh !important; }
     @media (max-width:880px){ .en-grid { grid-template-columns:1fr; } .en-cell, .en-cell.c2, .en-cell.c3 { grid-column:auto; height:clamp(240px,60vw,380px); } }
 
     /* ===== About me ===== */
@@ -299,7 +301,8 @@
     .mnav-panel[hidden]{ display:none; }
     .mnav-panel a { font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text',sans-serif; font-weight:300; font-size:16px; letter-spacing:.01em; color:#000; text-decoration:none; padding:12px 14px; border-radius:8px; }
     .mnav-panel a:active, .mnav-panel a:hover { background:rgba(0,0,0,.05); }
-    @media (max-width:880px){ .mnav { display:block; position:fixed; top:14px; right:18px; z-index:300; } .hero-contact { display:none !important; } }
+    .en11-img { width:50%; }
+    @media (max-width:880px){ .mnav { display:block; position:fixed; top:14px; right:18px; z-index:300; } .hero-contact { display:none !important; } .en11-img { width:80%; } }
   </style>
 </head>
 <body>
@@ -379,7 +382,7 @@
             <div class="work-body" style="background:#FFFFFF; padding:clamp(28px,3vw,44px);">
               <span class="work-company" style="color:#000;">Evernote</span>
               <span class="work-title" style="color:#000000;">Natural Language Due Dates</span>
-              <span class="work-desc" style="color:#000;">Designed natural language due dates to make task planning faster across devices.</span>
+              <span class="work-desc" style="color:#000;">Designed a natural language due date experience to drive subscription value, making task planning faster across devices.</span>
             </div>
           </a>
 
@@ -628,7 +631,7 @@
     <p class="ov-sub">Reducing friction in task management by letting users set due dates as they type.</p>
 
     <div class="ov-imgs">
-      <div style="width:100%; background:#FBFAF8; border-radius:24px; padding:clamp(40px,5vw,72px) clamp(24px,4vw,56px) 0; display:flex; justify-content:center; align-items:flex-end;">
+      <div style="width:100%; background:#FBFAF8; border-radius:24px; padding:clamp(40px,6.5vw,64px) clamp(24px,4vw,56px) 0; display:flex; justify-content:center; align-items:flex-end;">
         <div class="phone-wrap" style="width:100%; max-width:380px;">
           <div class="phone-mock">
             <div class="notch"></div>
@@ -686,9 +689,19 @@
     <div class="ov-imgs">
       <div class="en-grid">
         <div class="en-cell c3" style="align-items:center;"><img src="./assets/enov-g2.gif" alt="Desktop notes with due dates" style="width:80%; height:auto; object-fit:contain; border-radius:16px;"></div>
-        <div class="en-cell c2" style="align-items:flex-end;"><div class="phone-wrap" style="width:68%;"><div class="phone-mock"><div class="notch"></div><div class="phone-screen"><div class="screen-dim" style="height:13cqw; background:#4D4D4D;"></div><img src="./assets/enov-g3.gif" alt="Typing a date in Tasks"></div></div></div></div>
+        <div class="en-cell c2 en-cell-gap" style="align-items:flex-end;"><div class="phone-wrap" style="width:68%;"><div class="phone-mock"><div class="notch"></div><div class="phone-screen"><div class="screen-dim" style="height:13cqw; background:#4D4D4D;"></div><img src="./assets/enov-g3.gif" alt="Typing a date in Tasks"></div></div></div></div>
         <div class="en-cell c2" style="align-items:center; justify-content:flex-end;"><img src="./assets/enov-6.png" alt="Natural language date formats" style="width:80%; height:auto; object-fit:contain;"></div>
         <div class="en-cell c3" style="align-items:center;"><img src="./assets/enov-g4.gif" alt="Create new task" style="width:80%; height:auto; object-fit:contain; border-radius:16px;"></div>
+      </div>
+    </div>
+
+    <div class="ov-section" style="margin-top:clamp(72px,10vw,140px);">
+      <h2 class="ov-h2">Designing for Subscription</h2>
+      <p class="ov-p">Natural language due dates were introduced as a paid feature, creating additional subscription value and a new monetization opportunity. I designed the paywall to appear when free users intentionally typed a due date, targeting users most likely to see value without interrupting those who didn't need the feature.</p>
+    </div>
+    <div class="ov-imgs">
+      <div style="width:100%; background:#FBFAF8; border-radius:24px; padding:clamp(40px,5vw,72px) clamp(24px,4vw,56px) 0; display:flex; justify-content:center; align-items:flex-end;">
+        <img class="ov-img en11-img" src="./assets/en11.png" alt="Due dates paywall" style="height:auto; display:block; border-radius:0;">
       </div>
     </div>
 
