@@ -94,8 +94,13 @@
     .hero-contact { width:clamp(300px,32vw,440px); flex:0 0 auto; display:flex; flex-direction:column; text-align:right; }
     .hero-dot { width:13px; height:13px; border-radius:50%; background:#F6C2DE; margin-bottom:clamp(18px,2vw,26px); }
     .hero-tag { font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text',sans-serif; font-weight:300; font-size:18px; line-height:160%; letter-spacing:.01em; color:#000000; margin-top:clamp(36px,5vw,72px); max-width:42vw; }
-    .hero-clink { font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text',sans-serif; font-weight:300; font-size:18px; line-height:100%; letter-spacing:.01em; color:#757575; text-decoration:none; padding:16px 0; display:block; transition:color .2s; }
-    .hero-clink:hover { color:#000000; }
+    .hero-clink { position:relative; font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text',sans-serif; font-weight:300; font-size:18px; line-height:100%; letter-spacing:.01em; color:#757575; text-decoration:none; padding:16px 0 20px; display:block; align-self:flex-end; width:fit-content; transition:color .2s; }
+    .hero-clink:hover, .hero-clink:focus-visible { color:#000000; }
+    .hero-clink:focus-visible { outline:2px solid #000; outline-offset:4px; border-radius:2px; }
+    .clink-underline { position:absolute; left:0; right:0; bottom:4px; width:100%; height:12px; color:#000; clip-path:inset(0 50% 0 50%); transition:clip-path .25s ease; }
+    .clink-underline path { vector-effect:non-scaling-stroke; }
+    .hero-clink:hover .clink-underline, .hero-clink:focus-visible .clink-underline, .hero-clink:active .clink-underline { clip-path:inset(0 0 0 0); transition:clip-path .35s ease; }
+    @media (prefers-reduced-motion:reduce){ .clink-underline { transition:opacity .15s ease; clip-path:inset(0 0 0 0); opacity:0; } .hero-clink:hover .clink-underline, .hero-clink:focus-visible .clink-underline, .hero-clink:active .clink-underline { opacity:1; transition:opacity .15s ease; } }
     @media (max-width: 880px) {
       .hero-2col { grid-template-columns:1fr !important; gap:20px !important; }
       .hero-block { grid-column:1 / -1 !important; }
@@ -283,12 +288,12 @@
     .site-footer .footer-inner, .site-footer .footer-bottom { position:relative; z-index:1; }
     .grain-light::after { content:""; position:absolute; inset:0; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='gl'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23gl)'/%3E%3C/svg%3E"); background-size:160px 160px; opacity:.22; mix-blend-mode:multiply; pointer-events:none; z-index:0; }
     .footer-inner { max-width:1600px; margin:0 auto; padding:0 clamp(32px,8vw,120px); box-sizing:border-box; display:grid; grid-template-columns:3fr 2fr; gap:16px; align-items:start; }
-    .footer-cta { font-family:'Plus Jakarta Sans',-apple-system,BlinkMacSystemFont,'SF Pro Text',sans-serif; font-weight:500; font-size:clamp(28px,3.4vw,44px); line-height:110%; letter-spacing:-.02em; color:#000; margin:0; }
+    .footer-cta { font-family:'Plus Jakarta Sans',-apple-system,BlinkMacSystemFont,'SF Pro Text',sans-serif; font-weight:500; font-size:clamp(28px,3.4vw,44px); line-height:1; letter-spacing:-.02em; color:#000; margin:0; }
     .footer-right { display:flex; flex-direction:column; align-items:flex-start; }
     .footer-links { display:flex; flex-direction:column; gap:clamp(14px,1.5vw,20px); }
-    .footer-links a { font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text',sans-serif; font-weight:300; font-size:16px; letter-spacing:.01em; color:#000; text-decoration:underline; text-underline-offset:3px; transition:opacity .2s; }
+    .footer-links a { font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text',sans-serif; font-weight:400; font-size:18px; letter-spacing:.01em; color:#000; text-decoration:underline; text-underline-offset:3px; transition:opacity .2s; }
     .footer-links a:hover { opacity:.6; }
-    .footer-bottom { margin-top:clamp(28px,3vw,44px); font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text',sans-serif; font-weight:300; font-size:13px; letter-spacing:.01em; color:#000; }
+    .footer-bottom { margin-top:clamp(28px,3vw,44px); font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text',sans-serif; font-weight:300; font-size:16px; letter-spacing:.01em; color:#000; }
     @media (max-width:880px){ .footer-inner { grid-template-columns:1fr; gap:clamp(28px,6vw,40px); } }
     /* Mobile hamburger nav */
     .mnav { display:none; }
@@ -327,9 +332,9 @@
       </div>
       <!-- Right: contact (col 3) -->
       <div class="hero-contact anim-line" style="grid-column:2; width:auto; margin-top:0; animation-delay:.42s;">
-        <a class="hero-clink" href="mailto:jeanyang21@gmail.com">Email</a>
-        <a class="hero-clink" href="https://www.linkedin.com/in/jeanchingtingyang/" target="_blank" rel="noopener noreferrer">Linkedin</a>
-        <a class="hero-clink" href="https://drive.google.com/file/d/1XFe7n-fp3G3Mny63jGZ3xCl7m-svc0vI/view?usp=sharing" target="_blank" rel="noopener noreferrer">Resume</a>
+        <a class="hero-clink" href="mailto:jeanyang21@gmail.com"><span>Email</span><svg class="clink-underline" viewBox="0 0 100 12" preserveAspectRatio="none" fill="none" aria-hidden="true" focusable="false"><path d="M2 7C10 2 18 2 26 6.5C34 11 42 11 50 6.5C58 2 66 2 74 6.5C82 11 90 11 98 6" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <a class="hero-clink" href="https://www.linkedin.com/in/jeanchingtingyang/" target="_blank" rel="noopener noreferrer"><span>Linkedin</span><svg class="clink-underline" viewBox="0 0 100 12" preserveAspectRatio="none" fill="none" aria-hidden="true" focusable="false"><path d="M2 7C10 2 18 2 26 6.5C34 11 42 11 50 6.5C58 2 66 2 74 6.5C82 11 90 11 98 6" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <a class="hero-clink" href="https://drive.google.com/file/d/1XFe7n-fp3G3Mny63jGZ3xCl7m-svc0vI/view?usp=sharing" target="_blank" rel="noopener noreferrer"><span>Resume</span><svg class="clink-underline" viewBox="0 0 100 12" preserveAspectRatio="none" fill="none" aria-hidden="true" focusable="false"><path d="M2 7C10 2 18 2 26 6.5C34 11 42 11 50 6.5C58 2 66 2 74 6.5C82 11 90 11 98 6" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
       </div>
     </div>
   </div>
