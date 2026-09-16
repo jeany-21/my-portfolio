@@ -203,7 +203,7 @@
     .bk-toggle input:checked + .bk-toggle-track .bk-toggle-knob { transform:translateX(20px); }
     .bk-toggle-label { font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text',sans-serif; font-weight:400; font-size:14px; color:#555; }
     .en-grid { display:grid; grid-template-columns:repeat(5,1fr); gap:clamp(16px,2vw,24px); align-items:stretch; }
-    .en-cell { background:#F7F6F4; border-radius:12px; overflow:hidden; height:clamp(320px,34vw,520px); display:flex; align-items:flex-start; justify-content:center; }
+    .en-cell { background:#000000; border-radius:16px; overflow:hidden; height:clamp(320px,34vw,520px); display:flex; align-items:flex-start; justify-content:center; }
     .en-cell img { width:100%; height:100%; object-fit:contain; object-position:top center; display:block; }
     .en-cell.c3 { grid-column:span 3; }
     .en-cell.c2 { grid-column:span 2; }
@@ -214,7 +214,7 @@
     .phone-mock .phone-screen .screen-dim { position:absolute; top:0; left:0; right:0; height:22cqw; background:#434343; z-index:1; }
     .phone-mock .notch { position:absolute; top:5.5cqw; left:50%; transform:translateX(-50%); width:30cqw; height:8.5cqw; background:#0b0b0d; border-radius:5cqw; z-index:2; }
     .en-cell-gap { container-type:size; }
-    .en-cell-gap .phone-wrap { width:86cqh !important; }
+    .en-cell-gap .phone-wrap { width:86cqh !important; max-width:70%; }
     @media (max-width:880px){ .en-grid { grid-template-columns:1fr; } .en-cell, .en-cell.c2, .en-cell.c3 { grid-column:auto; height:clamp(240px,60vw,380px); } }
 
     /* ===== About me ===== */
@@ -631,7 +631,7 @@
     <p class="ov-sub">Reducing friction in task management by letting users set due dates as they type.</p>
 
     <div class="ov-imgs">
-      <div style="width:100%; background:#FBFAF8; border-radius:24px; padding:clamp(40px,6.5vw,64px) clamp(24px,4vw,56px) 0; display:flex; justify-content:center; align-items:flex-end;">
+      <div style="width:100%; background:#000000; border-radius:16px; padding:clamp(40px,6.5vw,64px) clamp(24px,4vw,56px) 0; display:flex; justify-content:center; align-items:flex-end;">
         <div class="phone-wrap" style="width:100%; max-width:380px;">
           <div class="phone-mock">
             <div class="notch"></div>
@@ -660,7 +660,7 @@
       <p class="ov-p">Users wanted to capture tasks as quickly as possible. While the existing flow took five clicks or fewer, it still felt like too much effort for a simple action.</p>
     </div>
     <div class="ov-imgs">
-      <div style="width:100%; background:#FBFAF8; border-radius:16px; padding:0 clamp(24px,3vw,48px) clamp(32px,4vw,72px); display:flex; justify-content:center; align-items:flex-start;">
+      <div style="width:100%; background:#000000; border-radius:16px; padding:0 clamp(24px,3vw,48px) clamp(32px,4vw,72px); display:flex; justify-content:center; align-items:flex-start;">
         <img src="./assets/enov-2.png" alt="Existing due date flow" style="width:70%; height:auto; display:block;">
       </div>
     </div>
@@ -672,7 +672,7 @@
     <div class="ov-imgs">
       <div class="en-grid">
         <div class="en-cell c3" style="align-items:center;"><img src="./assets/enov-7.png?v=2" alt="Exploration" style="width:80%; height:auto; object-fit:contain;"></div>
-        <div class="en-cell c2" style="align-items:flex-end;"><div class="phone-wrap" style="width:60%;"><div class="phone-mock"><div class="notch"></div><div class="phone-screen"><div class="screen-dim"></div><img src="./assets/enov-8.gif" alt="Exploration prototype"></div></div></div></div>
+        <div class="en-cell c2 en-cell-gap" style="align-items:flex-end;"><div class="phone-wrap" style="width:68%;"><div class="phone-mock"><div class="notch"></div><div class="phone-screen"><div class="screen-dim"></div><img src="./assets/enov-8.gif" alt="Exploration prototype"></div></div></div></div>
       </div>
     </div>
 
@@ -701,7 +701,7 @@
       <p class="ov-p">Natural language due dates were introduced as a paid feature, creating additional subscription value and a new monetization opportunity. I designed the paywall to appear when free users intentionally typed a due date, targeting users most likely to see value without interrupting those who didn't need the feature.</p>
     </div>
     <div class="ov-imgs">
-      <div style="width:100%; background:#FBFAF8; border-radius:24px; padding:clamp(40px,5vw,72px) clamp(24px,4vw,56px) 0; display:flex; justify-content:center; align-items:flex-end;">
+      <div style="width:100%; background:#000000; border-radius:16px; padding:clamp(40px,5vw,72px) clamp(24px,4vw,56px) 0; display:flex; justify-content:center; align-items:flex-end;">
         <img class="ov-img en11-img" src="./assets/en11.png" alt="Due dates paywall" style="height:auto; display:block; border-radius:0;">
       </div>
     </div>
