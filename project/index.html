@@ -273,7 +273,7 @@
     .acc-tl:last-child { border-bottom:0; padding-bottom:0; }
     .acc-tl .r { font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text',sans-serif; font-weight:400; font-size:14px; color:#000; }
     .acc-tl .y { font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text',sans-serif; font-weight:300; font-size:13px; color:#888; }
-    @media (max-width:880px){ .sec2 { grid-template-columns:1fr; gap:clamp(32px,7vw,44px); } .hiw-list { padding-left:0; } .hiw-item h4 { font-size:22px; } .hiw-item p, .hiw-tags { font-size:16px; } .person-lead p { font-size:16px; } }
+    @media (max-width:880px){ .sec2 { grid-template-columns:1fr; gap:clamp(32px,7vw,44px); } .hiw-list { padding-left:0; } .hiw-item h4 { font-size:22px; } .hiw-item p, .hiw-tags { font-size:16px; } .person-lead p { font-size:16px; } .hiw-head { max-width:100%; } .person-lead { max-width:100%; } }
 
     /* ===== Footer ===== */
     .site-footer { position:relative; background:#0A0A0A; color:#fff; padding:clamp(56px,7vw,96px) 0 clamp(28px,3vw,40px); overflow:hidden; }
@@ -288,10 +288,31 @@
     .footer-links a:hover { opacity:.6; }
     .footer-bottom { margin-top:clamp(28px,3vw,44px); font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text',sans-serif; font-weight:300; font-size:13px; letter-spacing:.01em; color:#B8B8B8; }
     @media (max-width:880px){ .footer-inner { grid-template-columns:1fr; gap:clamp(28px,6vw,40px); } }
+    /* Mobile hamburger nav */
+    .mnav { display:none; }
+    .mnav-btn { width:44px; height:44px; display:flex; flex-direction:column; justify-content:center; align-items:center; gap:5px; background:transparent; border:none; cursor:pointer; padding:0; -webkit-tap-highlight-color:transparent; }
+    .mnav-btn span { display:block; width:22px; height:2px; background:#000; border-radius:1px; transition:transform .25s ease, opacity .2s ease; }
+    .mnav-btn.open span:nth-child(1){ transform:translateY(7px) rotate(45deg); }
+    .mnav-btn.open span:nth-child(2){ opacity:0; }
+    .mnav-btn.open span:nth-child(3){ transform:translateY(-7px) rotate(-45deg); }
+    .mnav-panel { position:absolute; top:50px; right:0; background:#fff; border:0.5px solid rgba(0,0,0,.1); border-radius:12px; box-shadow:0 10px 30px rgba(0,0,0,.14); padding:8px; display:flex; flex-direction:column; min-width:180px; }
+    .mnav-panel[hidden]{ display:none; }
+    .mnav-panel a { font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text',sans-serif; font-weight:300; font-size:16px; letter-spacing:.01em; color:#000; text-decoration:none; padding:12px 14px; border-radius:8px; }
+    .mnav-panel a:active, .mnav-panel a:hover { background:rgba(0,0,0,.05); }
+    @media (max-width:880px){ .mnav { display:block; position:fixed; top:14px; right:18px; z-index:300; } .hero-contact { display:none !important; } }
   </style>
 </head>
 <body>
 <div style="width:100%; display:flex; flex-direction:column; align-items:center; background:#FAFAFA; min-height:100vh;">
+  <!-- ===================== MOBILE NAV ===================== -->
+  <div class="mnav">
+    <button class="mnav-btn" id="mnav-btn" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    <div class="mnav-panel" id="mnav-panel" hidden>
+      <a href="mailto:jeanyang21@gmail.com">Email</a>
+      <a href="https://www.linkedin.com/in/jeanchingtingyang/" target="_blank" rel="noopener noreferrer">Linkedin</a>
+      <a href="https://drive.google.com/file/d/1XFe7n-fp3G3Mny63jGZ3xCl7m-svc0vI/view?usp=sharing" target="_blank" rel="noopener noreferrer">Resume</a>
+    </div>
+  </div>
   <!-- ===================== HERO SECTION ===================== -->
   <div class="hero-section tex" style="width:100%; background:#FAFAFA; display:flex; justify-content:center;">
     <div class="hero-2col" style="width:100%; max-width:1600px; padding:clamp(56px,8vw,120px) clamp(32px,8vw,120px) clamp(80px,10vw,160px); display:grid; grid-template-columns:1fr auto; gap:clamp(24px,6vw,140px); align-items:flex-start;">
@@ -810,6 +831,25 @@ document.addEventListener('keydown', function(e) {
 </script>
 <script>
 (function() {
+  // Mobile hamburger menu
+  var mbtn = document.getElementById('mnav-btn');
+  var mpanel = document.getElementById('mnav-panel');
+  if (mbtn && mpanel) {
+    mbtn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      var open = mpanel.hidden;
+      mpanel.hidden = !open;
+      mbtn.classList.toggle('open', open);
+      mbtn.setAttribute('aria-expanded', String(open));
+    });
+    document.addEventListener('click', function() {
+      mpanel.hidden = true;
+      mbtn.classList.remove('open');
+      mbtn.setAttribute('aria-expanded', 'false');
+    });
+    mpanel.addEventListener('click', function(e) { e.stopPropagation(); });
+  }
+
   // Sticky nav border
   var bar = document.getElementById('topbar');
   if (bar) {
