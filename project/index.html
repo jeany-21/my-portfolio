@@ -262,7 +262,19 @@
     /* How I work list */
     .hiw-head { font-family:'Plus Jakarta Sans',-apple-system,BlinkMacSystemFont,'SF Pro Text',sans-serif; font-weight:500; font-size:clamp(28px,3.4vw,44px); line-height:112%; letter-spacing:-.02em; color:#000; margin:0; max-width:80%; }
     @media (max-width:880px){ .hiw-br { display:none; } }
-    .hiw-list { display:flex; flex-direction:column; gap:clamp(48px,6vw,80px); }
+    .hiw-list { --hiw-gap:clamp(48px,6vw,80px); position:relative; display:flex; flex-direction:column; gap:var(--hiw-gap); }
+    .hiw-item { position:relative; padding-left:46px; }
+    .hiw-item::before { content:""; position:absolute; left:8.25px; top:14px; bottom:calc(-1 * (var(--hiw-gap) + 14px)); width:1.5px; background:repeating-linear-gradient(to bottom, #000 0 4px, transparent 4px 14px); clip-path:inset(0 0 100% 0); transition:clip-path .6s ease; }
+    .hiw-item:last-child::before { display:none; }
+    .hiw-item::after { content:""; position:absolute; left:3px; top:14px; width:12px; height:12px; border-radius:50%; background:#000; transform:translateY(-50%) scale(0); transition:transform .4s cubic-bezier(.34,1.56,.64,1); }
+    .hiw-list.in .hiw-item::before { clip-path:inset(0 0 0 0); }
+    .hiw-list.in .hiw-item::after { transform:translateY(-50%) scale(1); }
+    .hiw-list.in .hiw-item:nth-child(1)::after { transition-delay:.05s; }
+    .hiw-list.in .hiw-item:nth-child(1)::before { transition-delay:.35s; }
+    .hiw-list.in .hiw-item:nth-child(2)::after { transition-delay:.8s; }
+    .hiw-list.in .hiw-item:nth-child(2)::before { transition-delay:1.1s; }
+    .hiw-list.in .hiw-item:nth-child(3)::after { transition-delay:1.55s; }
+    @media (prefers-reduced-motion:reduce){ .hiw-item::before { clip-path:inset(0 0 0 0); transition:none; } .hiw-item::after { transform:translateY(-50%) scale(1); transition:none; } }
     .hiw-item h4 { font-family:'Plus Jakarta Sans',-apple-system,BlinkMacSystemFont,'SF Pro Text',sans-serif; font-weight:400; font-size:22px; line-height:120%; letter-spacing:-.01em; color:#000; margin:0 0 clamp(20px,2.2vw,30px); }
     .hiw-item p { font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text',sans-serif; font-weight:300; font-size:16px; line-height:150%; letter-spacing:.01em; color:#000; margin:0 0 8px; }
     .hiw-tags { font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text',sans-serif; font-weight:300; font-style:italic; font-size:16px; line-height:150%; letter-spacing:.01em; color:#363636; margin:0; }
@@ -432,27 +444,24 @@
   </section>
 
   <!-- ===================== HOW I WORK ===================== -->
-  <section class="stack panel-round" style="z-index:3; background:#E2E1DD;">
+  <section class="stack panel-round" style="z-index:3; background:#F2F1EE;">
     <div class="panel-inner">
     <div class="sec2" style="margin-top:0;">
       <div>
-        <h3 class="hiw-head">From research to launch,<br class="hiw-br"> I connect user needs with business goals</h3>
+        <h3 class="hiw-head">What it's like to work together</h3>
       </div>
       <div class="hiw-list">
         <div class="hiw-item">
-          <h4>Research &amp; Collaborate</h4>
-          <p>Understand users, align teams, and uncover opportunities.</p>
-          <div class="hiw-tags">User research · Competitor analysis · Workshops</div>
+          <h4>Build with teams, not just for them.</h4>
+          <p>I bring a design perspective to every stage, from proposing new opportunities to shaping ideas with partners and turning them into meaningful experiences.</p>
         </div>
         <div class="hiw-item">
-          <h4>Design &amp; Prototype</h4>
-          <p>Explore ideas, test early, and refine the details.</p>
-          <div class="hiw-tags">Interactive prototypes (AI-assisted) · Design systems</div>
+          <h4>Care at every scale.</h4>
+          <p>I sweat the details, from pixels and accessibility to interaction patterns and scalable systems, creating experiences that feel thoughtful and cohesive.</p>
         </div>
         <div class="hiw-item">
-          <h4>Launch &amp; Tracking</h4>
-          <p>Ship thoughtfully, measure impact, and iterate.</p>
-          <div class="hiw-tags">A/B testing · Metrics · Iteration · Launch support</div>
+          <h4>Ground decisions in what we learn.</h4>
+          <p>I use research, data, and experimentation to understand what people need and ensure we're solving the right problems for both customers and the business.</p>
         </div>
       </div>
     </div>
@@ -965,6 +974,20 @@ window.addEventListener('popstate', function() {
       if (tog) tog.textContent = '–';
     }
   };
+
+  // How-I-work timeline reveal (dots + dashed line draw in)
+  var hiwList = document.querySelector('.hiw-list');
+  if (hiwList) {
+    var checkHiw = function() {
+      if (hiwList.getBoundingClientRect().top < (window.innerHeight || 800) * 0.82) {
+        hiwList.classList.add('in');
+        window.removeEventListener('scroll', checkHiw);
+      }
+    };
+    window.addEventListener('scroll', checkHiw, { passive: true });
+    checkHiw();
+    setTimeout(checkHiw, 200);
+  }
 
   // Scroll-down mouse indicator: only visible while the header is in view
   var scrollInd = document.querySelector('.scroll-ind');
