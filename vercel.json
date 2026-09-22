@@ -1,1 +1,1 @@
-{"cleanUrls": true, "rewrites": [{"source": "/(.*)", "destination": "/project/$1"}]}
+{"cleanUrls": true, "rewrites": [{"source": "/wacoremessaging", "destination": "/project/index.html"}, {"source": "/lzexpertmessaging", "destination": "/project/index.html"}, {"source": "/enduedate", "destination": "/project/index.html"}, {"source": "/lzbooks", "destination": "/project/index.html"}, {"source": "/(.*)", "destination": "/project/$1"}]}

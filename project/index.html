@@ -866,7 +866,17 @@ function toggleBkTheme() {
   var lbl = document.querySelector('.bk-toggle .bk-toggle-label');
   if (lbl) lbl.textContent = on ? 'Dark mode' : 'Light mode';
 }
-function openOverlay(id) {
+// Deep-linkable overlay URLs (each project detail gets its own path)
+var overlayPaths = {
+  'wa-overlay': '/wacoremessaging',
+  'lz-overlay': '/lzexpertmessaging',
+  'en-overlay': '/enduedate',
+  'bk-overlay': '/lzbooks'
+};
+var pathToOverlay = {};
+Object.keys(overlayPaths).forEach(function(k) { pathToOverlay[overlayPaths[k]] = k; });
+
+function openOverlay(id, skipPush) {
   var el = document.getElementById(id);
   if (!el) return;
   el.hidden = false;
@@ -874,19 +884,39 @@ function openOverlay(id) {
   var sheet = el.querySelector('.overlay-sheet');
   if (sheet) sheet.scrollTop = 0;
   requestAnimationFrame(function() { el.classList.add('open'); });
+  var p = overlayPaths[id];
+  if (!skipPush && p && location.pathname !== p) {
+    history.pushState({ overlay: id }, '', p);
+  }
 }
-function closeOverlay(id) {
+function closeOverlay(id, skipUrl) {
   var el = document.getElementById(id);
   if (!el) return;
   el.classList.remove('open');
   document.body.classList.remove('overlay-lock');
   setTimeout(function() { el.hidden = true; }, 350);
+  var p = overlayPaths[id];
+  if (!skipUrl && p && location.pathname === p) {
+    history.pushState({}, '', '/');
+  }
 }
 document.addEventListener('keydown', function(e) {
   if (e.key === 'Escape') {
     document.querySelectorAll('.overlay.open').forEach(function(el) { closeOverlay(el.id); });
   }
 });
+// Sync overlays with browser back/forward and direct loads
+window.addEventListener('popstate', function() {
+  var target = pathToOverlay[location.pathname];
+  document.querySelectorAll('.overlay.open').forEach(function(el) {
+    if (el.id !== target) closeOverlay(el.id, true);
+  });
+  if (target) openOverlay(target, true);
+});
+(function() {
+  var target = pathToOverlay[location.pathname];
+  if (target) openOverlay(target, true);
+})();
 </script>
 <script>
 (function() {
