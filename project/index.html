@@ -358,6 +358,40 @@
       .works-pin { position:sticky; top:0; } /* top overridden by JS so it pins at its END */
       .works-inner { padding-bottom:30vh; }
     }
+    /* ===== How I work: pinned role step-through ===== */
+    .hiw2 { width:100%; }
+    .hiw2-eyebrow { font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text',sans-serif; font-weight:400; font-size:clamp(15px,1.3vw,18px); letter-spacing:0; color:#fff; margin:0 0 clamp(28px,3.4vw,48px); }
+    .hiw2-grid { align-self:stretch; display:grid; grid-template-columns:55fr 45fr; gap:clamp(32px,5vw,80px); align-items:start; width:100%; }
+    .hiw2-roles { display:flex; flex-direction:column; gap:clamp(12px,1.6vw,22px); }
+    .hiw2-role { position:relative; display:block; font-family:'Plus Jakarta Sans',-apple-system,BlinkMacSystemFont,'SF Pro Text',sans-serif; font-weight:600; font-size:clamp(28px,3.4vw,52px); line-height:1.12; letter-spacing:-.02em; color:#AFAFAF; background:none; border:0; padding:0 0 0 0; text-align:left; cursor:pointer; transition:padding-left .45s cubic-bezier(.22,.61,.36,1), color .35s ease; }
+    .hiw2-role:hover { color:#FFFFFF; }
+    .hiw2-role.active { color:#fff; padding-left:1.4em; }
+    .hiw2-arrow { position:absolute; left:0; top:0; opacity:0; transform:translateX(-.4em); transition:opacity .45s ease, transform .45s cubic-bezier(.22,.61,.36,1); }
+    .hiw2-role.active .hiw2-arrow { opacity:1; transform:translateX(0); }
+    .hiw2-right { position:relative; width:100%; aspect-ratio:1332/639; }
+    .hiw2-media { position:absolute; inset:0; opacity:0; transition:opacity .5s ease; }
+    .hiw2-media.active { opacity:1; }
+    .hiw2-media img { width:100%; height:100%; object-fit:contain; object-position:top center; display:block; }
+    @media (min-width:881px){
+      .hiw2 { position:relative; height:400vh; }
+      .hiw2-pin { position:sticky; top:0; height:100vh; display:flex; align-items:center; }
+      .hiw-cover { margin-top:-100vh; }
+    }
+    /* mobile carousel (hidden on desktop) */
+    .hiw2-cards, .hiw2-dots { display:none; }
+    @media (max-width:880px){
+      .hiw2-grid { display:none; }
+      .hiw2-cards { display:flex; gap:16px; overflow-x:auto; scroll-snap-type:x mandatory; -webkit-overflow-scrolling:touch; scrollbar-width:none; margin:0 -16px; padding:0 16px; }
+      .hiw2-cards::-webkit-scrollbar { display:none; }
+      .hiw2-card { flex:0 0 84%; scroll-snap-align:center; display:flex; flex-direction:column; gap:16px; }
+      .hiw2-eyebrow { font-family:'Plus Jakarta Sans',-apple-system,BlinkMacSystemFont,'SF Pro Text',sans-serif; font-weight:500; font-size:clamp(28px,3.4vw,44px); letter-spacing:-.02em; margin-bottom:clamp(44px,10vw,72px); }
+      .hiw2-card-title { font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text',sans-serif; font-weight:400; font-size:16px; line-height:130%; letter-spacing:.01em; color:#fff; margin:0; }
+      .hiw2-card-media { width:100%; aspect-ratio:1332/639; }
+      .hiw2-card-media img { width:100%; height:100%; object-fit:contain; object-position:top center; display:block; }
+      .hiw2-dots { display:flex; gap:8px; margin-top:clamp(24px,6vw,36px); }
+      .hiw2-dot { width:24px; height:2px; border-radius:2px; background:rgba(255,255,255,.28); transition:background .3s ease; }
+      .hiw2-dot.active { background:#fff; }
+    }
   </style>
 </head>
 <body>
@@ -459,32 +493,49 @@
   </section>
 
   <!-- ===================== HOW I WORK ===================== -->
-  <section class="stack panel-round" style="z-index:3; background:#F2F1EE;">
+  <section class="hiw2 panel-round" style="z-index:3; background:#1E1E1E;">
+    <div class="hiw2-pin">
     <div class="panel-inner">
-    <div class="sec2" style="margin-top:0;">
-      <div>
-        <h3 class="hiw-head">What it's like to work together</h3>
+      <p class="hiw2-eyebrow">What it's like to work together?</p>
+      <div class="hiw2-grid">
+        <div class="hiw2-left">
+          <div class="hiw2-roles">
+            <button type="button" class="hiw2-role active" data-i="0"><span class="hiw2-arrow">&rarr;</span><span>As a XFN partner</span></button>
+            <button type="button" class="hiw2-role" data-i="1"><span class="hiw2-arrow">&rarr;</span><span>As a Design peer</span></button>
+            <button type="button" class="hiw2-role" data-i="2"><span class="hiw2-arrow">&rarr;</span><span>As a human</span></button>
+          </div>
+        </div>
+        <div class="hiw2-right">
+          <div class="hiw2-media active" data-i="0"><img src="./assets/XFN.png" alt="As a XFN partner"></div>
+          <div class="hiw2-media" data-i="1"><img src="./assets/Design.png" alt="As a Design peer"></div>
+          <div class="hiw2-media" data-i="2"><img src="./assets/human.png" alt="As a human"></div>
+        </div>
       </div>
-      <div class="hiw-list">
-        <div class="hiw-item">
-          <h4>Build with teams, not just for them.</h4>
-          <p>I bring a design perspective to every stage, from proposing new opportunities to shaping ideas with partners and turning them into meaningful experiences.</p>
+      <div class="hiw2-cards">
+        <div class="hiw2-card">
+          <p class="hiw2-card-title">As a XFN partner</p>
+          <div class="hiw2-card-media"><img src="./assets/XFN.png" alt="As a XFN partner"></div>
         </div>
-        <div class="hiw-item">
-          <h4>Care at every scale.</h4>
-          <p>I sweat the details, from pixels and accessibility to interaction patterns and scalable systems, creating experiences that feel thoughtful and cohesive.</p>
+        <div class="hiw2-card">
+          <p class="hiw2-card-title">As a Design peer</p>
+          <div class="hiw2-card-media"><img src="./assets/Design.png" alt="As a Design peer"></div>
         </div>
-        <div class="hiw-item">
-          <h4>Ground decisions in what we learn.</h4>
-          <p>I use research, data, and experimentation to understand what people need and ensure we're solving the right problems for both customers and the business.</p>
+        <div class="hiw2-card">
+          <p class="hiw2-card-title">As a human</p>
+          <div class="hiw2-card-media"><img src="./assets/human.png" alt="As a human"></div>
         </div>
+      </div>
+      <div class="hiw2-dots">
+        <span class="hiw2-dot active"></span>
+        <span class="hiw2-dot"></span>
+        <span class="hiw2-dot"></span>
       </div>
     </div>
     </div>
   </section>
 
   <!-- ===================== PERSON BEHIND THE WORK ===================== -->
-  <section class="stack-scroll panel-round" style="z-index:4; background:#FAFAFA;">
+  <section class="stack-scroll panel-round hiw-cover" style="z-index:4; background:#FAFAFA;">
     <div class="panel-inner">
     <div class="sec2" style="margin-top:0;">
       <div class="person-text">
@@ -1077,6 +1128,68 @@ window.addEventListener('popstate', function() {
   window.addEventListener('resize', check);
   requestAnimationFrame(function(){ requestAnimationFrame(check); });
   setTimeout(check, 120);
+
+  // How I work: pinned role step-through
+  var hiw2 = document.querySelector('.hiw2');
+  if (hiw2) {
+    var roles = Array.prototype.slice.call(hiw2.querySelectorAll('.hiw2-role'));
+    var medias = Array.prototype.slice.call(hiw2.querySelectorAll('.hiw2-media'));
+    var n = roles.length;
+    var isDesktop = function(){ return window.matchMedia('(min-width:881px)').matches; };
+    var setActive = function(i){
+      roles.forEach(function(r, idx){ r.classList.toggle('active', idx === i); });
+      medias.forEach(function(m, idx){ m.classList.toggle('active', idx === i); });
+    };
+    // roles advance over the pinned region BEFORE the next panel starts covering
+    // (cover begins once scrolled past offsetHeight - 2*vh)
+    var roleSpan = function(){ return Math.max(1, hiw2.offsetHeight - 2 * window.innerHeight); };
+    var hiwScroll = function(){
+      if (!isDesktop()) return;
+      var rect = hiw2.getBoundingClientRect();
+      var span = roleSpan();
+      var scrolled = Math.min(Math.max(-rect.top, 0), span);
+      var p = scrolled / span;
+      var i = Math.min(n - 1, Math.floor(p * n));
+      setActive(i);
+    };
+    roles.forEach(function(r, idx){
+      r.addEventListener('click', function(){
+        if (isDesktop()) {
+          var span = roleSpan();
+          var top = window.pageYOffset + hiw2.getBoundingClientRect().top;
+          var target = top + (span * (idx + 0.5) / n);
+          window.scrollTo({ top: target, behavior: 'smooth' });
+        } else {
+          setActive(idx);
+          medias[idx].scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      });
+    });
+    window.addEventListener('scroll', hiwScroll, { passive: true });
+    window.addEventListener('resize', hiwScroll);
+    hiwScroll();
+
+    // mobile carousel: sync pagination dots with horizontal scroll
+    var cards = hiw2.querySelector('.hiw2-cards');
+    var dots = Array.prototype.slice.call(hiw2.querySelectorAll('.hiw2-dot'));
+    if (cards && dots.length) {
+      var syncDots = function(){
+        var items = cards.querySelectorAll('.hiw2-card');
+        if (!items.length) return;
+        var center = cards.scrollLeft + cards.clientWidth / 2;
+        var best = 0, bestDist = Infinity;
+        items.forEach(function(it, idx){
+          var mid = it.offsetLeft + it.offsetWidth / 2;
+          var d = Math.abs(mid - center);
+          if (d < bestDist) { bestDist = d; best = idx; }
+        });
+        dots.forEach(function(dot, idx){ dot.classList.toggle('active', idx === best); });
+      };
+      cards.addEventListener('scroll', syncDots, { passive: true });
+      window.addEventListener('resize', syncDots);
+      syncDots();
+    }
+  }
 })();
 </script>
 <script>
