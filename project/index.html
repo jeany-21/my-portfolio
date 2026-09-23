@@ -196,6 +196,7 @@
     .ov-imgs { display:flex; flex-direction:column; gap:clamp(20px,2vw,32px); margin-top:clamp(40px,5vw,72px); }
     .ov-img { width:100%; height:auto; display:block; border-radius:16px; }
     .ov-section { margin-top:clamp(64px,8vw,120px); max-width:900px; }
+    .ov-divider { border:none; border-top:1px solid rgba(0,0,0,.12); margin:clamp(64px,8vw,120px) 0 0; }
     .ov-h2 { font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text',sans-serif; font-weight:400; font-size:clamp(22px,2.2vw,28px); line-height:120%; letter-spacing:.01em; color:#000; margin:0 0 20px; }
     .ov-h3 { font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text',sans-serif; font-weight:500; font-size:16px; line-height:130%; letter-spacing:.01em; color:#000; margin:24px 0 8px; }
     .ov-p { font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text',sans-serif; font-weight:300; font-size:16px; line-height:160%; letter-spacing:.01em; color:#000; margin:0 0 14px; }
@@ -208,6 +209,20 @@
     .focus-card h3 { font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text',sans-serif; font-weight:500; font-size:16px; line-height:130%; letter-spacing:.01em; color:#FFFFFF; margin:0 0 10px; }
     .focus-card p { font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text',sans-serif; font-weight:300; font-size:15px; line-height:150%; letter-spacing:.01em; color:rgba(255,255,255,.85); margin:0; }
     @media (max-width:880px){ .focus-grid { grid-template-columns:1fr; } }
+    .wa-grid { display:flex; gap:clamp(12px,1.5vw,20px); margin-top:clamp(36px,4.5vw,64px); }
+    .wa-col { flex:1 1 0; min-width:0; display:flex; flex-direction:column; gap:clamp(12px,1.5vw,20px); }
+    .wa-cell { width:100%; border-radius:16px; }
+    .wa-imgcell { display:flex; align-items:center; justify-content:center; overflow:hidden; }
+    @media (max-width:880px){ .wa-grid { flex-direction:column; } }
+    .wa-search { width:85%; box-sizing:border-box; display:flex; align-items:center; gap:.55em; background:#FFFFFF; border-radius:.7em; padding:.6em .8em; font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text',sans-serif; font-size:clamp(15px,2.2vw,24px); line-height:1.2; }
+    .wa-search svg { width:1.05em; height:1.05em; flex:none; color:#8A8A8A; }
+    .wa-search-text { font-weight:400; color:#1A1A1A; white-space:pre; letter-spacing:.01em; line-height:1.2; }
+    .wa-caret { width:2px; height:1.2em; background:#1A1A1A; margin-left:1px; align-self:center; animation:wacaret 1s step-end infinite; }
+    @keyframes wacaret { 50% { opacity:0; } }
+    .wa-slideshow { position:relative; overflow:hidden; }
+    .wa-slide { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; background-size:cover; background-position:center; opacity:0; transition:opacity .8s ease; }
+    .wa-slide.is-active { opacity:1; }
+    .wa-slide img { width:88%; height:auto; max-height:82%; object-fit:contain; display:block; }
     /* LZ Books overlay placeholders + theme toggle */
     .bk-ph { width:100%; background:#0A0A0A; border-radius:16px; transition:background .3s ease; }
     .bk-ph.dark { background:#141B23; }
@@ -520,8 +535,55 @@
     <p class="ov-sub">Designed and shipped core messaging experiences for 3B+ users worldwide</p>
 
     <div class="ov-imgs">
-      <img class="ov-img" src="./assets/wa-all.png?v=3" alt="WhatsApp core messaging screens">
+      <img class="ov-img" src="./assets/wa-all.png?v=4" alt="WhatsApp core messaging screens">
     </div>
+
+    <div class="ov-section">
+      <h2 class="ov-h2">Impact</h2>
+      <h3 class="ov-h3">+XXK Daily Group Creations</h3>
+      <p class="ov-p">Streamlined creation journeys and resolved key drop-off points, driving a +X% boost in completion success rate at global scale.</p>
+      <h3 class="ov-h3">+0.X% Lift in Daily Active Users (DAU)</h3>
+      <p class="ov-p">Scaled cohesive design improvements across all key focus areas, driving measurable daily active engagement at global scale.</p>
+      <h3 class="ov-h3">+XXK Daily Notification Opt-ins</h3>
+      <p class="ov-p">Uncovered re-engagement opportunities for unnotified chats, helping more users enable notifications and stay connected to key conversations.</p>
+      <p style="font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text',sans-serif; font-weight:300; font-size:12px; color:#757575; margin-top:clamp(24px,3vw,40px);">*Data and specific metric values have been sanitized or relative-indexed for NDA compliance.</p>
+    </div>
+
+    <div class="ov-section" style="max-width:none;">
+      <div style="max-width:900px;">
+        <h2 class="ov-h2">Key Focus areas</h2>
+        <h3 class="ov-h3">Notifications &amp; Re-engagement</h3>
+        <p class="ov-p">Led design and experimentation in an ambiguous product area that had never been systematically owned by a single team, bringing the team together to uncover opportunities, drive engagement, and shape product direction.</p>
+        <h3 class="ov-h3">Messaging Experience</h3>
+        <p class="ov-p">Elevated core messaging interactions across link previews, the composer, and @mentions, improving how people compose, share, and interact in conversations.</p>
+        <h3 class="ov-h3">Group Creation &amp; Conversation</h3>
+        <p class="ov-p">Focused on group creation and forwarding journeys, uncovering friction that limited completion and identifying opportunities to increase engagement across key entry points.</p>
+      </div>
+      <div class="wa-grid">
+        <div class="wa-col">
+          <div class="wa-cell wa-imgcell" style="background:#E4F0DA; aspect-ratio:630/640;"><img src="./assets/WA8.png" alt="" style="height:88%;width:auto;"></div>
+          <div class="wa-cell wa-imgcell" style="background:#F5F2EB; aspect-ratio:630/225;">
+            <div class="wa-search">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"></circle><line x1="16.5" y1="16.5" x2="21" y2="21" stroke="currentColor" stroke-width="2" stroke-linecap="round"></line></svg>
+              <span class="wa-search-text"></span><span class="wa-caret"></span>
+            </div>
+          </div>
+          <div class="wa-cell wa-imgcell" style="background:#111B21; aspect-ratio:630/225;"><img src="./assets/WA12.png" alt="" style="width:88%;height:auto;"></div>
+        </div>
+        <div class="wa-col">
+          <div class="wa-cell wa-slideshow" style="aspect-ratio:630/280;">
+            <div class="wa-slide is-active" style="background:#F5F2EB;"><img src="./assets/WALIGHT.png" alt=""></div>
+            <div class="wa-slide" style="background:#0A0A0A;"><img src="./assets/WADARK.png" alt=""></div>
+            <div class="wa-slide" style="background-image:url('./assets/WAORANGEBG.png');"><img src="./assets/WAORANGE.png" alt=""></div>
+            <div class="wa-slide" style="background-image:url('./assets/WABLUEBG.png');"><img src="./assets/WABLUE.png" alt=""></div>
+          </div>
+          <div class="wa-cell wa-imgcell" style="background:#111B21; aspect-ratio:630/470; justify-content:flex-start;"><img src="./assets/WA9.png" alt="" style="width:92%;height:auto;"></div>
+          <div class="wa-cell wa-imgcell" style="background:#EFEAE1; aspect-ratio:630/415; align-items:flex-end;"><img src="./assets/WA11.png" alt="" style="width:55%;height:auto;"></div>
+        </div>
+      </div>
+    </div>
+
+    <hr class="ov-divider">
 
     <div class="ov-section" style="max-width:none;">
       <h2 class="ov-h2">My role</h2>
@@ -544,34 +606,6 @@
           <p class="ov-p" style="margin-bottom:0;">Considered how experiences fit into broader product ecosystems, building patterns that extend across surfaces and use cases. Stayed involved through implementation, testing, and bug bashes to ensure a high bar for craft and quality.</p>
         </div>
       </div>
-    </div>
-
-    <div class="ov-section" style="max-width:none;">
-      <h2 class="ov-h2">Key Focus areas</h2>
-      <div class="focus-grid">
-        <div class="focus-card">
-          <img class="focus-icon" src="./assets/wa6-icon.png" alt="">
-          <h3>Notifications &amp; Re-engagement</h3>
-          <p>Led design and experimentation in an ambiguous product area that had never been systematically owned by a single team, bringing the team together to uncover opportunities, drive engagement, and shape product direction.</p>
-        </div>
-        <div class="focus-card">
-          <img class="focus-icon" src="./assets/wa4-icon.png" alt="">
-          <h3>Messaging Experience</h3>
-          <p>Elevated core messaging interactions across link previews, the composer, and @mentions, improving how people compose, share, and interact in conversations.</p>
-        </div>
-        <div class="focus-card">
-          <img class="focus-icon" src="./assets/wa5-icon.png" alt="">
-          <h3>Group Creation &amp; Conversation</h3>
-          <p>Focused on group creation and forwarding journeys, uncovering friction that limited completion and identifying opportunities to increase engagement across key entry points.</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="ov-section">
-      <h2 class="ov-h2">Impact</h2>
-      <p class="ov-p" style="margin-bottom:2px;">• <strong style="font-weight:600;">Increased notification opt-in</strong> by helping previously muted users receive notifications from important chats</p>
-      <p class="ov-p" style="margin-bottom:2px;">• Drove <strong style="font-weight:600;">MAU growth</strong> across core messaging experiences used by billions of people</p>
-      <p class="ov-p">• <strong style="font-weight:600;">+3%</strong> group creation completion, helping more people create groups and start conversations</p>
     </div>
 
     <div class="ov-section" style="max-width:none; margin-top:clamp(56px,7vw,96px);">
@@ -1043,6 +1077,38 @@ window.addEventListener('popstate', function() {
   window.addEventListener('resize', check);
   requestAnimationFrame(function(){ requestAnimationFrame(check); });
   setTimeout(check, 120);
+})();
+</script>
+<script>
+(function(){
+  var shows = document.querySelectorAll('.wa-slideshow');
+  shows.forEach(function(show){
+    var slides = show.querySelectorAll('.wa-slide');
+    if (slides.length < 2) return;
+    var i = 0;
+    setInterval(function(){
+      slides[i].classList.remove('is-active');
+      i = (i + 1) % slides.length;
+      slides[i].classList.add('is-active');
+    }, 1500);
+  });
+  var el = document.querySelector('.wa-search-text');
+  if (el) {
+    var names = ['Anika', 'Anna', 'Jordan'];
+    var ni = 0, ci = 0, typing = true;
+    (function tick(){
+      var name = names[ni];
+      if (typing) {
+        ci++; el.textContent = name.slice(0, ci);
+        if (ci === name.length) { typing = false; setTimeout(tick, 1200); return; }
+        setTimeout(tick, 140);
+      } else {
+        ci--; el.textContent = name.slice(0, ci);
+        if (ci === 0) { typing = true; ni = (ni + 1) % names.length; setTimeout(tick, 400); return; }
+        setTimeout(tick, 70);
+      }
+    })();
+  }
 })();
 </script>
 <!-- Vercel Web Analytics -->
