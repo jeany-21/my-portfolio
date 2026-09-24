@@ -269,7 +269,7 @@
     @media (max-width:880px){ .about-grid { grid-template-columns:1fr; gap:clamp(40px,8vw,64px); } .about-grid .timeline, .about-grid .about-lead { grid-column:1 / -1 !important; } .about-grid .timeline { order:1; } .about-grid .about-lead { order:2; } }
 
     /* ===== How I work + About (v2) ===== */
-    .sec2 { align-self:stretch; display:grid; grid-template-columns:3fr 2fr; gap:16px; align-items:start; margin-top:clamp(140px,16vw,260px); }
+    .sec2 { align-self:stretch; display:grid; grid-template-columns:1fr 1fr; gap:16px; align-items:start; margin-top:clamp(140px,16vw,260px); }
     .sec2-title { font-family:'Plus Jakarta Sans',-apple-system,BlinkMacSystemFont,'SF Pro Text',sans-serif; font-weight:500; font-size:clamp(28px,3.2vw,40px); line-height:110%; letter-spacing:-.02em; color:#000; margin:0 0 clamp(14px,1.4vw,20px); }
     .sec2-sub { font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text',sans-serif; font-weight:300; font-size:16px; line-height:150%; letter-spacing:.01em; color:#808080; margin:0; max-width:85%; }
     .sec2-sub a { color:inherit; text-decoration:underline; text-underline-offset:3px; transition:color .2s; }
@@ -297,7 +297,8 @@
     .person-lead { margin-top:clamp(36px,4.5vw,64px); max-width:80%; }
     .person-lead p { font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text',sans-serif; font-weight:300; font-size:16px; line-height:160%; letter-spacing:.01em; color:#808080; margin:0 0 16px; }
     .person-lead p:last-child { margin-bottom:0; }
-    .person-photo { width:100%; aspect-ratio:1.1/1; border-radius:20px; background:#D9D9D9; background-size:cover; background-position:center; }
+    .person-right { display:flex; justify-content:center; }
+    .person-photo { width:65%; max-width:65%; aspect-ratio:1.1/1; border-radius:20px; background:#D9D9D9; background-size:cover; background-position:center; }
     .person-exp { grid-column:1 / -1; margin-top:clamp(48px,6vw,96px); display:flex; flex-direction:column; }
     .exp-item { display:flex; align-items:baseline; justify-content:space-between; gap:16px; padding:clamp(18px,2vw,26px) 0; border-top:1px solid rgba(0,0,0,.15); }
     .exp-item:last-child { border-bottom:1px solid rgba(0,0,0,.15); }
@@ -358,39 +359,50 @@
       .works-pin { position:sticky; top:0; } /* top overridden by JS so it pins at its END */
       .works-inner { padding-bottom:30vh; }
     }
-    /* ===== How I work: pinned role step-through ===== */
+    /* ===== How I work: pinned role step-through (split, grid-aligned) ===== */
     .hiw2 { width:100%; }
-    .hiw2-eyebrow { font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text',sans-serif; font-weight:400; font-size:clamp(15px,1.3vw,18px); letter-spacing:0; color:#fff; margin:0 0 clamp(28px,3.4vw,48px); }
-    .hiw2-grid { align-self:stretch; display:grid; grid-template-columns:55fr 45fr; gap:clamp(32px,5vw,80px); align-items:start; width:100%; }
+    .hiw2-bg { display:none; }
+    .hiw2-slide { position:absolute; inset:0; background-size:cover; background-position:center; display:flex; align-items:center; justify-content:center; opacity:0; transition:opacity .6s ease; }
+    .hiw2-slide.active { opacity:1; }
+    .hiw2-slide img:not(.hiw2-deco) { width:72%; max-width:520px; height:auto; max-height:82%; object-fit:contain; display:block; position:relative; z-index:3; }
+    .hiw2-deco { position:absolute; width:40%; max-width:none; max-height:none; height:auto; z-index:1; pointer-events:none; }
+    .hiw2-deco-top { top:7%; right:0; }
+    .hiw2-deco-bottom { bottom:6%; left:0; width:44%; }
+    .hiw2-slide[data-i="2"]::after { content:""; position:absolute; inset:0; z-index:2; pointer-events:none; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); background-size:150px 150px; opacity:.16; mix-blend-mode:overlay; }
+    .hiw2-eyebrow { font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text',sans-serif; font-weight:400; font-size:clamp(15px,1.3vw,18px); letter-spacing:0; color:#000; margin:0 0 clamp(28px,3.4vw,48px); }
     .hiw2-roles { display:flex; flex-direction:column; gap:clamp(12px,1.6vw,22px); }
-    .hiw2-role { position:relative; display:block; font-family:'Plus Jakarta Sans',-apple-system,BlinkMacSystemFont,'SF Pro Text',sans-serif; font-weight:600; font-size:clamp(28px,3.4vw,52px); line-height:1.12; letter-spacing:-.02em; color:#AFAFAF; background:none; border:0; padding:0 0 0 0; text-align:left; cursor:pointer; transition:padding-left .45s cubic-bezier(.22,.61,.36,1), color .35s ease; }
-    .hiw2-role:hover { color:#FFFFFF; }
-    .hiw2-role.active { color:#fff; padding-left:1.4em; }
+    .hiw2-role { position:relative; display:block; font-family:'Plus Jakarta Sans',-apple-system,BlinkMacSystemFont,'SF Pro Text',sans-serif; font-weight:500; font-size:clamp(28px,3.4vw,44px); line-height:112%; letter-spacing:-.02em; color:#D0D2D5; background:none; border:0; padding:0; text-align:left; cursor:pointer; transition:padding-left .45s cubic-bezier(.22,.61,.36,1), color .35s ease; }
+    .hiw2-role:hover { color:#000; }
+    .hiw2-role.active { color:#000; padding-left:1.4em; }
     .hiw2-arrow { position:absolute; left:0; top:0; opacity:0; transform:translateX(-.4em); transition:opacity .45s ease, transform .45s cubic-bezier(.22,.61,.36,1); }
     .hiw2-role.active .hiw2-arrow { opacity:1; transform:translateX(0); }
-    .hiw2-right { position:relative; width:100%; aspect-ratio:1332/639; }
-    .hiw2-media { position:absolute; inset:0; opacity:0; transition:opacity .5s ease; }
-    .hiw2-media.active { opacity:1; }
-    .hiw2-media img { width:100%; height:100%; object-fit:contain; object-position:top center; display:block; }
+    .hiw2-right { position:relative; aspect-ratio:1332/639; }
+    .hiw2-img { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; opacity:0; transition:opacity .5s ease; }
+    .hiw2-img.active { opacity:1; }
+    .hiw2-img img { width:100%; height:100%; object-fit:contain; object-position:center; display:block; }
     @media (min-width:881px){
       .hiw2 { position:relative; height:400vh; }
-      .hiw2-pin { position:sticky; top:0; height:100vh; display:flex; align-items:center; }
+      .hiw2-pin { position:sticky; top:0; height:100vh; }
+      .hiw2-bg { display:block; position:absolute; top:0; bottom:0; right:0; left:var(--hiw2-splitX,60%); }
+      .hiw2-inner { position:absolute; inset:0; display:flex; align-items:center; }
+      .hiw2-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; width:100%; align-items:center; }
       .hiw-cover { margin-top:-100vh; }
     }
     /* mobile carousel (hidden on desktop) */
     .hiw2-cards, .hiw2-dots { display:none; }
     @media (max-width:880px){
-      .hiw2-grid { display:none; }
+      .hiw2-right { display:none; }
+      .hiw2-eyebrow { font-family:'Plus Jakarta Sans',-apple-system,BlinkMacSystemFont,'SF Pro Text',sans-serif; font-weight:500; font-size:clamp(28px,3.4vw,44px); letter-spacing:-.02em; margin-bottom:clamp(44px,10vw,72px); }
+      .hiw2-roles { display:none; }
       .hiw2-cards { display:flex; gap:16px; overflow-x:auto; scroll-snap-type:x mandatory; -webkit-overflow-scrolling:touch; scrollbar-width:none; margin:0 -16px; padding:0 16px; }
       .hiw2-cards::-webkit-scrollbar { display:none; }
       .hiw2-card { flex:0 0 84%; scroll-snap-align:center; display:flex; flex-direction:column; gap:16px; }
-      .hiw2-eyebrow { font-family:'Plus Jakarta Sans',-apple-system,BlinkMacSystemFont,'SF Pro Text',sans-serif; font-weight:500; font-size:clamp(28px,3.4vw,44px); letter-spacing:-.02em; margin-bottom:clamp(44px,10vw,72px); }
-      .hiw2-card-title { font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text',sans-serif; font-weight:400; font-size:16px; line-height:130%; letter-spacing:.01em; color:#fff; margin:0; }
-      .hiw2-card-media { width:100%; aspect-ratio:1332/639; }
-      .hiw2-card-media img { width:100%; height:100%; object-fit:contain; object-position:top center; display:block; }
+      .hiw2-card-title { font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text',sans-serif; font-weight:400; font-size:16px; line-height:130%; letter-spacing:.01em; color:#000; margin:0; }
+      .hiw2-card-media { width:100%; aspect-ratio:1/1; border-radius:8px; background-size:cover; background-position:center; display:flex; align-items:center; justify-content:center; overflow:hidden; }
+      .hiw2-card-media img { width:70%; height:auto; display:block; }
       .hiw2-dots { display:flex; gap:8px; margin-top:clamp(24px,6vw,36px); }
-      .hiw2-dot { width:24px; height:2px; border-radius:2px; background:rgba(255,255,255,.28); transition:background .3s ease; }
-      .hiw2-dot.active { background:#fff; }
+      .hiw2-dot { width:24px; height:2px; border-radius:2px; background:rgba(0,0,0,.2); transition:background .3s ease; }
+      .hiw2-dot.active { background:#000; }
     }
   </style>
 </head>
@@ -493,44 +505,45 @@
   </section>
 
   <!-- ===================== HOW I WORK ===================== -->
-  <section class="hiw2 panel-round" style="z-index:3; background:#1E1E1E;">
+  <section class="hiw2" style="z-index:3; background:#fff;">
     <div class="hiw2-pin">
-    <div class="panel-inner">
-      <p class="hiw2-eyebrow">What it's like to work together?</p>
-      <div class="hiw2-grid">
-        <div class="hiw2-left">
-          <div class="hiw2-roles">
-            <button type="button" class="hiw2-role active" data-i="0"><span class="hiw2-arrow">&rarr;</span><span>As a XFN partner</span></button>
-            <button type="button" class="hiw2-role" data-i="1"><span class="hiw2-arrow">&rarr;</span><span>As a Design peer</span></button>
-            <button type="button" class="hiw2-role" data-i="2"><span class="hiw2-arrow">&rarr;</span><span>As a human</span></button>
+      <div class="hiw2-bg">
+        <div class="hiw2-slide active" data-i="0" style="background-image:url('./assets/xfnbg.jpeg');"><img src="./assets/XFN.png" alt="As a XFN partner"></div>
+        <div class="hiw2-slide" data-i="1" style="background-image:url('./assets/designbg.png');"><img src="./assets/Design.png" alt="As a Design peer"></div>
+        <div class="hiw2-slide" data-i="2" style="background:#A3BAC6;"><img class="hiw2-deco hiw2-deco-top" src="./assets/humantop.png" alt=""><img src="./assets/human.png" alt="As a human"><img class="hiw2-deco hiw2-deco-bottom" src="./assets/humandown.png" alt=""></div>
+      </div>
+      <div class="panel-inner hiw2-inner">
+        <div class="hiw2-grid">
+          <div class="hiw2-left">
+            <p class="hiw2-eyebrow">What it's like to work together?</p>
+            <div class="hiw2-roles">
+              <button type="button" class="hiw2-role active" data-i="0"><span class="hiw2-arrow">&rarr;</span><span>As a XFN partner</span></button>
+              <button type="button" class="hiw2-role" data-i="1"><span class="hiw2-arrow">&rarr;</span><span>As a Design peer</span></button>
+              <button type="button" class="hiw2-role" data-i="2"><span class="hiw2-arrow">&rarr;</span><span>As a human</span></button>
+            </div>
+            <div class="hiw2-cards">
+              <div class="hiw2-card">
+                <p class="hiw2-card-title">As a XFN partner</p>
+                <div class="hiw2-card-media" style="background-image:url('./assets/xfnbg.jpeg');"><img src="./assets/XFN.png" alt="As a XFN partner"></div>
+              </div>
+              <div class="hiw2-card">
+                <p class="hiw2-card-title">As a Design peer</p>
+                <div class="hiw2-card-media" style="background-image:url('./assets/designbg.png');"><img src="./assets/Design.png" alt="As a Design peer"></div>
+              </div>
+              <div class="hiw2-card">
+                <p class="hiw2-card-title">As a human</p>
+                <div class="hiw2-card-media" style="background:#A3BAC6;"><img src="./assets/human.png" alt="As a human"></div>
+              </div>
+            </div>
+            <div class="hiw2-dots">
+              <span class="hiw2-dot active"></span>
+              <span class="hiw2-dot"></span>
+              <span class="hiw2-dot"></span>
+            </div>
           </div>
-        </div>
-        <div class="hiw2-right">
-          <div class="hiw2-media active" data-i="0"><img src="./assets/XFN.png" alt="As a XFN partner"></div>
-          <div class="hiw2-media" data-i="1"><img src="./assets/Design.png" alt="As a Design peer"></div>
-          <div class="hiw2-media" data-i="2"><img src="./assets/human.png" alt="As a human"></div>
+          <div class="hiw2-right"></div>
         </div>
       </div>
-      <div class="hiw2-cards">
-        <div class="hiw2-card">
-          <p class="hiw2-card-title">As a XFN partner</p>
-          <div class="hiw2-card-media"><img src="./assets/XFN.png" alt="As a XFN partner"></div>
-        </div>
-        <div class="hiw2-card">
-          <p class="hiw2-card-title">As a Design peer</p>
-          <div class="hiw2-card-media"><img src="./assets/Design.png" alt="As a Design peer"></div>
-        </div>
-        <div class="hiw2-card">
-          <p class="hiw2-card-title">As a human</p>
-          <div class="hiw2-card-media"><img src="./assets/human.png" alt="As a human"></div>
-        </div>
-      </div>
-      <div class="hiw2-dots">
-        <span class="hiw2-dot active"></span>
-        <span class="hiw2-dot"></span>
-        <span class="hiw2-dot"></span>
-      </div>
-    </div>
     </div>
   </section>
 
@@ -1133,24 +1146,52 @@ window.addEventListener('popstate', function() {
   var hiw2 = document.querySelector('.hiw2');
   if (hiw2) {
     var roles = Array.prototype.slice.call(hiw2.querySelectorAll('.hiw2-role'));
-    var medias = Array.prototype.slice.call(hiw2.querySelectorAll('.hiw2-media'));
+    var bgs = Array.prototype.slice.call(hiw2.querySelectorAll('.hiw2-slide'));
+    var imgs = Array.prototype.slice.call(hiw2.querySelectorAll('.hiw2-img'));
+    var rightCell = hiw2.querySelector('.hiw2-right');
     var n = roles.length;
     var isDesktop = function(){ return window.matchMedia('(min-width:881px)').matches; };
     var setActive = function(i){
       roles.forEach(function(r, idx){ r.classList.toggle('active', idx === i); });
-      medias.forEach(function(m, idx){ m.classList.toggle('active', idx === i); });
+      bgs.forEach(function(m, idx){ m.classList.toggle('active', idx === i); });
+      imgs.forEach(function(m, idx){ m.classList.toggle('active', idx === i); });
     };
+    // align the colored background's left edge to the image column
+    var setSplit = function(){
+      if (!isDesktop() || !rightCell) { hiw2.style.removeProperty('--hiw2-splitX'); return; }
+      var x = rightCell.getBoundingClientRect().left;
+      hiw2.style.setProperty('--hiw2-splitX', Math.round(x) + 'px');
+    };
+    setSplit();
+    window.addEventListener('load', setSplit);
     // roles advance over the pinned region BEFORE the next panel starts covering
     // (cover begins once scrolled past offsetHeight - 2*vh)
     var roleSpan = function(){ return Math.max(1, hiw2.offsetHeight - 2 * window.innerHeight); };
+    var curFrac = null; // 0..1 position within the pinned section (for resize re-anchoring)
     var hiwScroll = function(){
-      if (!isDesktop()) return;
+      if (!isDesktop()) { curFrac = null; return; }
       var rect = hiw2.getBoundingClientRect();
+      var vh = window.innerHeight;
+      var total = hiw2.offsetHeight - vh;
+      // track where we are within the whole pinned section so resize keeps us put
+      curFrac = (rect.top <= 0 && rect.bottom >= vh && total > 0)
+        ? Math.min(Math.max(-rect.top, 0), total) / total
+        : null;
       var span = roleSpan();
       var scrolled = Math.min(Math.max(-rect.top, 0), span);
-      var p = scrolled / span;
-      var i = Math.min(n - 1, Math.floor(p * n));
+      var i = Math.min(n - 1, Math.floor((scrolled / span) * n));
       setActive(i);
+    };
+    // on resize, re-anchor scroll to the same fraction so the next panel
+    // does not pop into view unless the user actually scrolls
+    var onResize = function(){
+      setSplit();
+      if (isDesktop() && curFrac != null) {
+        var top = window.pageYOffset + hiw2.getBoundingClientRect().top;
+        var total = hiw2.offsetHeight - window.innerHeight;
+        window.scrollTo(0, Math.round(top + curFrac * total));
+      }
+      hiwScroll();
     };
     roles.forEach(function(r, idx){
       r.addEventListener('click', function(){
@@ -1159,14 +1200,11 @@ window.addEventListener('popstate', function() {
           var top = window.pageYOffset + hiw2.getBoundingClientRect().top;
           var target = top + (span * (idx + 0.5) / n);
           window.scrollTo({ top: target, behavior: 'smooth' });
-        } else {
-          setActive(idx);
-          medias[idx].scrollIntoView({ behavior: 'smooth', block: 'center' });
         }
       });
     });
     window.addEventListener('scroll', hiwScroll, { passive: true });
-    window.addEventListener('resize', hiwScroll);
+    window.addEventListener('resize', onResize);
     hiwScroll();
 
     // mobile carousel: sync pagination dots with horizontal scroll
