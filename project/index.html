@@ -126,18 +126,17 @@
     .works-grid { display:flex; flex-direction:column; gap:16px; align-self:stretch; }
     .works-row { display:flex; flex-direction:row; gap:16px; align-items:stretch; }
     .works-row .work-card { min-width:0; }
-    .works-row .work-card.wide { flex:3 1 0; }
-    .works-row .work-card.narrow { flex:2 1 0; }
+    .works-row .work-card.wide { flex:1 1 0; }
+    .works-row .work-card.narrow { flex:1 1 0; }
     .work-card { display:flex; flex-direction:column; background:#FFFFFF; border-radius:8px; overflow:hidden; text-decoration:none; color:inherit; transition:transform .25s ease, box-shadow .25s ease; }
     .work-card:hover { transform:translateY(-4px); box-shadow:0 12px 32px rgba(0,0,0,.06); }
-    .work-img { position:relative; width:100%; height:clamp(320px,34vw,520px); background:#FFFFFF; background-size:contain; background-position:top center; background-repeat:no-repeat; }
+    .work-img { position:relative; width:100%; height:clamp(260px,26vw,320px); background:#FFFFFF; background-size:contain; background-position:top center; background-repeat:no-repeat; }
     /* Typing indicator overlay (WhatsApp card) */
-    .en-g4 { width:85%; height:auto; object-fit:contain; border-radius:12px; border:1px solid rgba(0,0,0,.05); box-shadow:0 3px 12px rgba(0,0,0,.04); display:block; }
-    .en-g4-anim { display:none; }
-    .work-card:hover .en-g4-still { display:none; }
-    .work-card:hover .en-g4-anim { display:block; }
-    .wa-img-wrap { position:relative; width:85%; aspect-ratio:792/617; container-type:inline-size; }
-    .wa-img-wrap img { width:100%; height:100%; object-fit:contain; object-position:top center; display:block; }
+    .en-g4 { width:75%; height:auto; object-fit:contain; border-radius:12px; border:1px solid rgba(0,0,0,.05); box-shadow:0 3px 12px rgba(0,0,0,.04); display:block; }
+    .en-g4-still { display:none; }
+    .en-g4-anim { display:block; }
+    .wa-img-wrap { position:relative; width:85%; aspect-ratio:1716/1491; container-type:inline-size; }
+    .wa-img-wrap img { width:100%; height:100%; object-fit:contain; object-position:bottom center; display:block; }
     .typing-bubble { position:absolute; display:flex; gap:0.8cqw; align-items:center; padding:1.5cqw 1.8cqw; background:#FFFFFF; border-radius:2cqw; box-shadow:0 0.2cqw 0.4cqw rgba(0,0,0,.12); opacity:0; transition:opacity .2s ease; pointer-events:none; }
     .typing-bubble span { width:1cqw; height:1cqw; border-radius:50%; background:#9aa0a6; display:block; }
     .work-card:hover .typing-bubble { opacity:1; }
@@ -159,7 +158,7 @@
     .lz-grad { background:
       url("./assets/card-lz-bg.png?v=2") center bottom / 220% no-repeat; }
     /* LZ reply reveal-on-hover */
-    .lz-img-wrap { position:relative; width:72%; aspect-ratio:1259/1584; }
+    .lz-img-wrap { position:relative; width:58%; aspect-ratio:1259/1443; }
     .lz-img-wrap > img { width:100%; height:100%; display:block; object-fit:contain; }
     .lz-rev { position:absolute; left:0; right:10.7%; background:#FFFFFF; z-index:2; }
     .lz-cn { top:43.5%; height:6.5%; opacity:1; transition:opacity .6s ease; }
@@ -172,8 +171,9 @@
       .work-img { flex:1 1 auto !important; height:auto !important; min-height:0 !important; overflow:hidden !important; }
       .lz-rev { display:none !important; }
       #en-card-img { align-items:center !important; padding-top:0 !important; padding-bottom:0 !important; box-sizing:border-box !important; }
-      #en-card-img .en-g4 { max-height:100% !important; max-width:86% !important; width:auto !important; height:auto !important; }
+      #en-card-img .en-g4 { max-height:100% !important; max-width:75% !important; width:auto !important; height:auto !important; }
       .lz-img-wrap { width:auto !important; height:100% !important; }
+      .wa-img-wrap { width:72% !important; }
       .ov-body { position:static !important; padding-top:clamp(20px,4vw,28px) !important; }
       .work-card.wide .work-desc { max-width:100% !important; }
       .works-row .work-card { height:clamp(600px, 92vw, 820px) !important; }
@@ -197,6 +197,7 @@
     .ov-img { width:100%; height:auto; display:block; border-radius:16px; }
     .ov-section { margin-top:clamp(64px,8vw,120px); max-width:900px; }
     .ov-divider { border:none; border-top:1px solid rgba(0,0,0,.12); margin:clamp(64px,8vw,120px) 0 0; }
+    @media (max-width:880px){ .bk17-hero { width:100% !important; max-width:100% !important; } }
     .ov-h2 { font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text',sans-serif; font-weight:400; font-size:clamp(22px,2.2vw,28px); line-height:120%; letter-spacing:.01em; color:#000; margin:0 0 20px; }
     .ov-h3 { font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text',sans-serif; font-weight:500; font-size:16px; line-height:130%; letter-spacing:.01em; color:#000; margin:24px 0 8px; }
     .ov-p { font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text',sans-serif; font-weight:300; font-size:16px; line-height:160%; letter-spacing:.01em; color:#000; margin:0 0 14px; }
@@ -368,7 +369,7 @@
     .hiw2-deco { position:absolute; width:40%; max-width:none; max-height:none; height:auto; z-index:1; pointer-events:none; }
     .hiw2-deco-top { top:7%; right:0; }
     .hiw2-deco-bottom { bottom:6%; left:0; width:44%; }
-    .hiw2-slide[data-i="2"]::after { content:""; position:absolute; inset:0; z-index:2; pointer-events:none; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); background-size:150px 150px; opacity:.16; mix-blend-mode:overlay; }
+    .hiw2-slide[data-i="2"]::after { content:""; position:absolute; inset:0; z-index:2; pointer-events:none; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); background-size:150px 150px; opacity:.05; mix-blend-mode:overlay; }
     .hiw2-eyebrow { font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text',sans-serif; font-weight:400; font-size:clamp(15px,1.3vw,18px); letter-spacing:0; color:#000; margin:0 0 clamp(28px,3.4vw,48px); }
     .hiw2-roles { display:flex; flex-direction:column; gap:clamp(12px,1.6vw,22px); }
     .hiw2-role { position:relative; display:block; font-family:'Plus Jakarta Sans',-apple-system,BlinkMacSystemFont,'SF Pro Text',sans-serif; font-weight:500; font-size:clamp(28px,3.4vw,44px); line-height:112%; letter-spacing:-.02em; color:#D0D2D5; background:none; border:0; padding:0; text-align:left; cursor:pointer; transition:padding-left .45s cubic-bezier(.22,.61,.36,1), color .35s ease; }
@@ -445,11 +446,10 @@
         <!-- Row 1: 3 : 2 -->
         <div class="works-row">
           <!-- Card 1: WhatsApp — Core messaging experience -->
-          <a class="work-card wide tex-card" href="#" onclick="openOverlay('wa-overlay'); return false;" style="position:relative; background:url(./assets/card-wa3.png?v=2) center/cover no-repeat;">
-            <div class="work-img" style="background:transparent; display:flex; justify-content:center; align-items:flex-start;">
+          <a class="work-card wide tex-card" href="#" onclick="openOverlay('wa-overlay'); return false;" style="position:relative; background:url(./assets/WA14.jpg) center/cover no-repeat;">
+            <div class="work-img" style="background:transparent; display:flex; justify-content:center; align-items:flex-end;">
               <div class="wa-img-wrap">
-                <img src="./assets/card-wa.png?v=4" alt="WhatsApp chat">
-                <div class="typing-bubble" style="left:26%; top:31%;"><span></span><span></span><span></span></div>
+                <img src="./assets/WA13.png" alt="WhatsApp chat">
               </div>
             </div>
             <div class="work-body" style="background:#FFFFFF; padding:clamp(28px,3vw,44px);">
@@ -459,13 +459,24 @@
             </div>
           </a>
 
-          <!-- Card 2: Legalzoom — Messaging Platform -->
-          <a class="work-card narrow lz-grad tex-card" href="#" onclick="openOverlay('lz-overlay'); return false;">
-            <div class="work-img" id="lz-card-img" style="background:transparent; height:auto; display:flex; justify-content:center; align-items:flex-start; padding:8% 0 5%; box-sizing:border-box;">
+          <!-- Card 2: Legalzoom — LZ Books -->
+          <a class="work-card wide tex-card" href="#" onclick="openOverlay('bk-overlay'); return false;" style="position:relative; background:url(./assets/BK12.jpg) center/cover no-repeat;">
+            <div class="work-img" style="background:url(./assets/BK9.png) center center / auto 85% no-repeat; background-origin:content-box; padding-top:0; box-sizing:border-box; min-height:clamp(320px,34vw,540px);"></div>
+            <div class="work-body" style="background:#FFFFFF; padding:clamp(28px,3vw,44px);">
+              <span class="work-company" style="color:#000;">LegalZoom Books</span>
+              <span class="work-title" style="color:#000000;">New Native App Experience</span>
+              <span class="work-desc" style="color:#000;">Designed and launched a new native app that brought everyday financial tasks to mobile for small business owners, reaching <strong style="font-weight:500;">34%</strong> adoption among existing users.</span>
+            </div>
+          </a>
+        </div>
+
+        <!-- Row 2 -->
+        <div class="works-row">
+          <!-- Card 3: Legalzoom — Expert Messaging -->
+          <a class="work-card narrow lz-grad tex-card" href="#" onclick="openOverlay('lz-overlay'); return false;" style="background:#FFFFFF;">
+            <div class="work-img" id="lz-card-img" style="background:url(./assets/LZ11.png) center/cover no-repeat; height:auto; display:flex; justify-content:center; align-items:flex-start; padding:8% 0 5%; box-sizing:border-box;">
               <div class="lz-img-wrap">
-                <img src="./assets/card-lz.png?v=5" alt="Expert Messaging">
-                <div class="lz-rev lz-cn"></div>
-                <div class="lz-rev lz-l1"></div>
+                <img src="./assets/LZ7.png" alt="Expert Messaging">
               </div>
             </div>
             <div class="work-body" style="background:#FFFFFF; padding:clamp(28px,3vw,44px);">
@@ -474,27 +485,14 @@
               <span class="work-desc" style="color:#000;">Designed a 0-to-1 messaging experience connecting customers and tax experts, increasing NPS by <strong style="font-weight:500;">75 points</strong>.</span>
             </div>
           </a>
-        </div>
 
-        <!-- Row 2: 2 : 3 -->
-        <div class="works-row">
-          <!-- Card 3: Evernote — Natural language -->
-          <a class="work-card narrow en-card-bg" href="#" onclick="openOverlay('en-overlay'); return false;" style="position:relative;">
-            <div class="work-img" id="en-card-img" style="background:transparent; display:flex; align-items:center; justify-content:center; min-height:clamp(320px,34vw,540px); box-sizing:border-box;"><img class="en-g4 en-g4-still" src="./assets/enov-g4-still.png?v=3" alt="Create new task"><img class="en-g4 en-g4-anim" src="./assets/enov-g4.gif" alt="Create new task"></div>
+          <!-- Card 4: Evernote — Natural language -->
+          <a class="work-card narrow en-card-bg" href="#" onclick="openOverlay('en-overlay'); return false;" style="position:relative; background:#FFFFFF;">
+            <div class="work-img" id="en-card-img" style="background:url(./assets/EN12.jpg) center/cover no-repeat #F5EDE8; display:flex; align-items:center; justify-content:center; min-height:clamp(320px,34vw,540px); box-sizing:border-box;"><img class="en-g4 en-g4-still" src="./assets/enov-g4-still.png?v=3" alt="Create new task"><img class="en-g4 en-g4-anim" src="./assets/enov-g4.gif" alt="Create new task"></div>
             <div class="work-body" style="background:#FFFFFF; padding:clamp(28px,3vw,44px);">
               <span class="work-company" style="color:#000;">Evernote</span>
               <span class="work-title" style="color:#000000;">Natural Language Due Dates</span>
               <span class="work-desc" style="color:#000;">Made setting due dates faster and more intuitive, adding value to the paid subscription tier.</span>
-            </div>
-          </a>
-
-          <!-- Card 4: Legalzoom — LZ Books -->
-          <a class="work-card wide tex-card" href="#" onclick="openOverlay('bk-overlay'); return false;" style="position:relative; background:#DEE6EB;">
-            <div class="work-img" style="background:url(./assets/card-bk.png?v=6) center top / 100% auto no-repeat; background-origin:content-box; padding-top:0; box-sizing:border-box; min-height:clamp(320px,34vw,540px);"></div>
-            <div class="work-body" style="background:#FFFFFF; padding:clamp(28px,3vw,44px);">
-              <span class="work-company" style="color:#000;">LegalZoom Books</span>
-              <span class="work-title" style="color:#000000;">New Native App Experience</span>
-              <span class="work-desc" style="color:#000;">Designed and launched a new native app that brought everyday financial tasks to mobile for small business owners, reaching <strong style="font-weight:500;">34%</strong> adoption among existing users.</span>
             </div>
           </a>
         </div>
@@ -875,17 +873,17 @@
   </button>
   <div class="overlay-inner">
     <h1 class="ov-title">LZ Books: New native app experience</h1>
-    <p class="ov-sub">Reimagining financial management for mobile.</p>
+    <p class="ov-sub">Bringing LegalZoom&rsquo;s financial tools to life in a native app.</p>
 
     <div class="ov-imgs">
-      <div class="grain-light" style="position:relative; background:#DEE6EB; border-radius:16px; overflow:hidden; padding:7.4% 15% 0; display:flex; align-items:flex-end; justify-content:center;">
+      <div class="grain-light" style="position:relative; background:url(./assets/BK12.jpg) center/cover no-repeat; border-radius:16px; overflow:hidden; padding:7.4% 15% 0; display:flex; align-items:flex-end; justify-content:center;">
         <img class="ov-img" src="./assets/bkov-1.png" alt="LZ Books native iOS overview" style="position:relative; z-index:1; width:100%; height:auto; display:block; border-radius:0;">
       </div>
     </div>
 
     <div class="ov-section">
       <h2 class="ov-h2">My role</h2>
-      <p class="ov-p">As the sole designer working on this app, I led the design from concept to launch, conducted post-launch user research, established the design system foundation, and partnered closely with Product, Engineering, and other cross-functional teams.</p>
+      <p class="ov-p">I was LegalZoom&rsquo;s first designer dedicated to building a native app experience, as the company had historically been web-first. I led the LZ Books app from concept to launch, conducted post-launch user research, established the foundation for the native app experience, and partnered closely with Product, Engineering, and cross-functional teams throughout.</p>
     </div>
 
     <div class="ov-section">
@@ -908,6 +906,9 @@
       <p class="ov-p">Something as simple as checking a transaction or sending an invoice required users to open a browser, navigate to LZ Books, and log in before they could get started.</p>
       <p class="ov-p">25% of users were already accessing LZ Books through mobile web, signaling an opportunity to make these everyday financial tasks faster and more accessible on mobile.</p>
     </div>
+    <div class="ov-imgs">
+      <img class="ov-img bk17-hero" src="./assets/BK17.png" alt="LZ Books on mobile web" style="width:70%; max-width:70%; height:auto; display:block; margin:0; border-radius:16px;">
+    </div>
 
     <div class="ov-section">
       <h2 class="ov-h2">Challenge</h2>
@@ -921,7 +922,18 @@
       <h2 class="ov-h2" style="margin-bottom:16px;">Solution: A mobile-first experience for everyday finances</h2>
     </div>
 
-    <div class="ov-section" style="margin-top:clamp(16px,2vw,28px);">
+    <div class="ov-imgs">
+      <div class="bk-grid2">
+        <div class="bk-ph" style="background:#F4F2F0; overflow:hidden; aspect-ratio:3/2; display:flex; justify-content:center; align-items:flex-end;"><img src="./assets/BK13.png" alt="" style="max-width:75%; max-height:100%; width:auto; height:auto; display:block;"></div>
+        <div class="bk-ph" style="background:#F4F2F0; overflow:hidden; aspect-ratio:3/2; display:flex; justify-content:center; align-items:center;"><img src="./assets/BK14.png" alt="" style="max-width:75%; max-height:100%; width:auto; height:auto; display:block;"></div>
+        <div class="bk-ph" style="background:#F4F2F0; overflow:hidden; aspect-ratio:3/2; display:flex; justify-content:center; align-items:flex-end;"><img src="./assets/BK16.png" alt="" style="max-width:75%; max-height:100%; width:auto; height:auto; display:block;"></div>
+        <div class="bk-ph" style="background:#F4F2F0; overflow:hidden; aspect-ratio:3/2; display:flex; justify-content:center; align-items:center;"><img src="./assets/BK15.png" alt="" style="max-width:80%; max-height:100%; width:auto; height:auto; display:block;"></div>
+      </div>
+    </div>
+
+    <div style="border-top:0.5px solid rgba(0,0,0,.25); margin-top:clamp(40px,5vw,72px);"></div>
+
+    <div class="ov-section" style="margin-top:clamp(40px,5vw,72px);">
       <h3 class="ov-h3" style="margin-top:0;">Leverage native capabilities to make everyday financial tasks more seamless</h3>
       <p class="ov-p">From a Live Activity that keeps mileage tracking visible to native sharing options that let users send invoices beyond email, mobile unlocked faster, more seamless ways to get things done.</p>
     </div>
@@ -946,7 +958,7 @@
     <div style="border-top:0.5px solid rgba(0,0,0,.25); margin-top:clamp(40px,5vw,72px);"></div>
 
     <div class="ov-section" style="margin-top:clamp(40px,5vw,72px);">
-      <h3 class="ov-h3" style="margin-top:0;">Build a design system that supports both light and dark mode</h3>
+      <h3 class="ov-h3" style="margin-top:0;">Support the mode that works best for you</h3>
       <label class="bk-toggle">
         <input type="checkbox" id="bk-theme-input" onchange="toggleBkTheme()">
         <span class="bk-toggle-track"><span class="bk-toggle-knob"></span></span>
