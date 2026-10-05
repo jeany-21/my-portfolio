@@ -230,6 +230,15 @@
     /* LZ Books overlay placeholders + theme toggle */
     .bk-ph { width:100%; background:#0A0A0A; border-radius:16px; transition:background .3s ease; }
     .bk-ph.dark { background:#141B23; }
+    .bk-split { display:grid; grid-template-columns:1fr 1fr; gap:clamp(24px,4vw,64px); align-items:start; }
+    @media (max-width:880px){ .bk-split { grid-template-columns:1fr; gap:clamp(20px,5vw,32px); } }
+    @media (min-width:881px){
+      .bk-split > div:first-child { max-width:85%; order:2; }
+      .bk-split > div:last-child { order:1; }
+    }
+    .ch-grid { display:grid; grid-template-columns:1fr 1fr 1fr; gap:clamp(24px,3vw,44px); margin-top:clamp(20px,2.4vw,32px); }
+    .ch-grid h3 { margin-top:0; }
+    @media (max-width:880px){ .ch-grid { grid-template-columns:1fr; gap:clamp(20px,5vw,32px); } }
     #bk-theme-ph { background:#E6E5E4; }
     #bk-theme-ph.dark { background:#141B23; }
     .bk-grid2 { display:grid; grid-template-columns:1fr 1fr; gap:clamp(16px,2vw,24px); }
@@ -887,29 +896,20 @@
     </div>
 
     <div class="ov-section">
-      <h2 class="ov-h2">My role</h2>
-      <p class="ov-p">I was LegalZoom&rsquo;s first designer dedicated to building a native app experience, as the company had historically been web-first. I led the LZ Books app from concept to launch, conducted post-launch user research, established the foundation for the native app experience, and partnered closely with Product, Engineering, and cross-functional teams throughout.</p>
+      <h2 class="ov-h2">Overview</h2>
+      <p class="ov-p">LZ Books is a financial management tool for small business owners, helping them manage everyday finances, from transactions and deductions to invoices.</p>
+      <p class="ov-p">At the time, LZ Books was web-only, while users were increasingly accessing it from their phones. <strong style="font-weight:500;">As LegalZoom&rsquo;s first designer dedicated to native app experiences, I led LZ Books from concept to launch</strong>, partnering with Product and Engineering and establishing the foundation for future native experiences.</p>
     </div>
 
     <div class="ov-section">
       <h2 class="ov-h2">Impact</h2>
-      <h3 class="ov-h3">34%</h3>
-      <p class="ov-p">of existing web users adopted the app within ~2 months of launch.</p>
-      <h3 class="ov-h3">3.9× increase</h3>
-      <p class="ov-p">in users reviewing transactions via mobile.</p>
-    </div>
-
-    <div class="ov-section">
-      <h2 class="ov-h2">Context</h2>
-      <p class="ov-p">LZ Books is a financial management tool for small business owners. It helps them manage everyday finances, from tracking transactions and discovering deductions to creating and sending invoices.</p>
-      <p class="ov-p">At the time, LZ Books was only available on the web, while users were increasingly accessing the product from their phones.</p>
+      <p class="ov-p"><strong style="font-weight:500;">34%</strong> of existing web users adopted the app within ~2 months of launch, actively using it to manage their finances.</p>
     </div>
 
     <div class="ov-section">
       <h2 class="ov-h2">Problem: Web-only limited financial management on the go</h2>
-      <p class="ov-p">Research showed that users relied on the web for deeper tasks, like reviewing their business and analyzing financial insights. But quick, everyday tasks were much harder to accomplish away from a computer.</p>
-      <p class="ov-p">Something as simple as checking a transaction or sending an invoice required users to open a browser, navigate to LZ Books, and log in before they could get started.</p>
-      <p class="ov-p">25% of users were already accessing LZ Books through mobile web, signaling an opportunity to make these everyday financial tasks faster and more accessible on mobile.</p>
+      <p class="ov-p">Research showed users relied on the web for deeper financial tasks, but everyday actions like checking transactions or sending invoices were harder on the go.</p>
+      <p class="ov-p">With 25% of users already accessing LZ Books through mobile web, there was an opportunity to make these tasks faster and more accessible through a native app.</p>
     </div>
     <div class="ov-imgs">
       <img class="ov-img bk17-hero" src="./assets/BK17.png" alt="LZ Books on mobile web" style="width:70%; max-width:70%; height:auto; display:block; margin:0; border-radius:16px;">
@@ -917,14 +917,72 @@
 
     <div class="ov-section">
       <h2 class="ov-h2">Challenge</h2>
-      <h3 class="ov-h3">Prioritize what belongs on mobile</h3>
-      <p class="ov-p">With a limited timeline, we couldn't simply bring every web feature into the app. I worked closely with PM and Engineering to define the roadmap, using product data and user research to identify which workflows would deliver the most value on mobile. The goal was to balance user needs, business priorities, and technical feasibility while focusing on experiences where mobile could provide a meaningful advantage.</p>
-      <h3 class="ov-h3">Establishing the foundation for a scalable design system</h3>
-      <p class="ov-p">As we introduced new mobile experiences, I also needed to establish a scalable design system alongside the product. Rather than designing each feature in isolation, I looked for reusable patterns and components that could support future workflows. This meant considering how patterns would scale across different use cases, defining component behaviors and states, and creating a foundation the team could continue building on after launch.</p>
+      <h3 class="ov-h3">What belongs on mobile?</h3>
+      <p class="ov-p">With a limited timeline, we couldn't bring the entire web product to mobile. We had to decide which workflows were most valuable to SMB owners on the go.</p>
+      <h3 class="ov-h3">What needs to change for native?</h3>
+      <p class="ov-p">Existing web workflows were built for larger screens and different interaction patterns. They couldn't simply be scaled down for a native experience.</p>
+      <h3 class="ov-h3">How do we build for what comes next?</h3>
+      <p class="ov-p">As the first native app, we needed to establish more than an MVP. The product needed a foundation that could support new workflows and future growth.</p>
     </div>
 
     <div class="ov-section">
-      <h2 class="ov-h2" style="margin-bottom:16px;">Solution: A mobile-first experience for everyday finances</h2>
+      <h2 class="ov-h2" style="margin-bottom:16px;">Approach</h2>
+      <p class="ov-p">I rethought key workflows around mobile behaviors and native capabilities. The <strong style="font-weight:500;">invoice creation flow</strong> is one example of how that approach came to life.</p>
+    </div>
+
+    <div style="border-top:0.5px solid rgba(0,0,0,.25); margin-top:clamp(40px,5vw,72px);"></div>
+
+    <div class="ov-section" style="margin-top:clamp(40px,5vw,72px);">
+      <h3 class="ov-h3" style="margin-top:0; font-size:20px;">The web invoice creation experience was built around a simple idea: what you see is what you get.</h3>
+      <p class="ov-p">When creating an invoice, SMB owners wanted to know exactly what their client would receive. So they could edit directly on the invoice itself, the editing and final views shared the same visual structure.</p>
+    </div>
+
+    <div class="ov-imgs" style="margin-top:clamp(14px,1.8vw,22px);">
+      <div class="bk-grid2">
+        <div class="bk-ph" style="aspect-ratio:1/1; overflow:hidden; display:flex; justify-content:center; align-items:center;"><img src="./assets/BK19.png" alt="Web invoice experience" style="width:90%; max-width:90%; max-height:100%; height:auto; object-fit:contain; display:block;"></div>
+        <div class="bk-ph" style="aspect-ratio:1/1; overflow:hidden; display:flex; justify-content:center; align-items:flex-end; padding-top:7%;"><img src="./assets/BK20.png" alt="Invoice on mobile" style="height:93%; max-height:93%; width:auto; max-width:100%; object-fit:contain; display:block;"></div>
+      </div>
+    </div>
+
+    <div class="ov-section" style="margin-top:clamp(20px,2.6vw,36px);">
+      <h3 class="ov-h3" style="margin-top:0; font-size:20px;">It worked well on desktop, but didn&rsquo;t translate well to mobile.</h3>
+      <p class="ov-p"><strong style="font-weight:500;">1. Information hierarchy broke.</strong> On desktop, both users saw the whole invoice at once, so priority mattered less. On mobile, it became a long scroll, and the two jobs had different priorities: clients want the total due first; creators want to add services and details first. One hierarchy couldn&rsquo;t serve both.</p>
+      <p class="ov-p"><strong style="font-weight:500;">2. Inline editing didn&rsquo;t scale down.</strong> Desktop used inline dropdowns to edit directly on the invoice. On a narrow screen, those interactions became cumbersome to navigate.</p>
+    </div>
+
+    <div style="border-top:0.5px solid rgba(0,0,0,.25); margin-top:clamp(40px,5vw,72px);"></div>
+
+    <div class="ov-section" style="margin-top:clamp(40px,5vw,72px);">
+      <h3 class="ov-h3" style="margin-top:0; font-size:20px;">How might we redesign the workflow for a native mobile experience?</h3>
+      <p class="ov-p">I kept the core user need <strong style="font-weight:500;">&ldquo;what you see is what you get&rdquo;</strong> while breaking the web experience into two focused views.</p>
+      <p class="ov-p"><strong style="font-weight:500;">Invoice edit view</strong><br>A focused editing experience that lets SMB owners add services and invoice details in a natural sequence, without the long scroll and inline editing of the web experience.</p>
+      <p class="ov-p"><strong style="font-weight:500;">Preview</strong><br>A one tap preview that shows creators exactly what their client will see, preserving the &ldquo;what you see is what you get&rdquo; principle without making the preview itself the editing surface.</p>
+      <p class="ov-p">I also replaced web-specific interactions with mobile-native patterns, making common actions easier to navigate and reducing unnecessary scrolling.</p>
+    </div>
+    <div class="ov-imgs">
+      <div class="bk-ph" style="aspect-ratio:2/1; overflow:hidden; display:flex; justify-content:center; align-items:center;"><img src="./assets/BK21.png" alt="Create and preview invoice flow" style="width:85%; max-width:85%; max-height:100%; height:auto; object-fit:contain; display:block;"></div>
+    </div>
+
+    <div style="border-top:0.5px solid rgba(0,0,0,.25); margin-top:clamp(40px,5vw,72px);"></div>
+
+    <div class="ov-section" style="margin-top:clamp(40px,5vw,72px);">
+      <h3 class="ov-h3" style="margin-top:0; font-size:20px;">Going beyond the web</h3>
+      <p class="ov-p">Going native also gave us opportunities that weren&rsquo;t possible in the web experience.</p>
+      <p class="ov-p">Instead of limiting invoice sharing to email, the native app could leverage the device&rsquo;s sharing capabilities to give creators more ways to send an invoice.</p>
+      <p class="ov-p">And after an invoice was paid, real-time notifications brought the most important moment back to the creator, without requiring them to log into the platform and check.</p>
+    </div>
+    <div class="ov-imgs">
+      <div class="bk-grid2">
+        <div class="bk-ph" style="aspect-ratio:4/3; overflow:hidden; display:flex; justify-content:center; align-items:flex-end;"><img src="./assets/bk22.png" alt="Native sharing options" style="width:85%; max-width:85%; height:auto; object-fit:contain; display:block;"></div>
+        <div class="bk-ph" style="aspect-ratio:4/3; overflow:hidden; display:flex; justify-content:center; align-items:flex-start;"><img src="./assets/BK23.png" alt="Payment notification" style="height:85%; max-height:85%; width:auto; max-width:100%; object-fit:contain; display:block;"></div>
+      </div>
+    </div>
+
+    <div style="border-top:0.5px solid rgba(0,0,0,.25); margin-top:clamp(40px,5vw,72px);"></div>
+
+    <div class="ov-section" style="margin-top:clamp(40px,5vw,72px);">
+      <h2 class="ov-h2" style="margin-top:0; margin-bottom:16px;">Final: a mobile-first experience for everyday finances</h2>
+      <p class="ov-p">I focused the MVP on the workflows that mattered most for managing finances on the go: home, invoice creation, transactions, mileage tracking, and onboarding.</p>
     </div>
 
     <div class="ov-imgs">
@@ -939,27 +997,15 @@
     <div style="border-top:0.5px solid rgba(0,0,0,.25); margin-top:clamp(40px,5vw,72px);"></div>
 
     <div class="ov-section" style="margin-top:clamp(40px,5vw,72px);">
-      <h3 class="ov-h3" style="margin-top:0;">Leverage native capabilities to make everyday financial tasks more seamless</h3>
-      <p class="ov-p">From a Live Activity that keeps mileage tracking visible to native sharing options that let users send invoices beyond email, mobile unlocked faster, more seamless ways to get things done.</p>
+      <h3 class="ov-h3" style="margin-top:0;">Build a foundation for what&rsquo;s next</h3>
+      <p class="ov-p">Because LZ Books was LegalZoom&rsquo;s first native app experience, I was starting from scratch. I built the design system from the ground up, from core components and patterns to documentation and team education, creating a shared foundation that made future features faster to design, build, and scale.</p>
     </div>
     <div class="ov-imgs">
-      <div class="bk-grid2">
-        <div class="bk-ph" style="aspect-ratio:6/5; overflow:hidden; padding-left:10%; box-sizing:border-box;"><img src="./assets/bkov-2.png" alt="Live Activity mileage tracking" style="width:100%; height:100%; object-fit:contain; object-position:top right; display:block;"></div>
-        <div class="bk-ph" style="aspect-ratio:6/5; overflow:hidden; padding:0 10%; box-sizing:border-box;"><img src="./assets/bkov-3.png" alt="Native sharing invoice" style="width:100%; height:100%; object-fit:contain; object-position:bottom center; display:block;"></div>
+      <div style="background:#F4F2F0; border-radius:16px; overflow:hidden; display:flex; justify-content:center; align-items:center; padding:clamp(28px,4vw,56px) 0;">
+        <img class="ov-img" src="./assets/BK18.png" alt="Design system foundation" style="width:90%; max-width:90%; height:auto; display:block; border-radius:0;">
       </div>
     </div>
-    <div style="border-top:0.5px solid rgba(0,0,0,.25); margin-top:clamp(40px,5vw,72px);"></div>
 
-    <div class="ov-section" style="margin-top:clamp(40px,5vw,72px);">
-      <h3 class="ov-h3" style="margin-top:0;">Adapt familiar mobile interaction patterns instead of directly transferring the web experience to mobile</h3>
-      <p class="ov-p">I rethought workflows around the constraints and behaviors of a smaller screen—for example, replacing long horizontal tables with more natural mobile interactions, and using gestures like swipe to make reviewing transactions faster.</p>
-    </div>
-    <div class="ov-imgs">
-      <div class="bk-grid2">
-        <div class="bk-ph" style="overflow:hidden; padding:clamp(36px,6vw,72px); box-sizing:border-box;"><div style="position:relative; width:100%; container-type:inline-size;"><img src="./assets/bkov-4.png" alt="Review transactions — mobile web vs native" style="width:100%; height:auto; display:block;"><img src="./assets/bkov-6.gif" alt="Review transactions animation" style="position:absolute; left:0; bottom:0; width:46.6cqw; height:100.97cqw; object-fit:cover; object-position:bottom center; border-radius:5.97cqw; display:block;"></div></div>
-        <div class="bk-ph" style="overflow:hidden; padding:clamp(36px,6vw,72px); box-sizing:border-box;"><img src="./assets/bkov-5.png" alt="Create invoice — mobile web vs native" style="width:100%; height:auto; display:block;"></div>
-      </div>
-    </div>
     <div style="border-top:0.5px solid rgba(0,0,0,.25); margin-top:clamp(40px,5vw,72px);"></div>
 
     <div class="ov-section" style="margin-top:clamp(40px,5vw,72px);">
