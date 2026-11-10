@@ -90,7 +90,7 @@
 
     /* ===== v2 home ===== */
     .hero-block { align-self: stretch; }
-    .hero-title { font-family:'Plus Jakarta Sans',-apple-system,BlinkMacSystemFont,'SF Pro Text',sans-serif; font-weight:500; font-size:clamp(40px,6vw,78px); line-height:112%; letter-spacing:-.02em; color:#000000; text-wrap:pretty; margin:0; max-width:min(50vw,806px); }
+    .hero-title { font-family:'Plus Jakarta Sans',-apple-system,BlinkMacSystemFont,'SF Pro Text',sans-serif; font-weight:500; font-size:clamp(40px,6vw,58px); line-height:112%; letter-spacing:-.02em; color:#000000; text-wrap:pretty; margin:0; max-width:60vw; }
     .anim-line { opacity:0; transform:translateY(44px); animation:lineSlide .8s cubic-bezier(.16,1,.3,1) forwards; }
     @keyframes lineSlide { to { opacity:1; transform:translateY(0); } }
     .hero-hello { font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text',sans-serif; font-weight:400; font-size:clamp(18px,2vw,24px); line-height:130%; letter-spacing:.01em; color:#000; }
@@ -98,7 +98,7 @@
     .hero-meta .dot { color:#000; margin:0 8px; }
     .hero-contact { width:clamp(300px,32vw,440px); flex:0 0 auto; display:flex; flex-direction:column; text-align:right; }
     .hero-dot { width:13px; height:13px; border-radius:50%; background:#F6C2DE; margin-bottom:clamp(18px,2vw,26px); }
-    .hero-tag { font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text',sans-serif; font-weight:300; font-size:16px; line-height:160%; letter-spacing:.01em; color:#808080; margin-top:clamp(36px,5vw,72px); max-width:min(50vw,806px); }
+    .hero-tag { font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text',sans-serif; font-weight:300; font-size:16px; line-height:160%; letter-spacing:.01em; color:#808080; margin-top:clamp(36px,5vw,72px); max-width:65vw; }
     .hero-greet { font-family:'Plus Jakarta Sans',-apple-system,BlinkMacSystemFont,'SF Pro Text',sans-serif; font-weight:500; font-size:28px; line-height:120%; letter-spacing:-.01em; color:#000; }
     .scroll-ind { position:fixed; z-index:1; right:calc(max(0px, (100vw - 1600px) / 2) + clamp(32px,8vw,120px)); bottom:42px; color:#808080; pointer-events:none; opacity:0; animation:indIn .5s ease 1.25s forwards; transition:opacity .3s ease; }
     @keyframes indIn { to { opacity:1; } }
@@ -193,7 +193,7 @@
     .overlay[hidden] { display:none !important; }
     .overlay.open { opacity:1; pointer-events:auto; }
     body.overlay-lock { overflow:hidden; }
-    .overlay-sheet { position:absolute; top:clamp(72px,10vh,112px); left:0; right:0; bottom:0; width:100%; background:#FFFFFF; border-radius:24px 24px 0 0; overflow-y:auto; box-shadow:0 -8px 40px rgba(0,0,0,.18); }
+    .overlay-sheet { position:absolute; top:clamp(42px,6vh,66px); left:0; right:0; bottom:0; width:100%; background:#FFFFFF; border-radius:24px 24px 0 0; overflow-y:auto; overflow-x:hidden; box-shadow:0 -8px 40px rgba(0,0,0,.18); }
     .overlay-close { position:fixed; top:clamp(84px,11vh,128px); right:clamp(24px,4vw,44px); width:40px; height:40px; border:none; background:#FFFFFF; border-radius:50%; box-shadow:0 1px 3px rgba(0,0,0,.03); cursor:pointer; z-index:1010; display:flex; align-items:center; justify-content:center; }
     .overlay-close svg { width:24px; height:24px; }
     .overlay-inner { width:100%; max-width:1600px; margin:0 auto; padding:clamp(56px,6vw,88px) clamp(32px,8vw,120px) clamp(60px,8vw,120px); }
@@ -206,7 +206,7 @@
     @media (max-width:880px){ .bk17-hero { width:100% !important; max-width:100% !important; } }
     .ov-h2 { font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text',sans-serif; font-weight:400; font-size:clamp(22px,2.2vw,28px); line-height:120%; letter-spacing:.01em; color:#000; margin:0 0 20px; }
     .ov-h3 { font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text',sans-serif; font-weight:500; font-size:16px; line-height:130%; letter-spacing:.01em; color:#000; margin:24px 0 8px; }
-    .ov-p { font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text',sans-serif; font-weight:300; font-size:16px; line-height:160%; letter-spacing:.01em; color:#000; margin:0 0 14px; }
+    .ov-p { font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text',sans-serif; font-weight:300; font-size:16px; line-height:160%; letter-spacing:.01em; color:#555; margin:0 0 14px; }
     .role-grid { display:grid; grid-template-columns:1fr 1fr; gap:clamp(36px,4.5vw,64px) clamp(40px,5vw,80px); margin-top:clamp(36px,4.5vw,64px); }
     .role-item { border-left:1px solid rgba(0,0,0,.4); padding-left:clamp(16px,1.6vw,24px); position:relative; }
     @media (max-width:880px){ .role-grid { grid-template-columns:1fr; } }
@@ -370,10 +370,10 @@
     /* ===== Stacking panels (sticky overlap on scroll) ===== */
     .panel-inner { width:100%; max-width:1600px; margin:0 auto; padding:clamp(56px,7vw,100px) clamp(32px,8vw,120px); box-sizing:border-box; }
     @media (min-width:881px){
-      .stack { position:sticky; top:0; min-height:100vh; display:flex; align-items:center; justify-content:center; width:100%; }
+      .stack { position:sticky; top:0; min-height:85vh; display:flex; align-items:center; justify-content:center; width:100%; }
       .stack-scroll { position:relative; width:100%; min-height:100vh; display:flex; flex-direction:column; align-items:center; }
       .works-pin { position:sticky; top:0; } /* top overridden by JS so it pins at its END */
-      .works-inner { padding-bottom:30vh; }
+      .works-inner { padding-top:clamp(28px,3.5vw,48px); padding-bottom:30vh; }
     }
     /* ===== How I work: pinned role step-through (split, grid-aligned) ===== */
     .hiw2 { width:100%; }
@@ -420,6 +420,49 @@
       .hiw2-dot { width:24px; height:2px; border-radius:2px; background:rgba(0,0,0,.2); transition:background .3s ease; }
       .hiw2-dot.active { background:#000; }
     }
+    /* ===== people-search case study: placeholders, meta, tables ===== */
+    .ps-ph { width:100%; background:#ECEBE8; border-radius:16px; display:flex; align-items:center; justify-content:center; color:#AAA7A1; font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text',sans-serif; font-size:14px; letter-spacing:.02em; }
+    .ps-ph::after { content:"Image placeholder"; }
+    .ps-ph.dark { background:#141414; color:#6B6B6E; }
+    .ps-tablewrap { width:100%; overflow-x:auto; }
+    .ps-meta { display:grid; grid-template-columns:2fr 1fr; gap:clamp(32px,6vw,96px); margin-top:clamp(28px,3.4vw,44px); align-items:stretch; }
+    .ps-meta-role { border-top:1px solid rgba(0,0,0,.14); border-bottom:1px solid rgba(0,0,0,.14); padding:clamp(16px,1.8vw,22px) 0; }
+    .ps-meta-role p { margin:0; color:#333; }
+    .ps-meta-list { margin:0; display:flex; flex-direction:column; border-top:1px solid rgba(0,0,0,.14); }
+    .ps-meta-row { display:flex; justify-content:space-between; align-items:center; gap:24px; padding:clamp(16px,1.8vw,22px) 0; border-bottom:1px solid rgba(0,0,0,.14); }
+    .ps-meta-row dt { font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text',sans-serif; font-weight:500; font-size:16px; color:#000; margin:0; }
+    .ps-meta-row dd { font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text',sans-serif; font-weight:300; font-size:16px; color:#333; margin:0; text-align:right; line-height:150%; }
+    .ps-table { width:100%; min-width:760px; table-layout:fixed; border-collapse:collapse; margin-top:clamp(14px,1.6vw,20px); font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text',sans-serif; }
+    .ps-table th:first-child, .ps-table td:first-child { width:26%; }
+    .ps-table th, .ps-table td { text-align:left; padding:18px 16px; border-bottom:0.5px solid rgba(0,0,0,.12); font-size:14px; }
+    .ps-table thead th { font-weight:500; color:#000; border-top:0.5px solid rgba(0,0,0,.12); }
+    .ps-table td { font-weight:400; color:#000; }
+    .ps-table td.yes { color:#1FA855; font-weight:500; }
+    .ps-table td.no { color:#C23B3B; font-weight:500; }
+    .ps-table td.ps-ic { font-size:19px; line-height:1; }
+    .ps-person-img { width:100%; max-width:230px; height:auto; display:block; border-radius:12px; }
+    .ps-pill { display:inline-block; padding:7px 13px; border-radius:8px; font-size:14px; font-weight:400; white-space:nowrap; }
+    .ps-pill.green { background:#E3F3E6; color:#1FA855; }
+    .ps-pill.gray { background:#ECECEC; color:#555; }
+    .ps-quote { font-family:Georgia,'Times New Roman',serif; font-weight:400; font-style:italic; font-size:clamp(22px,2.3vw,32px); line-height:140%; letter-spacing:.005em; color:#fff; margin:0; }
+    .ps-fromusers { font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text',sans-serif; font-weight:400; font-size:16px; letter-spacing:.01em; color:#fff; margin:0 0 clamp(20px,2.4vw,32px); }
+    .ps-fullbleed { width:100vw; margin-left:calc(50% - 50vw); background:#000; }
+    .ps-band-inner { max-width:1600px; margin:0 auto; padding:clamp(48px,6vw,88px) clamp(32px,8vw,120px); }
+    #ps-overlay .ov-p { color:#555; }
+    .ps-fullbleed-inner { max-width:1600px; margin:0 auto; padding:clamp(48px,6vw,96px) clamp(32px,8vw,120px); display:grid; grid-template-columns:1fr 1fr; gap:clamp(32px,5vw,80px); align-items:center; }
+    .ps-quote-img { background:#1C1C1E; border-radius:16px; width:100%; aspect-ratio:4/3; }
+    @media (max-width:880px){ .ps-fullbleed-inner { grid-template-columns:1fr; gap:clamp(24px,6vw,40px); } }
+    @media (max-width:880px){ .ps-meta { grid-template-columns:1fr; gap:24px; } .ps-meta-role { border-bottom:none; padding-bottom:0; }
+      #ps-s3video { width:95% !important; }
+      #ps-s8video { width:38% !important; }
+      #ps-s11img { width:26% !important; }
+      .ps-wkimg { width:95% !important; max-width:95% !important; }
+    }
+    /* align people-search text to the 3fr meta column on desktop */
+    @media (min-width:881px){
+      #ps-overlay .ov-section { max-width: calc((100% - clamp(32px,6vw,96px)) * 0.6667); }
+      #ps-overlay .ps-col { max-width: calc((100% - clamp(32px,6vw,96px)) * 0.6667); }
+    }
   </style>
 </head>
 <body>
@@ -438,10 +481,10 @@
     <div class="hero-2col" style="position:relative; width:100%; max-width:1600px; padding:clamp(56px,7vw,100px) clamp(32px,8vw,120px); display:grid; grid-template-columns:1fr auto; gap:clamp(24px,6vw,140px); align-items:flex-start;">
       <!-- Left: header (col 1) -->
       <div data-reveal="" class="hero-block" style="grid-column:1; min-width:0; display:flex; flex-direction:column;">
-        <p class="hero-greet anim-line" style="margin:0 0 clamp(16px,2vw,28px); animation-delay:0s;">Hello there</p>
-        <h1 class="hero-title anim-line" style="animation-delay:.14s;">I'm Jean, a Senior Product Designer</h1>
+        <p class="hero-greet anim-line" style="margin:0 0 clamp(16px,2vw,28px); animation-delay:0s;">Hi, I&rsquo;m Jean</p>
+        <h1 class="hero-title anim-line" style="animation-delay:.14s;">I build consumer experiences that hold up, whether it&rsquo;s a 0 to 1 launch or a product used by billions.</h1>
         <p class="hero-meta anim-line" style="animation-delay:.28s;">8+ years experience <span class="dot">•</span> San Francisco Bay Area</p>
-        <p class="hero-tag anim-line" style="margin-top:clamp(8px,1vw,12px); animation-delay:.42s;">I move between product strategy and pixel-level craft to build thoughtful consumer experiences. Previously at Meta, LegalZoom, and Evernote.</p>
+        <p class="hero-tag anim-line" style="margin-top:clamp(8px,1vw,12px); animation-delay:.42s;">Senior product designer working across strategy and pixel-level craft. Previously at Meta, LegalZoom, and Evernote.</p>
       </div>
       <!-- Right: contact (col 3) -->
       <div class="hero-contact anim-line" style="grid-column:2; width:auto; margin-top:0; animation-delay:.42s;">
@@ -455,24 +498,22 @@
   <!-- ===================== SELECTED WORKS ===================== -->
   <section class="stack-scroll panel-round works-pin" style="z-index:2; background:#FAFAFA;">
     <div class="panel-inner works-inner">
-      <p class="works-lead" style="font-family:'Plus Jakarta Sans',-apple-system,BlinkMacSystemFont,'SF Pro Text',sans-serif; font-weight:500; font-size:clamp(28px,3.4vw,44px); line-height:112%; letter-spacing:-.02em; color:#000; margin:0 0 12px; max-width:900px;">Build products at every scale</p>
-      <p class="works-sublead" style="font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text',sans-serif; font-weight:300; font-size:16px; line-height:160%; letter-spacing:.01em; color:#808080; margin:0 0 clamp(32px,4vw,56px); max-width:900px;">From 0&rarr;1 initiatives to products used by billions.</p>
       <div style="display:flex; flex-direction:column; gap:clamp(24px,3vw,40px);">
       <div class="works-grid">
 
         <!-- Row 1: 3 : 2 -->
-        <div class="works-row">
-          <!-- Card 1: WhatsApp — Core messaging experience -->
-          <a class="work-card wide tex-card" href="#" onclick="openOverlay('wa-overlay'); return false;" style="position:relative; background:url(./assets/WA14.jpg) center calc(50% - 15px) / cover no-repeat;">
-            <div class="work-img" style="background:transparent; display:flex; justify-content:center; align-items:flex-end;">
+        <div class="works-row anim-line" style="animation-delay:.95s;">
+          <!-- Card 1: WhatsApp — People Search -->
+          <a class="work-card wide tex-card" href="#" onclick="openOverlay('ps-overlay'); return false;" style="position:relative; background:url(./assets/WA14.jpg) center calc(50% - 15px) / cover no-repeat;">
+            <div class="work-img" style="flex:1 1 auto; min-height:clamp(320px,34vw,540px); background:transparent; display:flex; justify-content:center; align-items:flex-end;">
               <div class="wa-img-wrap">
-                <img src="./assets/WA13.png" alt="WhatsApp chat">
+                <img src="./assets/S10.png" alt="WhatsApp people search">
               </div>
             </div>
             <div class="work-body" style="background:#FFFFFF; padding:clamp(28px,3vw,44px);">
               <span class="work-company" style="color:#000;">WhatsApp</span>
-              <span class="work-title" style="color:#000000;">Core Messaging Experience <span class="title-arrow">→</span></span>
-              <span class="work-desc" style="color:#000;">Designed core messaging experiences for <strong style="font-weight:500;">3B+</strong> users, spanning group creation, messaging, and notifications, with measurable impact on <strong style="font-weight:500;">DAU growth</strong>.</span>
+              <span class="work-title" style="color:#000000;">People Search <span class="title-arrow">→</span></span>
+              <span class="work-desc" style="color:#000;">Expanded people discovery across WhatsApp, reducing friction and contributing to <strong style="font-weight:500;">MAU growth</strong>.</span>
             </div>
           </a>
 
@@ -512,6 +553,27 @@
               <span class="work-desc" style="color:#000;">Made setting due dates faster and more intuitive, adding value to the paid subscription tier.</span>
             </div>
           </a>
+        </div>
+
+        <!-- Row 3 -->
+        <div class="works-row">
+          <!-- Card 5: WhatsApp — Core messaging experience -->
+          <!-- HIDDEN: to restore this card, remove this comment line and its matching "END HIDDEN" line below -->
+          <!--
+          <a class="work-card wide tex-card" href="#" onclick="openOverlay('wa-overlay'); return false;" style="position:relative; flex:0 0 calc(50% - 8px); background:url(./assets/WA14.jpg) center calc(50% - 15px) / cover no-repeat;">
+            <div class="work-img" style="background:transparent; display:flex; justify-content:center; align-items:flex-end;">
+              <div class="wa-img-wrap">
+                <img src="./assets/WA13.png" alt="WhatsApp chat">
+              </div>
+            </div>
+            <div class="work-body" style="background:#FFFFFF; padding:clamp(28px,3vw,44px);">
+              <span class="work-company" style="color:#000;">WhatsApp</span>
+              <span class="work-title" style="color:#000000;">Core Messaging Experience <span class="title-arrow">→</span></span>
+              <span class="work-desc" style="color:#000;">Designed core messaging experiences for <strong style="font-weight:500;">3B+</strong> users, spanning group creation, messaging, and notifications, with measurable impact on <strong style="font-weight:500;">DAU growth</strong>.</span>
+            </div>
+          </a>
+          -->
+          <!-- END HIDDEN -->
         </div>
 
       </div>
@@ -599,9 +661,6 @@
   </section>
 </div>
 
-<div class="scroll-ind" aria-hidden="true">
-  <svg width="26" height="40" viewBox="0 0 26 40" fill="none"><rect x="1" y="1" width="24" height="38" rx="12" stroke="currentColor" stroke-width="1.5"/><path class="scroll-wheel" d="M9 9.5 L13 13.5 L17 9.5" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
-</div>
 
 <!-- ===================== WHATSAPP CASE STUDY OVERLAY ===================== -->
 <div id="wa-overlay" class="overlay" hidden onclick="if(event.target===this)closeOverlay('wa-overlay')">
@@ -629,7 +688,7 @@
     </div>
 
     <div class="ov-section" style="max-width:none;">
-      <div style="max-width:900px;">
+      <div class="ps-col">
         <h2 class="ov-h2">Problems I solved</h2>
         <h3 class="ov-h3">Turning ambiguity into product strategy</h3>
         <p class="ov-p">No team had systematically owned the notification experience as a whole, and we didn&rsquo;t yet know what problem was worth solving. I led design and rapid experimentation to explore the ecosystem, uncover user needs, and work with cross-functional partners to define where we should focus and shape product direction.</p>
@@ -898,10 +957,16 @@
       </div>
     </div>
 
-    <div class="ov-section">
-      <h2 class="ov-h2">Overview</h2>
-      <p class="ov-p">LZ Books is a financial management tool for small business owners, helping them manage everyday finances, from transactions and deductions to invoices.</p>
-      <p class="ov-p">At the time, LZ Books was web-only, while users were increasingly accessing it from their phones. <strong style="font-weight:500;">As LegalZoom&rsquo;s first designer dedicated to native app experiences, I led LZ Books from concept to launch</strong>, partnering with Product and Engineering and establishing the foundation for future native experiences.</p>
+    <div class="ps-meta">
+      <div class="ps-meta-role">
+        <p class="ov-p">LZ Books is a financial management tool for small business owners, helping them manage everyday finances, from transactions and deductions to invoices.</p>
+        <p class="ov-p">At the time, LZ Books was web-only, while users were increasingly accessing it from their phones. <strong style="font-weight:500;">As LegalZoom&rsquo;s first designer dedicated to native app experiences, I led LZ Books from concept to launch</strong>, partnering with Product and Engineering and establishing the foundation for future native experiences.</p>
+      </div>
+      <dl class="ps-meta-list">
+        <div class="ps-meta-row"><dt>Product</dt><dd>iOS</dd></div>
+        <div class="ps-meta-row"><dt>Timeline</dt><dd>4 months</dd></div>
+        <div class="ps-meta-row"><dt>Skills</dt><dd>Product design<br>Design system<br>User research/Testing</dd></div>
+      </dl>
     </div>
 
     <div class="ov-section">
@@ -1029,6 +1094,177 @@
   </div>
 </div>
 
+<!-- ===================== WHATSAPP PEOPLE SEARCH CASE STUDY OVERLAY ===================== -->
+<div id="ps-overlay" class="overlay" hidden onclick="if(event.target===this)closeOverlay('ps-overlay')">
+  <div class="overlay-sheet">
+  <button class="overlay-close" aria-label="Close" onclick="closeOverlay('ps-overlay')">
+    <svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.6" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+  </button>
+  <div class="overlay-inner">
+    <h1 class="ov-title">WhatsApp people search</h1>
+    <p class="ov-sub">Connecting with people beyond saved contacts</p>
+
+    <div class="ov-imgs">
+      <img class="ov-img" src="./assets/S9.png" alt="WhatsApp people search overview">
+    </div>
+
+    <div class="ps-meta">
+      <div class="ps-meta-role">
+        <p class="ov-p">I led end-to-end design, from auditing existing people search experiences and identifying cross-workflow gaps to designing the solution across four workflows. Because people search is a shared surface across WhatsApp, I collaborated with multiple feature teams to align on search patterns and result priorities, while partnering with PM and Engineering to drive the project from concept to launch.</p>
+      </div>
+      <dl class="ps-meta-list">
+        <div class="ps-meta-row"><dt>Product</dt><dd>iOS, Android</dd></div>
+        <div class="ps-meta-row"><dt>Timeline</dt><dd>One month</dd></div>
+        <div class="ps-meta-row"><dt>Skills</dt><dd>Product design<br>Stakeholder management<br>Interactive prototyping</dd></div>
+      </dl>
+    </div>
+
+    <div class="ov-section">
+      <h2 class="ov-h2">Background: WhatsApp is increasingly used for real-world communities</h2>
+      <p class="ov-p">WhatsApp was traditionally used to stay connected with close friends and family. But over time, it has also become a hub for real-world communities, from school parent groups to HOA chats. These communities can include dozens of people who know each other in real life but haven&rsquo;t necessarily saved each other&rsquo;s numbers.</p>
+      <p class="ov-p">As these communities grew, people increasingly wanted to create smaller groups with specific members to discuss topics without disrupting the larger conversation.</p>
+    </div>
+
+    <div class="ov-section">
+      <h2 class="ov-h2">Problem: Unsaved contacts didn&rsquo;t mean unknown</h2>
+      <p class="ov-p">When users tried to create a smaller group with people from an existing community, they couldn&rsquo;t find those people in the people picker unless they had saved them as contacts first.</p>
+      <p class="ov-p">Even though these people already shared a group and knew each other in real life, WhatsApp treated them as strangers simply because they weren&rsquo;t saved contacts.</p>
+      <p class="ov-p" style="color:#000;">This added an unnecessary step to starting conversations with people users already knew, creating friction in one of WhatsApp&rsquo;s core engagement behaviors.</p>
+    </div>
+
+    <div class="ps-fullbleed" style="margin-top:clamp(72px,9vw,120px); margin-bottom:clamp(40px,5vw,72px);">
+      <div class="ps-fullbleed-inner">
+        <div>
+          <p class="ps-fromusers">From users</p>
+          <p class="ps-quote">&ldquo;I just wanted to set up a playdate group with a few parents from our school chat, but since we weren&rsquo;t WhatsApp contacts, I had to save each person&rsquo;s number before I could even get started&hellip;&rdquo;</p>
+        </div>
+        <div style="display:flex; gap:clamp(12px,1.6vw,24px); align-items:center; justify-content:center;">
+          <img src="./assets/S1.png" alt="WhatsApp group chat" style="width:49%; max-width:320px; height:auto; display:block;">
+          <img src="./assets/S2.png" alt="Add members, no contacts found" style="width:49%; max-width:320px; height:auto; display:block;">
+        </div>
+      </div>
+    </div>
+
+    <div class="ov-section">
+      <h2 class="ov-h2">The problem went beyond group creation</h2>
+      <p class="ov-p">Looking beyond group creation, I found the same barrier across other core workflows. A user might want to forward a kids&rsquo; event to a parent from their child&rsquo;s school group, but because that parent wasn&rsquo;t a saved contact, they wouldn&rsquo;t appear, even in a shared group.</p>
+      <p class="ov-p">Digging further, I found that each workflow also handled non-contacts differently: someone you&rsquo;d chatted with one-on-one might surface in Forward or Share but not New Chat or Group Creation, and people from shared groups surfaced nowhere. Who you could find depended on which workflow you were in. WhatsApp had no consistent way to surface people users already knew through the app.</p>
+    </div>
+
+    <div class="ov-section" style="max-width:none; margin-top:clamp(44px,5.5vw,80px);">
+      <div class="ps-col">
+        <h3 class="ov-h3" style="margin:0; font-size:15px;">Who users could find across workflows</h3>
+      </div>
+      <div class="ps-tablewrap">
+        <table class="ps-table" style="margin-top:clamp(24px,3vw,40px);">
+          <thead><tr><th>Non contact type</th><th>Group creation</th><th>Forward</th><th>Share</th><th>New chat</th></tr></thead>
+          <tbody>
+            <tr><td>People in shared groups</td><td class="ps-ic">❌</td><td class="ps-ic">❌</td><td class="ps-ic">❌</td><td class="ps-ic">❌</td></tr>
+            <tr><td>People with previous 1:1 chats</td><td class="ps-ic">❌</td><td class="ps-ic">✅</td><td class="ps-ic">✅</td><td class="ps-ic">❌</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="ps-fullbleed" style="background:#F8F8F8; margin-top:clamp(72px,9vw,120px);">
+    <div class="ps-band-inner">
+
+    <div class="ov-section" style="margin-top:clamp(32px,4vw,56px);">
+      <h2 class="ov-h2">Solution</h2>
+    </div>
+
+    <div class="ov-section" style="max-width:none; margin-top:clamp(40px,5vw,72px);">
+      <div class="ps-col">
+        <h3 class="ov-h3" style="margin-top:0; font-size:18px; letter-spacing:0;">Make non-contacts you have a relationship with consistently searchable</h3>
+        <p class="ov-p">Anyone users already have a relationship with on WhatsApp, whether through shared groups or previous conversations, should be discoverable across all four workflows. I made these relationship types consistently searchable, filling gaps in existing discovery.</p>
+      </div>
+      <div class="ps-tablewrap" style="margin-top:clamp(24px,3vw,40px);">
+        <table class="ps-table" style="margin-top:0;">
+          <thead><tr><th>Non contact type</th><th>Group creation</th><th>Forward</th><th>Share</th><th>New chat</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><img src="./assets/S4.png" class="ps-person-img" alt="Anika Torries — in a group with you"></td>
+              <td><span class="ps-pill green">Newly available</span></td>
+              <td><span class="ps-pill green">Newly available</span></td>
+              <td><span class="ps-pill green">Newly available</span></td>
+              <td><span class="ps-pill green">Newly available</span></td>
+            </tr>
+            <tr>
+              <td><img src="./assets/S5.png" class="ps-person-img" alt="Anika mousavi — had a 1:1 chat"></td>
+              <td><span class="ps-pill green">Newly available</span></td>
+              <td><span class="ps-pill gray">Existing results</span></td>
+              <td><span class="ps-pill gray">Existing results</span></td>
+              <td><span class="ps-pill green">Newly available</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="ov-section" style="margin-top:clamp(64px,8vw,112px);">
+      <h3 class="ov-h3" style="margin-top:0; font-size:20px;">Reduce friction in starting a conversation</h3>
+      <p class="ov-p">Surfacing people users already know cuts the steps to start a chat, turning a dead end into one tap, and removing a barrier to a core engagement behavior.</p>
+    </div>
+    <div class="ov-imgs" style="margin-top:clamp(16px,2vw,28px);">
+      <div style="position:relative; background:#000; border-radius:16px; display:flex; justify-content:center; align-items:flex-end; padding:0 clamp(20px,2.5vw,40px); overflow:hidden;">
+        <video id="ps-s3video" src="./assets/S3.mp4?v=18s" muted playsinline controls controlslist="nofullscreen nodownload noremoteplayback" disablepictureinpicture data-loopend="18" style="width:70%; height:auto; display:block;"></video>
+      </div>
+    </div>
+
+    <div class="ov-section" style="margin-top:clamp(88px,11vw,152px);">
+      <h3 class="ov-h3" style="margin-top:0; font-size:20px;">Balance consistency with workflow-specific priorities</h3>
+      <p class="ov-p">The same types of people became discoverable across all four workflows, but their result groupings varied by workflow. Each workflow retained its data-backed result ordering and priorities, so expanding discovery wouldn&rsquo;t compromise existing search relevance.</p>
+    </div>
+    <div class="ov-imgs" style="margin-top:clamp(16px,2vw,28px);">
+      <div style="display:flex; gap:clamp(16px,2vw,28px); flex-wrap:wrap;">
+        <img src="./assets/S5.png" alt="Anika mousavi — had a 1:1 chat" style="width:clamp(156px,19%,216px); height:auto; display:block;">
+        <img src="./assets/S4.png" alt="Anika Torries — in a group with you" style="width:clamp(156px,19%,216px); height:auto; display:block;">
+      </div>
+    </div>
+
+    <div class="ov-section" style="margin-top:clamp(36px,4.5vw,64px);">
+      <h3 class="ov-h3" style="margin-top:0; font-size:18px; font-weight:400;">Group creation / New chat</h3>
+    </div>
+    <div class="ov-imgs" style="margin-top:clamp(12px,1.5vw,20px);">
+      <div style="background:#000; border-radius:16px; display:flex; justify-content:center; align-items:flex-end; padding:clamp(28px,3.5vw,56px) 0 0;">
+        <img src="./assets/S7.png?v=2" class="ps-wkimg" alt="Group creation and new chat search results" style="width:90%; max-width:90%; height:auto; display:block;">
+      </div>
+    </div>
+
+    <div class="ov-section" style="margin-top:clamp(44px,5.5vw,80px);">
+      <h3 class="ov-h3" style="margin-top:0; font-size:18px; font-weight:400;">Share / Forward</h3>
+    </div>
+    <div class="ov-imgs" style="margin-top:clamp(12px,1.5vw,20px); margin-bottom:clamp(72px,9vw,120px);">
+      <div style="background:#000; border-radius:16px; display:flex; justify-content:center; align-items:flex-end; padding:clamp(28px,3.5vw,56px) 0 0;">
+        <img src="./assets/S6.png?v=2" class="ps-wkimg" alt="Share and forward search results" style="width:90%; max-width:90%; height:auto; display:block;">
+      </div>
+    </div>
+
+    </div>
+    </div>
+
+    <div class="ov-section">
+      <h2 class="ov-h2">AI prototyping: Make complex search behavior tangible</h2>
+      <p class="ov-p">One of the biggest questions from stakeholders was how newly surfaced people would work alongside existing search results, each with different groupings and priorities.</p>
+      <p class="ov-p">To make these interactions easier to evaluate, I built an interactive, AI-powered prototype covering a range of user scenarios, including edge cases. Stakeholders could switch between scenarios, try different searches, and see firsthand how new results interacted with existing ones. This made the trade-offs tangible and helped stakeholders align on the approach before moving into implementation.</p>
+    </div>
+    <div class="ov-imgs">
+      <div style="position:relative; background:#000; border-radius:16px; display:flex; justify-content:center; align-items:flex-end; gap:clamp(20px,3vw,48px); padding:0 clamp(20px,2.5vw,40px); overflow:hidden;">
+        <video id="ps-s8video" src="./assets/S8.mp4" muted playsinline autoplay loop controls controlslist="nofullscreen nodownload noremoteplayback" disablepictureinpicture style="width:24%; height:auto; display:block;"></video>
+        <img id="ps-s11img" src="./assets/S11.png" alt="Search result scenario" style="width:17%; height:auto; display:block; align-self:center;">
+      </div>
+    </div>
+
+    <div class="ov-section">
+      <h2 class="ov-h2">Impact</h2>
+      <p class="ov-p">Now, a parent from the school group appears as soon as you search. No saving numbers, no dead end. Setting up a playdate group takes a tap instead of a chore.</p>
+      <p class="ov-p">By removing the need to save someone as a contact first, the feature made it easier to connect with people from real-world communities, relationships users already have but rarely save in their contacts. This supported WhatsApp&rsquo;s goal of strengthening real-world connections and contributed to a <strong style="color:#000; font-weight:600;">lift in MAU</strong>, showing the engagement value of reducing friction in connecting with people users already know.</p>
+    </div>
+
+  </div>
+  </div>
+</div>
+
 <script>
 function toggleBkTheme() {
   var on = document.getElementById('bk-theme-input').checked;
@@ -1042,6 +1278,7 @@ function toggleBkTheme() {
 // Deep-linkable overlay URLs (each project detail gets its own path)
 var overlayPaths = {
   'wa-overlay': '/wacoremessaging',
+  'ps-overlay': '/wapeoplesearch',
   'lz-overlay': '/lzexpertmessaging',
   'en-overlay': '/enduedate',
   'bk-overlay': '/lzbooks'
@@ -1325,6 +1562,52 @@ window.addEventListener('popstate', function() {
         setTimeout(tick, 70);
       }
     })();
+  }
+})();
+</script>
+<script>
+(function(){
+  var v = document.getElementById('ps-s3video');
+  if (!v) return;
+  var end = parseFloat(v.getAttribute('data-loopend')) || 0;
+  var autoMode = false;
+  // the automatic preview stops just before the final frame; once the user
+  // takes over with the controls, let them scrub and play the whole thing
+  v.addEventListener('timeupdate', function(){
+    if (autoMode && end && v.currentTime >= end) { v.pause(); autoMode = false; }
+  });
+  ['seeking','ratechange'].forEach(function(ev){ v.addEventListener(ev, function(){ autoMode = false; }); });
+  // auto-play once, the first time the whole video is on screen
+  var playedOnce = false;
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.intersectionRatio >= 0.99 && !playedOnce) {
+          playedOnce = true;
+          autoMode = true;
+          v.currentTime = 0;
+          v.play().catch(function(){});
+        }
+      });
+    }, { threshold: [0, 0.99, 1] });
+    io.observe(v);
+  }
+})();
+(function(){
+  var v = document.getElementById('ps-s8video');
+  if (!v) return;
+  var playedOnce = false;
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.intersectionRatio >= 0.99 && !playedOnce) {
+          playedOnce = true;
+          v.currentTime = 0;
+          v.play().catch(function(){});
+        }
+      });
+    }, { threshold: [0, 0.99, 1] });
+    io.observe(v);
   }
 })();
 </script>
