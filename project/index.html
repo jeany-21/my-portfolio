@@ -182,9 +182,12 @@
       .work-company { font-size:14px !important; }
       .work-title { font-size:18px !important; }
       .works-row .work-card { height:clamp(600px, 92vw, 820px) !important; }
+      #ps-card { height:auto !important; }
+      #ps-card .work-img { min-height:0 !important; padding-top:14% !important; }
+      #ps-card .wa-img-wrap { width:94%; }
       .works-row .work-body { flex:0 0 auto !important; min-height:0 !important; padding-top:24px !important; padding-bottom:24px !important; }
       .hero-greet { font-size:22px !important; }
-      .hero-title { font-size:36px !important; max-width:none !important; }
+      .hero-title { font-size:32px !important; max-width:none !important; }
       .hero-tag { max-width:none !important; }
     }
 
@@ -424,6 +427,8 @@
     .ps-ph { width:100%; background:#ECEBE8; border-radius:16px; display:flex; align-items:center; justify-content:center; color:#AAA7A1; font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text',sans-serif; font-size:14px; letter-spacing:.02em; }
     .ps-ph::after { content:"Image placeholder"; }
     .ps-ph.dark { background:#141414; color:#6B6B6E; }
+    .ps-mob-img { display:none; }
+    .ps-hero-mob { display:none; }
     .ps-tablewrap { width:100%; overflow-x:auto; }
     .ps-meta { display:grid; grid-template-columns:2fr 1fr; gap:clamp(32px,6vw,96px); margin-top:clamp(28px,3.4vw,44px); align-items:stretch; }
     .ps-meta-role { border-top:1px solid rgba(0,0,0,.14); border-bottom:1px solid rgba(0,0,0,.14); padding:clamp(16px,1.8vw,22px) 0; }
@@ -457,6 +462,9 @@
       #ps-s8video { width:50% !important; }
       #ps-s11img { width:26% !important; }
       .ps-wkimg { width:100% !important; max-width:100% !important; }
+      .ps-desk-img { display:none !important; }
+      .ps-mob-img { display:block !important; width:90% !important; max-width:90% !important; }
+      .ps-hero-mob { display:block !important; }
     }
     /* align people-search text to the 3fr meta column on desktop */
     @media (min-width:881px){
@@ -504,7 +512,7 @@
         <!-- Row 1: 3 : 2 -->
         <div class="works-row anim-line" style="animation-delay:.95s;">
           <!-- Card 1: WhatsApp — People Search -->
-          <a class="work-card wide tex-card" href="#" onclick="openOverlay('ps-overlay'); return false;" style="position:relative; background:url(./assets/WA14.jpg) center calc(50% - 15px) / cover no-repeat;">
+          <a id="ps-card" class="work-card wide tex-card" href="#" onclick="openOverlay('ps-overlay'); return false;" style="position:relative; background:url(./assets/WA14.jpg) center calc(50% - 15px) / cover no-repeat;">
             <div class="work-img" style="flex:1 1 auto; min-height:clamp(320px,34vw,540px); background:transparent; display:flex; justify-content:center; align-items:flex-end;">
               <div class="wa-img-wrap">
                 <img src="./assets/S10.png" alt="WhatsApp people search">
@@ -1105,7 +1113,8 @@
     <p class="ov-sub">Connecting with people beyond saved contacts</p>
 
     <div class="ov-imgs">
-      <img class="ov-img" src="./assets/S9.png" alt="WhatsApp people search overview">
+      <img class="ov-img ps-desk-img" src="./assets/S9.png" alt="WhatsApp people search overview">
+      <img class="ov-img ps-hero-mob" src="./assets/S14.png" alt="WhatsApp people search overview">
     </div>
 
     <div class="ps-meta">
@@ -1227,7 +1236,8 @@
     </div>
     <div class="ov-imgs" style="margin-top:clamp(12px,1.5vw,20px);">
       <div style="background:#000; border-radius:16px; display:flex; justify-content:center; align-items:flex-end; padding:clamp(28px,3.5vw,56px) 0 0; overflow:hidden;">
-        <img src="./assets/S7.png?v=2" class="ps-wkimg" alt="Group creation and new chat search results" style="width:100%; max-width:100%; height:auto; display:block;">
+        <img src="./assets/S7.png?v=2" class="ps-wkimg ps-desk-img" alt="Group creation and new chat search results" style="width:100%; max-width:100%; height:auto; display:block;">
+        <img src="./assets/S12.png" class="ps-wkimg ps-mob-img" alt="Group creation and new chat search results" style="width:100%; max-width:100%; height:auto; display:block;">
       </div>
     </div>
 
@@ -1236,7 +1246,8 @@
     </div>
     <div class="ov-imgs" style="margin-top:clamp(12px,1.5vw,20px); margin-bottom:clamp(72px,9vw,120px);">
       <div style="background:#000; border-radius:16px; display:flex; justify-content:center; align-items:flex-end; padding:clamp(28px,3.5vw,56px) 0 0; overflow:hidden;">
-        <img src="./assets/S6.png?v=2" class="ps-wkimg" alt="Share and forward search results" style="width:100%; max-width:100%; height:auto; display:block;">
+        <img src="./assets/S6.png?v=2" class="ps-wkimg ps-desk-img" alt="Share and forward search results" style="width:100%; max-width:100%; height:auto; display:block;">
+        <img src="./assets/S13.png" class="ps-wkimg ps-mob-img" alt="Share and forward search results" style="width:100%; max-width:100%; height:auto; display:block;">
       </div>
     </div>
 
